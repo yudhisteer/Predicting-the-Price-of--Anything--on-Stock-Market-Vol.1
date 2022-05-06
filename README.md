@@ -13,6 +13,7 @@
 1. Understanding Time Series
 
     - What are time series?
+    - Statistics on time series
 
 2. Exponential Smoothing and ETS Methods
 
