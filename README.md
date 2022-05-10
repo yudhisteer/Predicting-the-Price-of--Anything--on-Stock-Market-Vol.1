@@ -18,27 +18,33 @@
     - Biases and Heuristics
     - Inefficient markets
     - Irrational behavior
+
+2. Financial Engineering: Financial Basics
+
+    - Financial Data
     - Returns
+    - Adjusted close, stock splits and dividends
     - Volatility Clustering
 
-2. Understanding Time Series
+
+3. Understanding Time Series
 
     - What are time series?
     - Statistics on time series
 
-2. Exponential Smoothing and ETS Methods
+4. Exponential Smoothing and ETS Methods
 
-3. ARIMA: Autoregressive Integrated Moving Average 
+5. ARIMA: Autoregressive Integrated Moving Average 
 
-4. VARMA: Vector Autoregressive Moving Average
+6. VARMA: Vector Autoregressive Moving Average
 
-5. ANN
+7. ANN
 
-6. CNN
+8. CNN
 
-7. RNN
+9. RNN
 
-8. RL
+10. RL
 
 
 ### 1. Financial Engineering: Ways people or markets misbehave
