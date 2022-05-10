@@ -13,6 +13,13 @@
 1. Financial Engineering: Ways people or markets misbehave
 
     - Efficient Market Hypothesis (EMH)
+    - Are markets efficient?
+    - Limits to arbitrage
+    - Biases and Heuristics
+    - Inefficient markets
+    - Irrational behavior
+    - Returns
+    - Volatility Clustering
 
 2. Understanding Time Series
 
