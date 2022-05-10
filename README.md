@@ -10,7 +10,11 @@
 ## Methods
 
 ## Plan of Action
-1. Understanding Time Series
+1. Financial Engineering: Ways people or markets misbehave
+
+    - Efficient Market Hypothesis (EMH)
+
+2. Understanding Time Series
 
     - What are time series?
     - Statistics on time series
@@ -30,11 +34,14 @@
 8. RL
 
 
+### 1. Financial Engineering: Ways people or markets misbehave
+
+#### 1.1 Efficient Market Hypothesis (EMH)
 
 
-### 1. Understanding Time Series
+### 2. Understanding Time Series
 
-#### 1.1 What are time series?
+#### 2.1 What are time series?
 
 
 
