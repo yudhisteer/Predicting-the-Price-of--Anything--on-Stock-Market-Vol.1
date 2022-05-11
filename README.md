@@ -32,6 +32,14 @@
     - What are time series?
     - Statistics on time series
 
+3. Statistical Methods
+
+    - QQ Plot
+    - T-distribution
+    - Confidence Intervals
+    - Statistical Testing
+    - Covariance and Correlation
+
 4. Exponential Smoothing and ETS Methods
 
     - Simple Moving Average (SMA)
