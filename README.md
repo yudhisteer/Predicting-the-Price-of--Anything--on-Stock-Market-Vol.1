@@ -34,6 +34,12 @@
 
 4. Exponential Smoothing and ETS Methods
 
+    - Simple Moving Average (SMA)
+    - Exponentially Weighted Moving Average (EWMA)
+    - Simple Exponential Smoothing (SES)
+    - Holt's Linear Trend Model
+    - Holt-Winters Model
+
 5. ARIMA: Autoregressive Integrated Moving Average 
 
 6. VARMA: Vector Autoregressive Moving Average
