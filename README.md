@@ -34,6 +34,7 @@
 
 3. Statistical Methods
 
+    - Normal Distribution
     - QQ Plot
     - T-distribution
     - Confidence Intervals
