@@ -70,7 +70,7 @@
 
 #### 1.1 Efficient Market Hypothesis (EMH)
 In order to get to know the Efficient Market Hypothesis (EMH) a bit better, we will start with a bit of history. 
-#### 1.1.1 History
+#### 1.1.1 History of EMH
 We will start in France in the ```1860s``` where there was a French mathematician, ```Jules Regnault```, who was one of the first authors who tried to create a ```"stock exchange science"``` based on **statistical** and **probabilistic analysis**. He was the first to suggest a modern theory of stock price changes using a ```random walk``` model.
 
 Thirty-six years later, ```Louis Bachelier``` who also happens to be a French mathematician studied the behavior of prices in the French stock and option markets. In his seminal work, which he delivered in ```1900```, he concluded that stock price changes are ```random``` and **cannot be predicted**.
@@ -98,13 +98,13 @@ But then if prices are immediately bid to fair levels, then they should only cha
 **Note:**
 This does not mean that the level of prices is ```irrational``` because the changes are ```unpredictable```. Instead, it means that if prices are determined ```rationally```, then the only reason they should change is for ```new information```. Only new information would cause them to change. The ability to predict prices, if there ever was an ability like that, would suggest that **not all available information** was already reflected in the prices.
 
-- An efficient market is one that processes information efficiently, where prices reflect all available information. 
-- The prices react quickly and correctly to the new information.
+- An efficient market is one that processes information **efficiently**, where prices reflect **all** available information. 
+- The prices react **quickly** and **correctly** to the new information.
 - If markets are efficient, then there is no _free lunch_. The only way to get ```higher returns``` is by taking on ```more risks```.
 
 > To sum up, the Efficient Market Hypothesis states that prices should reflect all available information, or put differently, prices are **not predictable**, because they already reflect all available information.
 
-#### 1.1.3 
+#### 1.1.4 Proof of EMH
 
 
 
