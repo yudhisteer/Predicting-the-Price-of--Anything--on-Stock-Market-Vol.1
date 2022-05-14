@@ -92,4 +92,4 @@
 4. https://www.mit.edu/~kardar/teaching/projects/chemotaxis(AndreaSchmidt)/random.htm
 5. https://people.duke.edu/~rnau/411diff.htm
 6. https://www.investopedia.com/ask/answers/04/031104.asp
-7. 
+7. https://people.duke.edu/~rnau/411georw.htm
