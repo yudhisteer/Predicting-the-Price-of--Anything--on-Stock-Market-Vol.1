@@ -64,10 +64,11 @@
 
 10. RL
 
+-----------------
 
-### 1. Financial Engineering: Ways people or markets misbehave
+## 1. Financial Engineering: Ways people or markets misbehave
 
-#### 1.1 Efficient Market Hypothesis (EMH)
+### 1.1 Efficient Market Hypothesis (EMH)
 
  “Don’t bother. If it was really there, somebody else would’ve already picked it up.”
 
@@ -75,9 +76,9 @@
 
 
 
-### 2. Understanding Time Series
+## 2. Understanding Time Series
 
-#### 2.1 What are time series?
+### 2.1 What are time series?
 
 
 
