@@ -13,6 +13,7 @@
 1. Financial Engineering: Ways people or markets misbehave
 
     - Efficient Market Hypothesis (EMH)
+    - Random Walk Hypothesis (RWH)
     - Are markets efficient?
     - Limits to arbitrage
     - Biases and Heuristics
@@ -32,9 +33,8 @@
     - What are time series?
     - Statistics on time series
 
-3. Statistical Methods
+3. Exploratory Data Analysis and Static Analysis
 
-    - Normal Distribution
     - QQ Plot
     - T-distribution
     - Confidence Intervals
