@@ -67,6 +67,11 @@
 
 #### 1.1 Efficient Market Hypothesis (EMH)
 
+ “Don’t bother. If it was really there, somebody else would’ve already picked it up.”
+
+![ou_futurelearn_mmi_fig_1093](https://user-images.githubusercontent.com/59663734/168441894-6f4ff670-8d48-4c09-b398-1c5418ad6ffa.jpg)
+
+
 
 ### 2. Understanding Time Series
 
@@ -96,3 +101,4 @@
 7. https://people.duke.edu/~rnau/411georw.htm
 8. https://www.wsj.com/articles/SB109804865418747444
 9. chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://www.econ.yale.edu/~shiller/pubs/p1055.pdf
+10. https://knowledge.wharton.upenn.edu/article/is-that-a-100-bill-lying-on-the-ground-two-views-of-market-efficiency-2/
