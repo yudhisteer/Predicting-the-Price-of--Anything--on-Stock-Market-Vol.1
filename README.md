@@ -1,4 +1,4 @@
-# Predicting Price of Cotton on Stock Market
+# Predicting Price of "Anything" on Stock Market
 
 
 
@@ -93,3 +93,4 @@
 5. https://people.duke.edu/~rnau/411diff.htm
 6. https://www.investopedia.com/ask/answers/04/031104.asp
 7. https://people.duke.edu/~rnau/411georw.htm
+8. https://www.wsj.com/articles/SB109804865418747444
