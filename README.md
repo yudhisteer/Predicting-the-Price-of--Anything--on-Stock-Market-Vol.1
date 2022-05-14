@@ -21,7 +21,7 @@
     - Inefficient markets
     - Irrational behavior
 
-2. Financial Engineering: Financial Basics
+2. Financial Engineering: The Basics
 
     - Financial Data
     - Returns
