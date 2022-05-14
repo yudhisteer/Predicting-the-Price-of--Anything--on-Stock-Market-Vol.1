@@ -95,3 +95,4 @@
 6. https://www.investopedia.com/ask/answers/04/031104.asp
 7. https://people.duke.edu/~rnau/411georw.htm
 8. https://www.wsj.com/articles/SB109804865418747444
+9. chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://www.econ.yale.edu/~shiller/pubs/p1055.pdf
