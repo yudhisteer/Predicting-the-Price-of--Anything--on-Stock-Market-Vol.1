@@ -86,10 +86,25 @@ But he only finds more evidence that prices move ```randomly```. At about the sa
 
 Finally, in ```1970``` the great ```Eugene Fama``` developed the **Efficient Market Hypothesis** which in simple words states that it is impossible to "beat the market" consistently.
 
-#### 1.1.2 Intuition
-Throughout history, we have seen a great deal of "pessimism" but let's suppose for a second we could really develop a model which could detect the market price. 
+#### 1.1.2 Defining EMH
+Throughout history, we have seen a great deal of "pessimism" but let's suppose for a second we could really develop a model which could detect the market price. Suppose we knew that the share price of _Apple_, for example, was ```$100``` on Monday and by Wednesday it would be ```$200```. What would we have done? Everybody would want to ```buy``` on this perspective increase in price and nobody would be willing to ```sell```. 
 
+The forecast of a future price increase would immediately lead to an increase in price ```today```. In other words, whatever the good news was that prompted us to believe that the price was going to increase would be immediately reflected into the price.
 
+In more general terms, we can say that any ```information``` that could be use to predict future stock performance should already be reflected in the price today. That is, if there is any information that indicates that the stock is underpriced and offers a good opportunity, that investors would all flock to it, buy, and bid up the price, effectively incorporating the information into the price. 
+
+But then if prices are immediately bid to fair levels, then they should only change in response to ```new information```. However, new information is, by definition, ```unpredictable``` (**entropy**). Therefore, stock prices that change in response to new information should also be ```unpredictable```.
+
+**Note:**
+This does not mean that the level of prices is ```irrational``` because the changes are ```unpredictable```. Instead, it means that if prices are determined ```rationally```, then the only reason they should change is for ```new information```. Only new information would cause them to change. The ability to predict prices, if there ever was an ability like that, would suggest that **not all available information** was already reflected in the prices.
+
+- An efficient market is one that processes information efficiently, where prices reflect all available information. 
+- The prices react quickly and correctly to the new information.
+- If markets are efficient, then there is no _free lunch_. The only way to get ```higher returns``` is by taking on ```more risks```.
+
+> To sum up, the Efficient Market Hypothesis states that prices should reflect all available information, or put differently, prices are **not predictable**, because they already reflect all available information.
+
+#### 1.1.3 
 
 
 
@@ -118,10 +133,11 @@ Throughout history, we have seen a great deal of "pessimism" but let's suppose f
 
 
 
-__________________________________________________________________________ -- __________________________________________________________________________
+__________________________________________________________________________ .. __________________________________________________________________________
 
 #### 1.2 Random Walk Hypothesis (RWH)
 
+__________________________________________________________________________ .. __________________________________________________________________________
 
 #### 1.3 Are markets _really_ efficient?
 
@@ -132,7 +148,7 @@ __________________________________________________________________________ -- __
 
 
 
-
+------------------------
 
 ### 2. Understanding Time Series
 
