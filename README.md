@@ -41,6 +41,8 @@
     - Confidence Intervals
     - Statistical Testing
     - Covariance and Correlation
+    - Alpha and Beta
+    - Gaussian Mixture Model
 
 4. Exponential Smoothing and ETS Methods
 
