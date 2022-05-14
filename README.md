@@ -69,7 +69,9 @@
 ### 1. Behavioral Economics: Ways people or markets misbehave
 
 #### 1.1 Efficient Market Hypothesis (EMH)
-In order to get to know the Efficient Market Hypothesis (EMH) a bit better, we will start with a bit of history. We will start in France in the ```1860s``` where there was a French mathematician, ```Jules Regnault```, who was one of the first authors who tried to create a ```"stock exchange science"``` based on **statistical** and **probabilistic analysis**. He was the first to suggest a modern theory of stock price changes using a ```random walk``` model.
+In order to get to know the Efficient Market Hypothesis (EMH) a bit better, we will start with a bit of history. 
+#### 1.1.1 History
+We will start in France in the ```1860s``` where there was a French mathematician, ```Jules Regnault```, who was one of the first authors who tried to create a ```"stock exchange science"``` based on **statistical** and **probabilistic analysis**. He was the first to suggest a modern theory of stock price changes using a ```random walk``` model.
 
 Thirty-six years later, ```Louis Bachelier``` who also happens to be a French mathematician studied the behavior of prices in the French stock and option markets. In his seminal work, which he delivered in ```1900```, he concluded that stock price changes are ```random``` and **cannot be predicted**.
 
@@ -83,6 +85,16 @@ In the 1950s, ```Maurice Kendall``` studied different British equity and commodi
 But he only finds more evidence that prices move ```randomly```. At about the same time, stock market movements was identified as following a ```Brownian motion``` which is described as the random movement of particles in nature, as first identified by the biologist ```Robert Brown``` in the ```1800s```.
 
 Finally, in ```1970``` the great ```Eugene Fama``` developed the **Efficient Market Hypothesis** which in simple words states that it is impossible to "beat the market" consistently.
+
+#### 1.1.2 Intuition
+Throughout history, we have seen a great deal of "pessimism" but let's suppose for a second we could really develop a model which could detect the market price. 
+
+
+
+
+
+#### 1.1.1 The three versions of EMH
+
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/168441894-6f4ff670-8d48-4c09-b398-1c5418ad6ffa.jpg" width="380" height="290"/>
@@ -106,8 +118,7 @@ Finally, in ```1970``` the great ```Eugene Fama``` developed the **Efficient Mar
 
 
 
-
-
+__________________________________________________________________________ -- __________________________________________________________________________
 
 #### 1.2 Random Walk Hypothesis (RWH)
 
