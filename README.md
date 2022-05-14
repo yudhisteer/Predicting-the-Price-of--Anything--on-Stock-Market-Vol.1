@@ -10,7 +10,8 @@
 ## Methods
 
 ## Plan of Action
-1. Financial Engineering: Ways people or markets misbehave
+
+1. Behavioral Economics: Ways people or markets misbehave
 
     - Efficient Market Hypothesis (EMH)
     - Random Walk Hypothesis (RWH)
