@@ -107,6 +107,18 @@ This does not mean that the level of prices is ```irrational``` because the chan
 #### 1.1.4 Proof of EMH
 
 
+![sketchpad pro_E81FCB94AEA47906C98](https://user-images.githubusercontent.com/59663734/168446385-da6acc90-1db9-499a-ac40-8a4d3a738718.png)
+
+
+
+
+https://user-images.githubusercontent.com/59663734/168446780-b2927add-3814-4c2e-821b-cbf2054844ac.mp4
+
+
+
+
+
+
 
 #### 1.1.1 The three versions of EMH
 
@@ -195,3 +207,4 @@ __________________________________________________________________________ .. __
 8. https://www.wsj.com/articles/SB109804865418747444
 9. chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://www.econ.yale.edu/~shiller/pubs/p1055.pdf
 10. https://knowledge.wharton.upenn.edu/article/is-that-a-100-bill-lying-on-the-ground-two-views-of-market-efficiency-2/
+11. https://nokiamob.net/2020/04/17/rumors-about-nokia-hostile-takeover-causes-stock-price-surge/
