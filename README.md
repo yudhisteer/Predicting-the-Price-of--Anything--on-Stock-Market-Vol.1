@@ -325,6 +325,31 @@ ________________________________________________________ .. ____________________
 ### 5. Exponential Smoothing and ETS Methods
 
 #### 5.1 Simple Moving Average (SMA)
+A simple moving average (SMA) calculates the average of a selected range of data, usually closing prices, by the number of periods in that range. Since SMA is constructed using ```past``` closing prices, it is a ```lag``` indicator. It means that it simply displays a ```previous trend```, but it is ```not predictive``` of future prices.
+
+- In code, we compute the SMA by taking the average of a **rolling window**.
+- SMA is **equally weighted** since for a window of size ```n```, each point has a weight of ```1/n```.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168479663-2314aa8f-5485-4ba4-85d9-ea4511a2240b.png"/>
+</p>
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168477297-7efc63db-7166-4f4d-b307-c32902170fd6.png" width="450" height="210"/>
+</p>
+
+
+The purpose of the simple moving average is to ```smooth out``` **volatility** and makes it easier to view the price ```trend``` of a stock. If the simple moving average points up, this means that the security's price is increasing. If it is pointing down, it means that the security's price is decreasing. 
+
+![image](https://user-images.githubusercontent.com/59663734/168479446-e2f55f12-8ce5-4834-8a49-012b07cf19ad.png)
+
+
+
+
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
@@ -382,3 +407,5 @@ ________________________________________________________ .. ____________________
 10. https://knowledge.wharton.upenn.edu/article/is-that-a-100-bill-lying-on-the-ground-two-views-of-market-efficiency-2/
 11. https://nokiamob.net/2020/04/17/rumors-about-nokia-hostile-takeover-causes-stock-price-surge/
 12. https://nokiamob.net/2020/02/27/bloomberg-and-reuters-post-conflicting-reports-about-nokia-exploring-strategic-options/
+13. https://www.investopedia.com/terms/s/sma.asp#:~:text=A%20simple%20moving%20average%20smooths,the%20security's%20price%20is%20decreasing
+14. https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/simple-moving-average-sma/
