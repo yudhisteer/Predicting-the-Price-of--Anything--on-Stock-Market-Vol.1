@@ -190,6 +190,7 @@ ________________________________________________________ .. ____________________
 #### 1.2 Random Walk Hypothesis (RWH)
 
 
+![rand_2D](https://user-images.githubusercontent.com/59663734/168471883-1f124262-bcba-4d95-bac4-da51fac10640.gif)
 
 
 
@@ -258,7 +259,7 @@ ________________________________________________________ .. ____________________
 6. https://www.investopedia.com/ask/answers/04/031104.asp
 7. https://people.duke.edu/~rnau/411georw.htm
 8. https://www.wsj.com/articles/SB109804865418747444
-9. chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://www.econ.yale.edu/~shiller/pubs/p1055.pdf
+9. http://www.econ.yale.edu/~shiller/pubs/p1055.pdf
 10. https://knowledge.wharton.upenn.edu/article/is-that-a-100-bill-lying-on-the-ground-two-views-of-market-efficiency-2/
 11. https://nokiamob.net/2020/04/17/rumors-about-nokia-hostile-takeover-causes-stock-price-surge/
 12. https://nokiamob.net/2020/02/27/bloomberg-and-reuters-post-conflicting-reports-about-nokia-exploring-strategic-options/
