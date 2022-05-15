@@ -330,10 +330,18 @@ A simple moving average (SMA) calculates the average of a selected range of data
 - In code, we compute the SMA by taking the average of a **rolling window**.
 - SMA is **equally weighted** since for a window of size ```n```, each point has a weight of ```1/n```.
 
+The equation for the SMA is as follows:
+
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/168479663-2314aa8f-5485-4ba4-85d9-ea4511a2240b.png"/>
 </p>
 
+where:
+
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}x_{n}" title="https://latex.codecogs.com/png.image?\dpi{110}x_{n}" /> is the price of an asset at period n
+- n is the total number of periods or the size of the rolling window.
+
+In the example below, a 3-day moving average would average out the closing prices for the first 3 days as the first data point. The first data points are ```2```, ```1``` and ```6``` and the average of these 3 data points are ```3``` which is placed at the third index of the time series. Notice that the first two indexes are null as our rolling window is ```3``` and there are no ```3``` data points before the first and second data points. We then move our rolling window one step to the right and compute the average of ```1```, ```6``` and ```8``` which becomes ```5``` and we continue as such. 
 
 
 <p align="center">
@@ -343,27 +351,27 @@ A simple moving average (SMA) calculates the average of a selected range of data
 
 The purpose of the simple moving average is to ```smooth out``` **volatility** and makes it easier to view the price ```trend``` of a stock. If the simple moving average points up, this means that the security's price is increasing. If it is pointing down, it means that the security's price is decreasing. 
 
-![image](https://user-images.githubusercontent.com/59663734/168479920-f6cd0676-4843-4fb3-b257-687c1ab82c64.png)
+> The ```longer``` the time frame for the moving average, the ```smoother``` the simple moving average. A ```shorter-term``` moving average is more ```volatile```, but its reading is closer to the ```source``` data.
 
+In the figure below, note that ```short-term``` averages (10-day SMA) respond ```quickly``` to changes in the price of the underlying security, while ```long-term``` averages (50-day SMA) are ```slower``` to react. 
 
-![sketchpad pro_F528775C9EE31BF8D0A (1)](https://user-images.githubusercontent.com/59663734/168483806-30022bf8-9f28-4b89-9af5-4eed2811de05.png)
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168479920-f6cd0676-4843-4fb3-b257-687c1ab82c64.png" width="800" height="300"/>
+</p>
 
+How Are Simple Moving Averages Used in Technical Analysis? ```SMA crossover strategy``` is a technical strategy used for entering and closing trades. The strategy is done by plotting two SMA lines based on two different time frames. Looking at when the lines cross over, helps certain traders time their trades. The most famous are the 10-day and 200-day SMAs. For our analysis, we did the 10-day and 50-day SMAs. 
 
+When the 10-day line (**orange**) first crossed **above** the 50-day line (**green**), the ```golden cross```, indicates potential for a market rally. An investor who bought the stock would ideally capitalize on a an ```upwards trend```. If the investor sold it right when the 10-day line crossed **under** the 50-day line, the ```death cross``` which is considered a bearish signal, indicating that further losses are in store, they would’ve exited their position before a couple of months of an overall ```downtrend```.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168483806-30022bf8-9f28-4b89-9af5-4eed2811de05.png" width="800" height="300"/>
+</p>
 
+To sum up:
 
-
-
-
-
-
-
-
-
-
-
-
-
+- When analysing stock prices we are not sure whether we should put more emphasis on current or past data. While some beleive that new data will provide a better trend analysis of the stock, other feel that taking into account only certain data points introduces biasness. Recall that with SMA we treat the 10th or the 50th data point with the same weightage. 
+ 
+- Not to forget that the Efficient Market Hypothesis states that prices already reflect all available information. Then if markets are indeed efficient, using historical data should tell us nothing about the future direction of asset prices.
 
 
 <p align="center">
@@ -371,6 +379,7 @@ ________________________________________________________ .. ____________________
 </p>
 
 #### 5.2 Exponentially Weighted Moving Average (EWMA)
+While a simple moving average gives equal weight to each of the values within a time period, an exponential moving average places greater weight on recent prices. Exponential moving averages are typically seen as a more timely indicator of a price trend, and because of this, many traders prefer using this over a simple moving average. 
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
@@ -424,3 +433,4 @@ ________________________________________________________ .. ____________________
 12. https://nokiamob.net/2020/02/27/bloomberg-and-reuters-post-conflicting-reports-about-nokia-exploring-strategic-options/
 13. https://www.investopedia.com/terms/s/sma.asp#:~:text=A%20simple%20moving%20average%20smooths,the%20security's%20price%20is%20decreasing
 14. https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/simple-moving-average-sma/
+15. https://www.investopedia.com/terms/d/deathcross.asp
