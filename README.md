@@ -359,7 +359,9 @@ In the figure below, note that ```short-term``` averages (10-day SMA) respond ``
   <img src= "https://user-images.githubusercontent.com/59663734/168479920-f6cd0676-4843-4fb3-b257-687c1ab82c64.png" width="800" height="300"/>
 </p>
 
-How Are Simple Moving Averages Used in Technical Analysis? ```SMA crossover strategy``` is a technical strategy used for entering and closing trades. The strategy is done by plotting two SMA lines based on two different time frames. Looking at when the lines cross over, helps certain traders time their trades. The most famous are the 10-day and 200-day SMAs. For our analysis, we did the 10-day and 50-day SMAs. 
+#### 5.1.1 How Are Simple Moving Averages Used in Technical Analysis?
+
+```SMA crossover strategy``` is a technical strategy used for entering and closing trades. The strategy is done by plotting two SMA lines based on two different time frames. Looking at when the lines cross over, helps certain traders time their trades. The most famous are the 10-day and 200-day SMAs. For our analysis, we did the 10-day and 50-day SMAs. 
 
 When the 10-day line (**orange**) first crossed **above** the 50-day line (**green**) (```2015-02```), the ```golden cross```, indicates potential for a market rally. An investor who bought the stock would ideally capitalize on a an ```upwards trend```. If the investor sold it right when the 10-day line crossed **under** the 50-day line (```2014-10``` and ```2015-04```), the ```death cross``` which is considered a bearish signal, indicating that further losses are in store, they would’ve exited their position before a couple of months of an overall ```downtrend```.
 
@@ -369,7 +371,7 @@ When the 10-day line (**orange**) first crossed **above** the 50-day line (**gre
 
 To sum up:
 
-- When analysing stock prices we are not sure whether we should put more emphasis on current or past data. While some beleive that new data will provide a better trend analysis of the stock, other feel that taking into account only certain data points introduces biasness. Recall that with SMA we treat the 10th or the 50th data point with the same weightage. 
+- When analysing stock prices we are not sure whether we should put more emphasis on current or past data. While some believe that new data will provide a better trend pattern of the stock, other feel that taking into account only certain data points introduces biasness. Recall that with SMA we treat the 10th or the 50th data point with the same weightage. 
  
 - Not to forget that the Efficient Market Hypothesis states that prices already reflect all available information. Then if markets are indeed efficient, using historical data should tell us nothing about the future direction of asset prices.
 
