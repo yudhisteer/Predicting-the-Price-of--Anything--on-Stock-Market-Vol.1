@@ -154,20 +154,26 @@ If markets are weak form efficient, we can't use any past trading data, price or
 
 **2. Semi-strong**
 
+The semi-strong form of the efficient market hypothesis states that:
+- all **publicly available information** should already be reflected in prices - on top of the marketing data we now have accounting data, financial data, fundamental data, patents, product line, earnings forecast...
+- even with technical and fundamental data, we will cannot beat the market.
+
+The only way we can reap benefits with fundamental analysis is if our analysis is better than our competitor. And how could it be better? Is it better understanding of the fundamentals, or is it private information?
+
 **3. Strong**
 
+The strong form of the efficient market hypothesis states that:
+- Even with all information available - public and private - we still cannot beat the market! That is, prices reflect all available information - public and even including information that is only available to insiders. 
 
 
+Undoubtedly, company insiders are likely to have valuable information that is not public and that will allow them to profit from their information. The SEC in the US tries to prevent exactly this kind of situation where insiders can exploit their private information to profit. The SEC regulates the trading activity of company insiders by requiring them to report their trades to the SEC.
 
 
+So far it appears that efforts to pick stocks by predicting future prices is not very useful as competition among investors is likely to ensure that any useful information will already be reflected in market prices. So what can we do in this situation?
 
+> The efficient market hypothesis would suggest that a ```passive investment strategy``` (to invest in an index fund: S&P 500), one that makes no effort to beat the markets but merely aim at establishing a large well ```diversified portfolio``` securities, without trying to find undervalued or over valued stocks. This is because the efficient market hypothesis indicates that prices are already at their fair value given all the available information. Therefore it makes no sense to try to buy or sell individual securities. 
 
-
-
-
-
-
-
+Below is the famous $20 bill joke on the EMH. Tomorrow if you find a bank note on the sidewalk, before picking it up, ask yourself if it was really a bank note, then shouldn't someone before me already have picked it up?
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/168441894-6f4ff670-8d48-4c09-b398-1c5418ad6ffa.jpg" width="380" height="290"/>
@@ -176,20 +182,6 @@ If markets are weak form efficient, we can't use any past trading data, price or
     “Don’t bother. If it was real, somebody else would’ve already picked it up.”
 </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
@@ -197,9 +189,20 @@ ________________________________________________________ .. ____________________
 
 #### 1.2 Random Walk Hypothesis (RWH)
 
+
+
+
+
+
+
+
+
+
+
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
+
 
 #### 1.3 Are markets _really_ efficient?
 
