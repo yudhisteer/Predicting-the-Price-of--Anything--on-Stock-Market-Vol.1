@@ -103,7 +103,7 @@ This does not mean that the level of prices is ```irrational``` because the chan
 
 > To sum up, the Efficient Market Hypothesis states that prices should reflect all available information, or put differently, prices are **not predictable**, because they already reflect all available information.
 
-#### 1.1.4 Proof of EMH
+#### 1.1.3 Proof of EMH
 Recall the efficient market hypothesis states that in an efficient market, prices are unpredictable because they already reflect all available information.
 And they change only when new information arrives by reacting very quickly to reflect the new information.
 
@@ -129,7 +129,7 @@ And to see this impressive effect in real-time, below we have a video of a real 
 https://user-images.githubusercontent.com/59663734/168446780-b2927add-3814-4c2e-821b-cbf2054844ac.mp4
 
 
-#### 1.1.1 The three versions of EMH
+#### 1.1.4 The three versions of EMH
 We have been talking about how EMH is dependent on information but what is all this "information". Information in itself is pretty broad. It is comprised of pretty much everything in the world. Note that investing is a large-scale engineering problem and not just a data science problem. To be more concrete, we can categorize "information" in 4 types:
 
 - Technical data: price, volume,...
