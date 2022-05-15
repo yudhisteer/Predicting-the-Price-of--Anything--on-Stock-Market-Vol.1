@@ -346,6 +346,26 @@ The purpose of the simple moving average is to ```smooth out``` **volatility** a
 ![image](https://user-images.githubusercontent.com/59663734/168479920-f6cd0676-4843-4fb3-b257-687c1ab82c64.png)
 
 
+![sketchpad pro_F528775C9EE31BF8D0A (1)](https://user-images.githubusercontent.com/59663734/168483806-30022bf8-9f28-4b89-9af5-4eed2811de05.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
