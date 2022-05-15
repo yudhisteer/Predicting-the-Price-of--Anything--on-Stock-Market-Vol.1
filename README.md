@@ -359,6 +359,19 @@ In the figure below, note that ```short-term``` averages (10-day SMA) respond ``
   <img src= "https://user-images.githubusercontent.com/59663734/168479920-f6cd0676-4843-4fb3-b257-687c1ab82c64.png" width="800" height="300"/>
 </p>
 
+```python
+#import data
+df = pd.read_csv(filepath, index_col = 0, parse_dates=True)
+goog = df[['GOOG']].copy().dropna() #delete empty rows
+
+#calculate log returns
+goog_ret = np.log(goog.pct_change(1)+1)
+
+#calculate 10-day and 50-day SMA
+goog['SMA-10'] = goog['GOOG'].rolling(10).mean()
+goog['SMA-50'] = goog['GOOG'].rolling(50).mean()
+```
+
 #### 5.1.1 How Are Simple Moving Averages Used in Technical Analysis?
 
 ```SMA crossover strategy``` is a technical strategy used for entering and closing trades. The strategy is done by plotting two SMA lines based on two different time frames. Looking at when the lines cross over, helps certain traders time their trades. The most famous are the 10-day and 200-day SMAs. For our analysis, we did the 10-day and 50-day SMAs. 
