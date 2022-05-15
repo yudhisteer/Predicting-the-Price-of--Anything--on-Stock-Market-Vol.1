@@ -131,7 +131,16 @@ https://user-images.githubusercontent.com/59663734/168446780-b2927add-3814-4c2e-
 
 
 #### 1.1.1 The three versions of EMH
-We have 3 forms of efficient market hypothesis. Namely: 
+We have been talking about how EMH is dependent on information but what is all this "information". Information in itself is pretty broad. It is comprised of pretty much everything in the world. Note that investing is a large-scale engineering problem and not just a data science problem. To be more concrete, we can categorize "information" in 4 types:
+
+- Technical data: price, volume,...
+- Fubdamentals data: quarterly reports
+- Exogenous data: Facebook, Twitter, news,...
+- Insider information: non-public data
+
+So when we say that the Efficient Market Hypothesis states that prices should reflect all available information, these are the 4 types of information we are talking about. The amount of informaiton described above can be quite intimidating and coming to think about it, it now really seem to be impossible to make any prediction on the return of a stock as the volume of data needed is humongous and not always publicly available. 
+
+We will now discuss the 3 forms of efficient market hypothesis and the different implications for what we can expect to see in the markets. The types are:
 
 **1. Weak**
 
