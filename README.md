@@ -16,10 +16,9 @@
     - Efficient Market Hypothesis (EMH)
     - Random Walk Hypothesis (RWH)
     - Are markets efficient?
-    - Limits to arbitrage
     - Biases and Heuristics
-    - Inefficient markets
-    - Irrational behavior
+    - Inefficient Markets
+    - Irrational Behavior
 
 2. Financial Engineering: The Basics
 
@@ -209,9 +208,27 @@ ________________________________________________________ .. ____________________
 
 
 
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
 
 
+#### 1.4 Biases and Heuristics
 
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+
+#### 1.5 Inefficient Markets
+
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+
+#### 1.6 Irrational Behavior
 
 
 ------------------------
