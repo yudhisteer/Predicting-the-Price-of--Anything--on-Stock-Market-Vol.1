@@ -343,12 +343,7 @@ A simple moving average (SMA) calculates the average of a selected range of data
 
 The purpose of the simple moving average is to ```smooth out``` **volatility** and makes it easier to view the price ```trend``` of a stock. If the simple moving average points up, this means that the security's price is increasing. If it is pointing down, it means that the security's price is decreasing. 
 
-![image](https://user-images.githubusercontent.com/59663734/168479446-e2f55f12-8ce5-4834-8a49-012b07cf19ad.png)
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/59663734/168479920-f6cd0676-4843-4fb3-b257-687c1ab82c64.png)
 
 
 <p align="center">
