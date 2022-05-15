@@ -139,6 +139,7 @@ The weak form of the efficient market hypothesis states that:
 - prices reflect all **marketing data** - ```past prices```, ```trading volume```, or ```short interests```. 
 - we **can't predict future prices** by looking at past prices or past volume.
 - **trend analysis** is completely useless - future performance has no relationship with past performance. 
+- we cannot use **technical analysis** to predict returns.
 
 If markets are weak form efficient, we can't use any past trading data, price or volume data, that is publicly available and virtually costless to obtain to predict future stock prices or future performance. And if such data were able to predict future prices, then all investors would have **already** exploited those signals, and therefore that information would **already** be reflected in the prices.
 
