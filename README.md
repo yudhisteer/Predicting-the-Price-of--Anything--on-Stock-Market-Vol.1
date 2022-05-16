@@ -356,7 +356,7 @@ The purpose of the simple moving average is to ```smooth out``` **volatility** a
 In the figure below, note that ```short-term``` averages (10-day SMA) respond ```quickly``` to changes in the price of the underlying security, while ```long-term``` averages (50-day SMA) are ```slower``` to react. 
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/168479920-f6cd0676-4843-4fb3-b257-687c1ab82c64.png" width="800" height="300"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/168479920-f6cd0676-4843-4fb3-b257-687c1ab82c64.png" />
 </p>
 
 ```python
@@ -379,7 +379,7 @@ goog['SMA-50'] = goog['GOOG'].rolling(50).mean()
 When the 10-day line (**orange**) first crossed **above** the 50-day line (**green**) (```2015-02```), the ```golden cross```, indicates potential for a market rally. An investor who bought the stock would ideally capitalize on a an ```upwards trend```. If the investor sold it right when the 10-day line crossed **under** the 50-day line (```2014-10``` and ```2015-04```), the ```death cross``` which is considered a bearish signal, indicating that further losses are in store, they would’ve exited their position before a couple of months of an overall ```downtrend```.
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/168483806-30022bf8-9f28-4b89-9af5-4eed2811de05.png" width="800" height="300"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/168483806-30022bf8-9f28-4b89-9af5-4eed2811de05.png" />
 </p>
 
 To sum up:
@@ -415,6 +415,9 @@ Note that as <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" titl
 
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.9\to&space;&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.9\to " /> averaging over ```10``` days' of data points
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.98\to&space;&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.98\to " /> averaging over ```50``` days' of data points.
+
+![image](https://user-images.githubusercontent.com/59663734/168596709-86dd00da-f880-4f43-97e7-252dac6bd0cd.png)
+
 
 This is why we get a smoother graph with bigger <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" title="https://latex.codecogs.com/png.image?\dpi{110}\beta" /> as we are averaging over more days. We are actually giving more weightage to <img src="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" title="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" /> days. But the drawback is that the curve has now been shifted to the right, that is, we have more ```latency```. By averaging over a large window, the EWMA adapts more slowly to changes in the share prices. 
 
@@ -461,6 +464,10 @@ Our formula is reduced to:
 </p>
 
 The moving average is just equal to the current data point. So we only have the existing time series graph and no other line for the moving average.
+
+![image](https://user-images.githubusercontent.com/59663734/168596225-081773db-45ac-41a1-86b1-22699748c132.png)
+
+
 
 To sum up: 
 
