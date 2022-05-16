@@ -396,6 +396,42 @@ ________________________________________________________ .. ____________________
 #### 5.2 Exponentially Weighted Moving Average (EWMA)
 While a simple moving average gives equal weight to each of the values within a time period, an exponential moving average places greater weight on recent prices. Exponential moving averages are typically seen as a more timely indicator of a price trend, and because of this, many traders prefer using this over a simple moving average. 
 
+At each step, the moving average is the weighted sum of the new sample and the old moving average. The formula for EWMA is as follows:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168573226-0ccc7c79-8ed0-4fc9-a271-21a79c282a78.png"/>
+</p>
+
+
+where:
+
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\bar{x}_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}\bar{x}_{t}" /> is the moving average at time t
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\bar{x}_{t-1}" title="https://latex.codecogs.com/png.image?\dpi{110}\bar{x}_{t-1}" /> is the previous moving average
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}{x}_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}{x}_{t}" /> is the current data point
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" title="https://latex.codecogs.com/png.image?\dpi{110}\beta" /> is a constant between 0 and 1.
+
+
+Note that as <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" title="https://latex.codecogs.com/png.image?\dpi{110}\beta" /> increases, we get a smoother time series. We can think of <img src="https://latex.codecogs.com/png.image?\dpi{110}\bar{x}_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}\bar{x}_{t}" /> as averaging over <img src="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta&space;}" title="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta }" /> days' of data points. 
+
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.9\to&space;&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.9\to " /> averaging over ```10``` days' of data points
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.98\to&space;&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.98\to " /> averaging over ```50``` days' of data points.
+
+This is why we get a smoother graph with bigger <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" title="https://latex.codecogs.com/png.image?\dpi{110}\beta" /> as we are averaging over more days. We are actually giving more weightage to <img src="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" title="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" /> days. But the drawback is that the curve has now been shifted to the right, that is, we have more ```latency```. By averaging over a large window, the EWMA adapts more slowly to changes in the share prices. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
