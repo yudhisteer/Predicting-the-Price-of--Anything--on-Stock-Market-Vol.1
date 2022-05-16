@@ -418,13 +418,21 @@ Note that as <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" titl
 
 This is why we get a smoother graph with bigger <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" title="https://latex.codecogs.com/png.image?\dpi{110}\beta" /> as we are averaging over more days. We are actually giving more weightage to <img src="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" title="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" /> days. But the drawback is that the curve has now been shifted to the right, that is, we have more ```latency```. By averaging over a large window, the EWMA adapts more slowly to changes in the share prices. 
 
+How do we find the moving average? We normally initalize <img src="https://latex.codecogs.com/svg.image?\bar{x}_{0}=0" title="https://latex.codecogs.com/svg.image?\bar{x}_{0}=0" />:
 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168577961-232d2170-e592-4423-b556-39ff98839b51.png"/>
+</p>
+
+Notice that <img src="https://latex.codecogs.com/svg.image?\beta&space;\cdot&space;\bar{x}_{0}=0" title="https://latex.codecogs.com/svg.image?\beta \cdot \bar{x}_{0}=0" />  as <img src="https://latex.codecogs.com/svg.image?\bar{x}_{0}=0" title="https://latex.codecogs.com/svg.image?\bar{x}_{0}=0" />. When expanding:
 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168579582-8ddabf1d-e881-496c-a37b-89b6b76a58d8.png"/>
+</p>
 
-
-
+As we move forward in time, the power of <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> will increase for the older terms while the power of <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> will be less for newer data points.
 
 
 
