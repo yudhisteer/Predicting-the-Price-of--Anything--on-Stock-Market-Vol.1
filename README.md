@@ -416,8 +416,9 @@ Note that as <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" titl
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.9\to&space;&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.9\to " /> averaging over ```10``` days' of data points
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.98\to&space;&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\beta=0.98\to " /> averaging over ```50``` days' of data points.
 
-![image](https://user-images.githubusercontent.com/59663734/168596709-86dd00da-f880-4f43-97e7-252dac6bd0cd.png)
+Notice how with beta equal to ```0.1``` our moving average time series is very close to the actual data points. The exponentially weighted average is as nosiy as the real data. But as we increase beta, we get smoother graphs. With beta equal to ```0.9``` we get a nice smoothe time series and with beta = ```0.98```, we get a too smooth time series.
 
+![image](https://user-images.githubusercontent.com/59663734/168596902-373141e4-94bc-4c4b-ae52-dbecd4b5cbb7.png)
 
 This is why we get a smoother graph with bigger <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" title="https://latex.codecogs.com/png.image?\dpi{110}\beta" /> as we are averaging over more days. We are actually giving more weightage to <img src="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" title="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" /> days. But the drawback is that the curve has now been shifted to the right, that is, we have more ```latency```. By averaging over a large window, the EWMA adapts more slowly to changes in the share prices. 
 
@@ -453,7 +454,7 @@ Our formula is reduced to:
   <img src= "https://user-images.githubusercontent.com/59663734/168584102-1b445e9a-156e-43c8-adec-769dd40a9d9e.png"/>
 </p>
 
-That is, the current moving average is equal to the previous moving average and we get a very smooth line.
+That is, the current moving average is equal to the previous moving average and we get a very smooth line (a horizontal line).
 
 - <img src="https://latex.codecogs.com/svg.image?\beta&space;=&space;0" title="https://latex.codecogs.com/svg.image?\beta = 0" />
 
@@ -465,9 +466,11 @@ Our formula is reduced to:
 
 The moving average is just equal to the current data point. So we only have the existing time series graph and no other line for the moving average.
 
+Notice how with beta = ```0```, our time series is exactly the actual data points. This is because when beta equal to zero, our moving average is the current data point so we get another graph overlayed on our actual data points. With beta equal to ```1```, we get a horizontal line which is equal to the first value in our time series (<img src="https://latex.codecogs.com/png.image?\dpi{110}y&space;=&space;x_{0}" title="https://latex.codecogs.com/png.image?\dpi{110}y = x_{0}" />). This is because when beta equal to ```1```, our moving average is equal to the previosu average. But since our previous average is always constant then our moving average remains constant (<img src="https://latex.codecogs.com/png.image?\dpi{110}\bar{x}&space;=&space;n\cdot&space;x&space;/&space;x" title="https://latex.codecogs.com/png.image?\dpi{110}\bar{x} = n\cdot x / x" />). 
+
 ![image](https://user-images.githubusercontent.com/59663734/168596225-081773db-45ac-41a1-86b1-22699748c132.png)
 
-
+Hence, a better value for beta is equal to ```0.9``` as shown above.
 
 To sum up: 
 
