@@ -418,6 +418,7 @@ Note that as <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" titl
 
 This is why we get a smoother graph with bigger <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta" title="https://latex.codecogs.com/png.image?\dpi{110}\beta" /> as we are averaging over more days. We are actually giving more weightage to <img src="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" title="https://latex.codecogs.com/png.image?\dpi{110}\frac{1}{1-\beta}" /> days. But the drawback is that the curve has now been shifted to the right, that is, we have more ```latency```. By averaging over a large window, the EWMA adapts more slowly to changes in the share prices. 
 
+#### 5.2.1 Deriving the equation
 How do we find the moving average? We normally initalize <img src="https://latex.codecogs.com/svg.image?\bar{x}_{0}=0" title="https://latex.codecogs.com/svg.image?\bar{x}_{0}=0" />:
 
 
@@ -432,15 +433,41 @@ Notice that <img src="https://latex.codecogs.com/svg.image?\beta&space;\cdot&spa
   <img src= "https://user-images.githubusercontent.com/59663734/168579582-8ddabf1d-e881-496c-a37b-89b6b76a58d8.png"/>
 </p>
 
-As we move forward in time, the power of <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> will increase for the older terms while the power of <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> will be less for newer data points.
+As we move forward in time, the power of <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> will increase for the older terms while the power of <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> will be less for newer data points. That is older data points get less weightage than newer data points. 
 
 
 
+#### 5.2.2 Choosing <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " />:
 
+We normally chosse <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> to be 0.9. As with 0.9, we are actually averaging over ```10``` days which does not have too much latency and too much noise. 
 
+- <img src="https://latex.codecogs.com/svg.image?\beta&space;=&space;1&space;" title="https://latex.codecogs.com/svg.image?\beta = 1 " />
+
+Our formula is reduced to:
 
 
 <p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168584102-1b445e9a-156e-43c8-adec-769dd40a9d9e.png"/>
+</p>
+
+That is, the current moving average is equal to the previous moving average and we get a very smooth line.
+
+- <img src="https://latex.codecogs.com/svg.image?\beta&space;=&space;0" title="https://latex.codecogs.com/svg.image?\beta = 0" />
+
+Our formula is reduced to:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168584369-3535eb96-00d5-4ec0-ac77-6e4a9f0bee80.png"/>
+</p>
+
+The moving average is just equal to the current data point. So we only have the existing time series graph and no other line for the moving average.
+
+To sum up: 
+
+- With EWMA the weight decays exponentially going backwards in time. This means the latest sample matters the most, the second sample matters less and the thirds one matters even less and so forth.
+<p align="center">
+    
+    
 ________________________________________________________ .. __________________________________________________________
 </p>
 
