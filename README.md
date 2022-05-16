@@ -443,7 +443,7 @@ As we move forward in time, the power of <img src="https://latex.codecogs.com/sv
 
 #### 5.2.2 Choosing <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " />:
 
-We normally chosse <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> to be 0.9. As with 0.9, we are actually averaging over ```10``` days which does not have too much latency and too much noise. 
+We normally chosse <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> to be ```0.9```. With this value  we are actually averaging over ```10``` days which does not have too much **latency** and too much **noise**. 
 
 - <img src="https://latex.codecogs.com/svg.image?\beta&space;=&space;1&space;" title="https://latex.codecogs.com/svg.image?\beta = 1 " />
 
@@ -474,13 +474,13 @@ Hence, a better value for beta is equal to ```0.9``` as shown above.
 
 To sum up: 
 
--  Recall that with SMA each term is given an equal weight. This problem is fixed by using the exponentially weighted moving average (EWMA), in which more recent returns have greater weight compared to older ones.
+-  Recall that with SMA each term is given an **equal weight**. This problem is fixed by using the exponentially weighted moving average (EWMA), in which more recent returns have greater weight compared to older ones.
 
-- With EWMA the weight decays exponentially going backwards in time. This means the latest sample matters the most, the second sample matters less and the thirds one matters even less and so forth.
+- With EWMA the weight decays **exponentially** going backwards in time. This means the latest sample matters the most, the second sample matters less and the thirds one matters even less and so forth.
 
-- The EWMA is a recursive function, which means that the current observation is calculated using the previous observation. The only decision a user of the EWMA must make is the parameter ```beta```. The parameter decides how important the current observation is in the calculation of the EWMA.
+- The EWMA is a **recursive** function, which means that the current observation is calculated using the previous observation. The only decision a user of the EWMA must make is the parameter ```beta```. The parameter decides how important the current observation is in the calculation of the EWMA.
 
-- The EWMA can also be used in a simple crossover strategy, where a buy signal is generated when the price crosses the EWMA from above, and a sell signal is generated when the price crosses the EWMA from below. (Same as we have seen with SMA where we have used a 10-day SMA and a 50-day SMA to analyze when is the most appropriate time to buy and sell.)
+- The EWMA can also be used in a **simple crossover strategy**, where a buy signal is generated when the price crosses the EWMA from above, and a sell signal is generated when the price crosses the EWMA from below. (Same as we have seen with SMA where we have used a 10-day SMA and a 50-day SMA to analyze when is the most appropriate time to buy and sell.)
 
     
 <p align="center">
