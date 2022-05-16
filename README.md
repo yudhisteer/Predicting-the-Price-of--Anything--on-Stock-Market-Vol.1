@@ -441,7 +441,7 @@ As we move forward in time, the power of <img src="https://latex.codecogs.com/sv
 
 
 
-#### 5.2.2 Choosing <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " />
+#### 5.2.2 Choosing Beta
 
 We normally chosse <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " /> to be ```0.9```. With this value  we are actually averaging over ```10``` days which does not have too much **latency** and too much **noise**. 
 
