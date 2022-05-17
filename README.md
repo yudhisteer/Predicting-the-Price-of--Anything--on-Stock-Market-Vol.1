@@ -517,16 +517,18 @@ We will slightly modify our equation using <img src="https://latex.codecogs.com/
   <img src= "https://user-images.githubusercontent.com/59663734/168738026-49f90248-4625-4489-8cee-3487b9a54bde.png"/>
 </p>
 
-Our forecasting model then becomes:
+With new notation the equation becomes:
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/168738635-26df4716-a764-436e-8f0d-51eeb1ab9241.png"/>
 </p>
 
+where:
 
-
-
-
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t}" /> is the exponentially smoothed version of y at times t.
+- y is the value from the time series as time t
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t-1}" title="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t-1}" /> is the previous exponentially smoothed y at time t-1
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha " /> is the smoothing parameter between 0 and 1
 
 
 
