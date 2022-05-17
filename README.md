@@ -513,11 +513,15 @@ Recall that our Exponentially Weighted Moving Average (EWMA) is in the form of:
 
 We will slightly modify our equation using <img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha " /> such that <img src="https://latex.codecogs.com/png.image?\small&space;\dpi{110}1-&space;\beta&space;=&space;\alpha&space;" title="https://latex.codecogs.com/png.image?\small \dpi{110}1- \beta = \alpha " />:
 
-
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/168738026-49f90248-4625-4489-8cee-3487b9a54bde.png"/>
 </p>
 
+Our forecasting model then becomes:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168738635-26df4716-a764-436e-8f0d-51eeb1ab9241.png"/>
+</p>
 
 
 
