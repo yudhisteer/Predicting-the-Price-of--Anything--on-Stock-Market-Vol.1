@@ -532,9 +532,42 @@ where:
 
 We wil now phrase the equation as a forecasting model:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168742419-c50c4db6-57eb-4060-9711-3c959f833140.png"/>
+</p>
+
+where:
+
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t&plus;1|t}" title="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t+1|t}" /> is the exponential smoothed forecast for time t + 1 given known value at time t.
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t|t-1}" title="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t|t-1}" /> is the previous exponentially smoothed value
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}y_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}y_{t}" /> is the current value at time t
+
+Previosuly we were just averaging our time series model but now we are forecasting for the next time step. The equation above can simply be wriiten as:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168743529-6edd9bdf-e34e-4b2a-a532-79625b86a140.png"/>
+</p>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+To sum up:
+
+- Simple Exponential Smoothing, is a time series forecasting method for univariate data without a trend or seasonality.
+
+- The basic idea of this model is to assume that the future will be more or less the **same** as the (recent) past. Thus, the only pattern that this model will learn from demand history is its **level**.
+
+-  Large values of alpha mean that the model pays attention mainly to the most recent past observations, whereas smaller values mean more of the history is taken into account when making a prediction.
 
 
 
