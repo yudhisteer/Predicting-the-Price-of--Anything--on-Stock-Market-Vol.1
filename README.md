@@ -564,6 +564,15 @@ Notice how our Smoothing Equation is just the Exponentially Moving Average and t
 
 <img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" /> is called the ```level``` which can be though as the **moving average**. The level is the average value of the signal in time but the actual signal may fluctuate around  that average level. Note that the forecast is just a constant value - <img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" /> - no matter how many steps ahead we want to forecast. This is the case because the EWMA is nothing but the mean. Since our estimate is the mean, that's the only thing we can predict. After we stop collecting data, we have no idea how this mean will change beyond the last known data point. And so our forecast simply consists of predicting the last known value for each time step. 
 
+![image](https://user-images.githubusercontent.com/59663734/168778201-624b5e45-ad47-4a99-95d8-bf9c037fd8f0.png)
+
+
+![image](https://user-images.githubusercontent.com/59663734/168778115-12a5e173-8e70-49ca-ab31-96879a78daf9.png)
+
+
+![image](https://user-images.githubusercontent.com/59663734/168777988-d47162a6-aa06-4ed1-9709-fb2bb10dca39.png)
+
+
 To sum up:
 
 - Simple Exponential Smoothing, is a time series forecasting method for univariate data without a trend or seasonality.
