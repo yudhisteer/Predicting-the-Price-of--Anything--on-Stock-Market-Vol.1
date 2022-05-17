@@ -526,9 +526,11 @@ With new notation the equation becomes:
 where:
 
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t}" /> is the exponentially smoothed version of y at times t.
-- y is the value from the time series as time t
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}y" title="https://latex.codecogs.com/png.image?\dpi{110}y" /> is the value from the time series as time t
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t-1}" title="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t-1}" /> is the previous exponentially smoothed y at time t-1
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha " /> is the smoothing parameter between 0 and 1
+
+We wil now phrase the equation as a forecasting model:
 
 
 
