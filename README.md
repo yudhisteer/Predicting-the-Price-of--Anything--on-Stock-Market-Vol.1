@@ -660,20 +660,41 @@ To sum up:
 
 -  Large values of alpha mean that the model pays attention mainly to the most recent past observations, whereas smaller values mean more of the history is taken into account when making a prediction.
 
-- Our focecast depend on the level which is a constant value after our last known data point.
-
-
-
-
-
-
-
+- Our focecast depends on the level which remains a constant value after our last known data point.
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 #### 5.4 Holt's Linear Trend Model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
