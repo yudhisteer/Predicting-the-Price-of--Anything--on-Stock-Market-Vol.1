@@ -542,17 +542,25 @@ where:
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t|t-1}" title="https://latex.codecogs.com/png.image?\dpi{110}\hat{y}_{t|t-1}" /> is the previous exponentially smoothed value
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}y_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}y_{t}" /> is the current value at time t
 
-Previosuly we were just averaging our time series model but now we are forecasting for the next time step. The equation above can simply be wriiten as:
+Previously we were just averaging our time series model but now we are forecasting for the next time step. The equation above can simply be written as:
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/168743529-6edd9bdf-e34e-4b2a-a532-79625b86a140.png"/>
 </p>
 
 
+#### 5.3.1 Component Form
+We will now express our Simple Exponential Smoothing model into component form. When we will see the Holt-Winters model which consists of multiple components then this decomposition will become more useful.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168746023-813b9237-c757-4cb1-9e7d-06f2dfd57ca4.png"/>
+</p>
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168746430-6a87a4aa-eecf-4212-97d2-851ab4423cec.png"/>
+</p>
 
-
+Notice how our Smoothing Equation is just the Exponentially Moving Average and the Forecast Eqaution is the forecast as an arbitrary ```h``` steps ahead.
 
 
 
