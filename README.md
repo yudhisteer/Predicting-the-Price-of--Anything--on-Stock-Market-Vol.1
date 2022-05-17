@@ -584,7 +584,7 @@ Notice how our Smoothing Equation is just the Exponentially Moving Average and t
 
 <img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" /> is called the ```level``` which can be though as the **moving average**. The level is the average value of the signal in time but the actual signal may fluctuate around  that average level. Note that the forecast is just a constant value - <img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" /> - no matter how many steps ahead we want to forecast. This is the case because the EWMA is nothing but the mean. Since our estimate is the mean, that's the only thing we can predict. After we stop collecting data, we have no idea how this mean will change beyond the last known data point. And so our forecast simply consists of predicting the last known value for each time step. 
 
-Below I just used the ```fit``` method for the model to choose the optimized alpha value on the Google Stock price dataset. The reason why we would not choose stock price for prediction is because we need to assign ```df.index.freq``` first to our dataframe which is clearly in days. Alas, our dataset does not have values for Saturdays and Sundays hence, this creates an error when forecasting. We would need a constant time interval dataset and that is why we choose the Airline Passengers dataset for prediction.
+Below I used the ```fit``` method for the model to choose the optimized alpha value on the Google Stock price dataset. We see that although we have a very high value of alpha, we can still see some discrepancy in the predicted values (although it is shifted by one time step) mainly due to the noise in our data.
 
 ```python
 ses = SimpleExpSmoothing(train['GOOG']) 
@@ -605,10 +605,51 @@ We get the optimized alpha value to be ```0.9999999850988388``` using ```res.par
  'remove_bias': False}
 ```
 
-
 ![image](https://user-images.githubusercontent.com/59663734/168778201-624b5e45-ad47-4a99-95d8-bf9c037fd8f0.png)
 
+The reason why we would not choose stock price for prediction is because we need to assign ```df.index.freq``` first to our dataframe which is clearly in days. Alas, our dataset does not have values for Saturdays and Sundays hence, this creates an error when forecasting. We would need a constant time interval dataset and that is why we choose the Airline Passengers dataset for prediction.
+ 
+We will split our dataset manually such that we would want the model to predict the last ```12``` data points. We then call ```model.fit``` with no alpha value assigned. We apply ```fittedvalues``` on our training set and ```forecast()``` on our test set. 
+
+```python
+N_test = 12
+train = df.iloc[:-N_test]
+test = df.iloc[-N_test:]
+
+ses = SimpleExpSmoothing(train['Passengers'], initialization_method='legacy-heuristic')
+res = ses.fit()
+
+#create boolean values for train and test
+train_idx = df.index <= train.index[-1]
+test_idx = df.index > train.index[-1]
+
+df.loc[train_idx, 'SESfitted_Train'] = res.fittedvalues
+df.loc[test_idx, 'SESfitted_Test'] = res.forecast(N_test)
+```
+On this dataset, the optimized alpha value is ```0.995```.  
+
+```python
+{'smoothing_level': 0.995,
+ 'smoothing_trend': nan,
+ 'smoothing_seasonal': nan,
+ 'damping_trend': nan,
+ 'initial_level': 112.0,
+ 'initial_trend': nan,
+ 'initial_seasons': array([], dtype=float64),
+ 'use_boxcox': False,
+ 'lamda': None,
+ 'remove_bias': False}
+```
+As we can see the forecast is indeed a horizontal straight line. Note that for the training set, the prediction looks that it is lagging behind by one step which is perfectly correct as the prediction is the level value at the previous time step. For the fitted alpha of ```0.995``` we can see that the model is reacting very quickly to the original time series which indicates that it cares more about the most recent sample than the previous average.
+
 ![image](https://user-images.githubusercontent.com/59663734/168783319-c86c5631-2cc7-4766-8268-ad096e70047b.png)
+
+Figure below shows the last 15 values in our dataset whereby the prediction values remain constant at the level value of ```404.786132```.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168789887-933f32b9-df75-4fb6-8798-717996e53e70.png" width="400" height="350"/>
+</p>
+
 
 
 To sum up:
