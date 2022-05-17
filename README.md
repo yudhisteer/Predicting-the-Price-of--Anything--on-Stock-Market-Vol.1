@@ -482,18 +482,58 @@ To sum up:
 
 - The EWMA can also be used in a **simple crossover strategy**, where a buy signal is generated when the price crosses the EWMA from above, and a sell signal is generated when the price crosses the EWMA from below. (Same as we have seen with SMA where we have used a 10-day SMA and a 50-day SMA to analyze when is the most appropriate time to buy and sell.)
 
+The EWMA at time ```t``` can also be expressed as the previous EWMA:
+
     
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/168609968-4b53ea69-6f7a-4476-8d73-ddc60b8a6360.png"/>
 </p>
 
-    
-    
+
+<p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
 #### 5.3 Simple Exponential Smoothing (SES)
+
+With Simple Exponential smoothing (SES), we are going to bridge the gap between **exponential smoothing** and the **Holt-Winters model**. Previously we only calculated the different ways we can take the average in a time series, but now we want to know how we can fit a model to the series and use that model for ```forecasting```. For that, we need to understand exponential smoothing in the perspective of time series forecasting. 
+
+- We will turn our EWMA into a **forecasting** model.
+- This assumes tha tour time series fluctuate around some **constant** value in time.
+- The model will try to **learn** what this average value is by using the EWMA.
+- In order to forecast beyond the data, it simply assumes the final EWMA value will **propagate** into the future.
+- The logic holds according to the assumption of the model that the times series has a **constant value** **+** **random noise** whereby our constant value is the ```level```.
+
+Recall that our Exponentially Weighted Moving Average (EWMA) is in the form of:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168738329-629eab79-8e2a-4d52-a746-fc1501331944.png"/>
+</p>
+
+We will slightly modify our equation using <img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha " /> such that <img src="https://latex.codecogs.com/png.image?\small&space;\dpi{110}1-&space;\beta&space;=&space;\alpha&space;" title="https://latex.codecogs.com/png.image?\small \dpi{110}1- \beta = \alpha " />:
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168738026-49f90248-4625-4489-8cee-3487b9a54bde.png"/>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
@@ -505,10 +545,7 @@ ________________________________________________________ .. ____________________
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-
 #### 5.5 Holt-Winters Model
-
-
 
 ------------------------
 
@@ -541,3 +578,5 @@ ________________________________________________________ .. ____________________
 13. https://www.investopedia.com/terms/s/sma.asp#:~:text=A%20simple%20moving%20average%20smooths,the%20security's%20price%20is%20decreasing
 14. https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/simple-moving-average-sma/
 15. https://www.investopedia.com/terms/d/deathcross.asp
+16. https://towardsdatascience.com/simple-exponential-smoothing-749fc5631bed
+17. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
