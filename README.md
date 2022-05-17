@@ -560,14 +560,9 @@ We will now express our Simple Exponential Smoothing model into component form. 
   <img src= "https://user-images.githubusercontent.com/59663734/168746430-6a87a4aa-eecf-4212-97d2-851ab4423cec.png"/>
 </p>
 
-Notice how our Smoothing Equation is just the Exponentially Moving Average and the Forecast Equation is the forecast at an arbitrary ```h``` steps ahead.
+Notice how our Smoothing Equation is just the Exponentially Moving Average and the Forecast Equation is the forecast at an arbitrary ```h``` steps ahead. <img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" />  is it self not a forecast but the forecas tis based on <img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" />. For this simple mode, the forecast is simply assigned to be <img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" /> but this will be more complex later on.
 
-
-
-
-
-
-
+<img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" /> is called the ```level``` which can be though as the **moving average**. The level is the average value of the signal in time but the actual signal may fluctuate around  that average level. Note that the forecast is just a constant value - <img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t}" /> - no matter how many steps ahead we want to forecast. This is the case because the EWMA is nothing but the mean. Since our estimate is the mean, that's the only thing we can predict. After we stop collecting data, we have no idea how this mean will change beyond the last known data point. And so our forecast simply consists of predicting the last known value for each time step. 
 
 To sum up:
 
@@ -576,6 +571,8 @@ To sum up:
 - The basic idea of this model is to assume that the future will be more or less the **same** as the (recent) past. Thus, the only pattern that this model will learn from demand history is its **level**.
 
 -  Large values of alpha mean that the model pays attention mainly to the most recent past observations, whereas smaller values mean more of the history is taken into account when making a prediction.
+
+- Our focecast depend on the level which is a constant value after our last known data point.
 
 
 
