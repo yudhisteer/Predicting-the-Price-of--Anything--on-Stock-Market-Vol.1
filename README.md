@@ -560,7 +560,7 @@ We will now express our Simple Exponential Smoothing model into component form. 
   <img src= "https://user-images.githubusercontent.com/59663734/168746430-6a87a4aa-eecf-4212-97d2-851ab4423cec.png"/>
 </p>
 
-Notice how our Smoothing Equation is just the Exponentially Moving Average and the Forecast Eqaution is the forecast as an arbitrary ```h``` steps ahead.
+Notice how our Smoothing Equation is just the Exponentially Moving Average and the Forecast Equation is the forecast at an arbitrary ```h``` steps ahead.
 
 
 
