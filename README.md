@@ -647,7 +647,7 @@ As we can see the forecast is indeed a horizontal straight line. Note that for t
 Figure below shows the last 15 values in our dataset whereby the prediction values remain constant at the level value of ```404.786132```.
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/168789887-933f32b9-df75-4fb6-8798-717996e53e70.png" width="400" height="350"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/168789887-933f32b9-df75-4fb6-8798-717996e53e70.png" width="350" height="350"/>
 </p>
 
 
