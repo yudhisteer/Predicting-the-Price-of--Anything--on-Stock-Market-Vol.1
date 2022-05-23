@@ -709,22 +709,41 @@ ________________________________________________________ .. ____________________
 #### 5.5 Holt-Winters Model
 So far we have seen the ```Simple Moving Average (SMA)```, ```Exponentially Weighted Moving Average (EWMA)```, ```Simple Exponential Smoothing``` as a forecasting model and the ```Holt's Linear Trend``` model which added a trend component. Now we will explore the Holt-Winters model which extends the Holt's Linear Trend by  adding a **seasonal** component.
 
-> Seasonality is a characteristic of a time series in which the data experiences ```regular``` and ```predictable``` changes that **recur** every calendar year.
+> Seasonality is a characteristic of a time series in which the data experiences ```regular``` and ```predictable``` changes that **recur** every calendar year.  Any predictable fluctuation or pattern that recurs or repeats over a one-year period is said to be seasonal.
 
-Many time series data has a seasonal pattern such as weather, air conditioner sales, swimsuits sales and so on. 
+Many time series data has a seasonal pattern such as weather, air conditioner sales, swimsuits sales and so on. For these kind of time series, there are generally ```3``` components: level (average), (linear) trend and seasonal (cycles). When combined together, we get our full time series data. There are ```2``` ways of doing this:
 
+- **Additive**: y = level + trend + seasonal
+- **Multiplicative**: y = (level + trend) x seasonal
 
+#### 5.5.1 Additive Model
+In the additive model, the seasonal component is added to the trend and level. A noisy line is added to some periodic signal and this periodic signal being periodic does not change over time. 
 
+The equations in component form:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/169821436-f87d722e-8d64-41b4-afd3-7ab2ce29cca8.png"/>
+</p>
 
+- The **forecast** equation being the center-piece combines all teh components to give us a full output. We still have our Holt's Linear Trend model (<img src="https://latex.codecogs.com/png.image?\dpi{110}l_{t}&space;&plus;&space;h\cdot&space;b_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}l_{t} + h\cdot b_{t}" />) but now we have <img src="https://latex.codecogs.com/png.image?\dpi{110}s_{t&plus;h-mk}" title="https://latex.codecogs.com/png.image?\dpi{110}s_{t+h-mk}" /> added to it. 
 
+    - **m**: period of a cycle. Period in physics is refered to the amount of time it takes for a wave for one complete oscillation. For example, the period of a sine and cosine function is <img src="https://latex.codecogs.com/png.image?\dpi{110}2\pi" title="https://latex.codecogs.com/png.image?\dpi{110}2\pi" />. For sales data over each month, our period will be ```12``` since there are certain events that happen anually that affects sales. Note that domain knowledge is required to choose ```m```. 
+    - **t**: last known time for which we have real observation.
+    - **h**: number of steps ahead that we are forecasting.
+    - **k**: k finds the latest matching seasonal component (if we want to forecast for August 2022, then it finds the last known August (August 2021))
+    - Note that the level ```l```and trend ```b``` both comes from time ```t``` the latest measurement.  Only the seasonal component goes further back in time to grab the appropriate point over the entire season.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/169825019-a896a03c-18bf-4ea9-adc2-40232e4e0d5a.png"/>
+</p>
 
+- the **level** equation is the same old exponential moving average. The only difference is that we subtract the previous seasonal component at index ```t-m``` from y at index ```t```.
 
+- the **trend** equation is exactly the same as before which is the exponential moving average of the trend as measured by the difference in levels.
 
+- The **seasonality** equation also is an exponential moving average. In front of gamma we have a ```new``` value and infront of (1 - gamma) we have the ```old``` value. Recognise that the old value comes from one period ago at index ```t-m``` and not one step ago.
 
-
-
+#### 5.5.2 Multiplicative Model
 
 
 
@@ -768,3 +787,4 @@ Many time series data has a seasonal pattern such as weather, air conditioner sa
 15. https://www.investopedia.com/terms/d/deathcross.asp
 16. https://towardsdatascience.com/simple-exponential-smoothing-749fc5631bed
 17. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
+18. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
