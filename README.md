@@ -700,7 +700,7 @@ df.loc[test_idx, 'Holt'] = res_h.forecast(N_test)
 
 ![image](https://user-images.githubusercontent.com/59663734/169806612-51aa5471-c5e9-4b4e-a814-569641dacc20.png)
 
-
+As expected, we get a straight line trending upwards which is exactly what the Holt's Linear Trend model should be doing in this scenario.
 
 
 
