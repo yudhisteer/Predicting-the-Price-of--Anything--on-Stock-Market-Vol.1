@@ -687,7 +687,7 @@ The question that we should now ask is how do we choose ```alpha``` and ```beta`
   <img src= "https://user-images.githubusercontent.com/59663734/169805714-d351b246-c444-4b67-b4ac-76b47d3a9414.png"/>
 </p>
 
-We will now implement the Holt's Linear Trend Model in our Airline Passenegr dataset and observe how this is a better estimate that our SES model.
+We will now implement the Holt's Linear Trend Model in our Airline Passengers dataset and observe how this is a better estimate that our SES model.
 
 ```python
 from statsmodels.tsa.holtwinters import Holt
@@ -702,16 +702,38 @@ df.loc[test_idx, 'Holt'] = res_h.forecast(N_test)
 
 As expected, we get a straight line trending upwards which is exactly what the Holt's Linear Trend model should be doing in this scenario.
 
-
-
-
-
-
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 #### 5.5 Holt-Winters Model
+So far we have seen the ```Simple Moving Average (SMA)```, ```Exponentially Weighted Moving Average (EWMA)```, ```Simple Exponential Smoothing``` as a forecasting model and the ```Holt's Linear Trend``` model which added a trend component. Now we will explore the Holt-Winters model which extends the Holt's Linear Trend by  adding a **seasonal** component.
+
+> Seasonality is a characteristic of a time series in which the data experiences ```regular``` and ```predictable``` changes that **recur** every calendar year.
+
+Many time series data has a seasonal pattern such as weather, air conditioner sales, swimsuits sales and so on. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ------------------------
 
