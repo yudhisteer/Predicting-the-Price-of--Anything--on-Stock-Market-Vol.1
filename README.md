@@ -681,14 +681,24 @@ We will first model the equations in component form:
 
 - The **forecast** equation is now made up of ```2``` components: ```level``` and ```trend```. Notice that <img src="https://latex.codecogs.com/svg.image?l_{t}" title="https://latex.codecogs.com/svg.image?l_{t}" /> is the starting value and y-intercept of the equation. <img src="https://latex.codecogs.com/svg.image?b_{t}" title="https://latex.codecogs.com/svg.image?b_{t}" /> is the slope of the equation with ```h``` is equal to the number of steps in the future. The forecast increases/decreases by the amount <img src="https://latex.codecogs.com/svg.image?b_{t}" title="https://latex.codecogs.com/svg.image?b_{t}" /> for each step in the future that we forecast. Our forecast is no longer a horizontal line but a line in any direction, hence, has the form of <img src="https://latex.codecogs.com/svg.image?y&space;=&space;m\cdot&space;x&space;&plus;&space;b" title="https://latex.codecogs.com/svg.image?y = m\cdot x + b" />.
 
+The question that we should now ask is how do we choose ```alpha``` and ```beta``` in the above equations? It turns how these variables will no longer be chosen by us but rather the Scikit-learn library will fit them to our in-sample data by minimizing a loss function using gradient descent. 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/169805714-d351b246-c444-4b67-b4ac-76b47d3a9414.png"/>
+</p>
 
+We will now implement the Holt's Linear Trend Model in our Airline Passenegr dataset and observe how this is a better estimate that our SES model.
 
+```python
+from statsmodels.tsa.holtwinters import Holt
+holt = Holt(df['Passengers'], initialization_method='legacy-heuristic')
 
+res_h = holt.fit() #we no longer choose alpha and beta
+df.loc[train_idx, 'Holt'] = res_h.fittedvalues
+df.loc[test_idx, 'Holt'] = res_h.forecast(N_test)  
+```
 
-
-
-
+![image](https://user-images.githubusercontent.com/59663734/169806612-51aa5471-c5e9-4b4e-a814-569641dacc20.png)
 
 
 
