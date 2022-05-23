@@ -667,18 +667,19 @@ ________________________________________________________ .. ____________________
 </p>
 
 #### 5.4 Holt's Linear Trend Model
+Recall from the example above how the forecast with our SES model was always a horizontal line. This is because we were only computing the level which is the average of our time series and our forecast was equal to the previous level value. However, in time series data we happen to have a trend and seasonality also. Hence, in this section we will implement a component for ```trend``` which will allow us to model trends, that is, to have lines(our forecast) at any angle.
 
+We will first model the equations in component form:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/169801477-4db5fa6a-d1a5-4130-8da5-1a1a80cf827d.png"/>
+</p>
 
+- Notice that our **level** equation has been modified to implement the **previous trend value**. We update the level using <img src="https://latex.codecogs.com/svg.image?l_{t-1}&space;&plus;&space;b_{t-1}&space;=&space;l_{t-1}&space;&plus;&space;1\cdot&space;&space;b_{t-1}" title="https://latex.codecogs.com/svg.image?l_{t-1} + b_{t-1} = l_{t-1} + 1\cdot b_{t-1}" /> where h = 1 represents one step increase due to trend. It is still exponential smoothing on the input signal using <img src="https://latex.codecogs.com/svg.image?l_{t-1}" title="https://latex.codecogs.com/svg.image?l_{t-1}" /> and <img src="https://latex.codecogs.com/svg.image?b_{t-1}" title="https://latex.codecogs.com/svg.image?b_{t-1}" /> as the previous smoothing value.
 
+- For our **trend** equation, notice that <img src="https://latex.codecogs.com/svg.image?l_{t}&space;-&space;l_{t-1}" title="https://latex.codecogs.com/svg.image?l_{t} - l_{t-1}" /> is the ```slope``` of the signal in one step where the latter expression is actually divided by ```1```(```1``` is the time difference). <img src="https://latex.codecogs.com/svg.image?b_{t}" title="https://latex.codecogs.com/svg.image?b_{t}" /> is also an exponentially estimate, that is, it is trying to estimate the slope or trend of the signal. The reason we use <img src="https://latex.codecogs.com/svg.image?l_{t}" title="https://latex.codecogs.com/svg.image?l_{t}" /> and not <img src="https://latex.codecogs.com/svg.image?y_{t}" title="https://latex.codecogs.com/svg.image?y_{t}" /> is because our time series data is noisy. So the level represents a smooth version of that signal without the noise. Therefore, taking the difference in <img src="https://latex.codecogs.com/svg.image?l_{t}" title="https://latex.codecogs.com/svg.image?l_{t}" /> represents a better estimate on the overall trend because it essentially removes that noise from the equation.
 
-
-
-
-
-
-
-
+- The **forecast** equation is now made up of ```2``` components: ```level``` and ```trend```. Notice that <img src="https://latex.codecogs.com/svg.image?l_{t}" title="https://latex.codecogs.com/svg.image?l_{t}" /> is the starting value and y-intercept of the equation. <img src="https://latex.codecogs.com/svg.image?b_{t}" title="https://latex.codecogs.com/svg.image?b_{t}" /> is the slope of the equation with ```h``` is equal to the number of steps in the future. The forecast increases/decreases by the amount <img src="https://latex.codecogs.com/svg.image?b_{t}" title="https://latex.codecogs.com/svg.image?b_{t}" /> for each step in the future that we forecast. Our forecast is no longer a horizontal line but a line in any direction, hence, has the form of <img src="https://latex.codecogs.com/svg.image?y&space;=&space;m\cdot&space;x&space;&plus;&space;b" title="https://latex.codecogs.com/svg.image?y = m\cdot x + b" />.
 
 
 
