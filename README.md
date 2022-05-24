@@ -808,7 +808,7 @@ Using ```.params``` method, we can get the smoothing coefficients for the level,
 ```
 
 
-Below is the prediction for the ```Add-Mul``` model from 1957 to 1961. The green dotted lines is the forecast:
+Below is the prediction for the ```Add-Mul``` model from 1957 to 1961. The green dotted lines is the forecast on the testing dataset:
 
 ![image](https://user-images.githubusercontent.com/59663734/169971211-c9abf75d-bd81-4ef5-bba6-69a3100ad84f.png)
 
