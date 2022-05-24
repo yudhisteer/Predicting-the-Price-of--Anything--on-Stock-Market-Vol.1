@@ -814,6 +814,10 @@ Below is the prediction for the ```Add-Mul``` model from 1957 to 1961. The green
 
 ------------------------
 ### 6. ARIMA: Autoregressive Integrated Moving Average 
+Earlier we worked on SMA and EWMA as a way to compute the average of our time series. We used SES that modeled the EWMA to do forecasting. Holt's Linear Trend and Holt-Winters were used for forecasting on seasonal datasets which may also have a trend but unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
+
+#### 6.1 Autoregressive Models - AR(p)
+To make it more distinct, Exponential Smoothing was used 
 
 
 
@@ -830,6 +834,20 @@ Below is the prediction for the ```Add-Mul``` model from 1957 to 1961. The green
 
 
 
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+
+
+
+
+
+
+
+
+
+------------------------
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/167879610-5d6285bc-cf74-41e3-99e1-8db24d809dfc.png" width="500" height="350"/>
