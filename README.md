@@ -713,8 +713,8 @@ So far we have seen the ```Simple Moving Average (SMA)```, ```Exponentially Weig
 
 Many time series data has a seasonal pattern such as weather, air conditioner sales, swimsuits sales and so on. For these kind of time series, there are generally ```3``` components: level (average), (linear) trend and seasonal (cycles). When combined together, we get our full time series data. There are ```2``` ways of doing this:
 
-- **Additive**: y = level + trend + seasonal
-- **Multiplicative**: y = (level + trend) x seasonal
+- **Additive**: ```y = level + trend + seasonal```
+- **Multiplicative**: ```y = (level + trend) x seasonal```
 
 #### 5.5.1 Additive Model
 In the additive model, the seasonal component is added to the trend and level. A noisy line is added to some periodic signal and this periodic signal being periodic does not change over time. 
@@ -744,11 +744,73 @@ The equations in component form:
 - The **seasonality** equation also is an exponential moving average. In front of gamma we have a ```new``` value and infront of (1 - gamma) we have the ```old``` value. Recognise that the old value comes from one period ago at index ```t-m``` and not one step ago.
 
 #### 5.5.2 Multiplicative Model
+For the multiplicative model, ```y = (level + trend) x seasonal```. If we make seasonal to be the subject of formula we get: ```seasonal = y/(level + trend)```. And this is exactly what we have in front of gamma in the seasonal equation below.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/169959629-5e0f1704-e504-407e-8e2d-165854d21fee.png"/>
 </p>
 
+Now, we will explore how the Holt-Winters model is applied on our Airline Passengers Dataset. We will define a loss function and choose the additive and the different multiplicative methods that is most appropriate.
+
+```python
+# Root Mean Squared Error
+def rmse (y, yhat):
+    return np.sqrt(np.mean(y - yhat)**2)
+    
+# Mean Absolute Error
+def mae(y, yhat):
+    return np.mean(np.abs(y - yhat))
+```
+
+Same as before, we create an instance of the Exponential Smoothing function and choose the additive or multiplicative method as shown below:
+
+```python
+# Additive Method
+hw = ExponentialSmoothing(train['Passengers'], initialization_method='legacy-heuristic',
+                         trend='add', seasonal='add', seasonal_periods=12)
+```
+
+For the additive method, we make the ```trend``` and and ```seasonal``` arguments equal to ```add```. We split our dataset for training and testing and we call the ```.fit``` method from statsmodel to choose the best smoothing parameters for the trend, level and seasonality.
+
+```python
+res_hw = hw.fit()
+```
+
+![image](https://user-images.githubusercontent.com/59663734/169967050-dd7fb319-b8df-48b8-80ca-bf0c49359c53.png)
+
+The result is very encouraging as compared to the SES and Holt's Linear Trend model, the Holt-Winter model fits very for both train and test. Notice that the prediction is no longer lagging behind and earlier the lag was due to model mis-specification. We can also try the different multiplicative methods:
+
+- ```y = (level + trend) x seasonal```: **Add-Mul**
+- ```y = level x (trend + seasonal)```: **Mul- Add**
+- ```y = level x trend x seasonal```: **Mul-Mul**
+
+We will then use our loss function to select the model which has the least loss in the training and testng datasets. From the result below, we see that we get a better model when we ```add``` the **trend** but ```multiply``` the **seasonality** component. The RMSE is lower in the training set compared to the test set but compared to the other models, this one is doing significantly better. The same is applied when computing the MAE. 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/169969475-f25e914c-32c2-4d23-b651-4f6eb6c345a1.png" width="550" height="150"/>
+</p>
+
+Using ```.params``` method, we can get the smoothing coefficients for the level, trend and seasonality:
+
+```python
+{'smoothing_level': 0.3762152620109574,
+ 'smoothing_trend': 3.061979771000134e-06,
+ 'smoothing_seasonal': 0.6237844386048091,
+ 'damping_trend': nan,
+ 'initial_level': 203.2357231696414,
+ 'initial_trend': 4.920913690203366,
+ 'initial_seasons': array([0.53805839, 0.56644619, 0.62259543, 0.59189162, 0.54698388,
+        0.59792401, 0.65067508, 0.6420933 , 0.58543158, 0.51035125,
+        0.45390989, 0.5234992 ]),
+ 'use_boxcox': False,
+ 'lamda': None,
+ 'remove_bias': False}
+```
+
+
+Below is the prediction for the ```Add-Mul``` model from 1957 to 1961. The green dotted lines is the forecast:
+
+![image](https://user-images.githubusercontent.com/59663734/169971211-c9abf75d-bd81-4ef5-bba6-69a3100ad84f.png)
 
 
 
