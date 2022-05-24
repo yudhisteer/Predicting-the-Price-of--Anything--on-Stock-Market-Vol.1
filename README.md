@@ -812,14 +812,23 @@ Below is the prediction for the ```Add-Mul``` model from 1957 to 1961. The green
 
 ![image](https://user-images.githubusercontent.com/59663734/169971211-c9abf75d-bd81-4ef5-bba6-69a3100ad84f.png)
 
-
-
-
-
-
-
-
 ------------------------
+### 6. ARIMA: Autoregressive Integrated Moving Average 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <p align="center">
