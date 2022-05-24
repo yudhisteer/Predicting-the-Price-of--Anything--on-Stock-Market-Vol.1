@@ -814,11 +814,12 @@ Below is the prediction for the ```Add-Mul``` model from 1957 to 1961. The green
 
 ------------------------
 ### 6. ARIMA: Autoregressive Integrated Moving Average 
-Earlier we worked on SMA and EWMA as a way to compute the average of our time series. We used SES that modeled the EWMA to do forecasting. Holt's Linear Trend and Holt-Winters were used for forecasting on seasonal datasets which may also have a trend but unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
+Earlier we worked on SMA and EWMA as a way to compute the average of our time series. We used SES that modeled the EWMA to do forecasting. Holt's Linear Trend and Holt-Winters were used for forecasting on seasonal datasets which may also have a trend. To make it more distinct, Exponential Smoothing is used for a specific kind of data which model linear trend and seasonality. 
+
+Unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
 
 #### 6.1 Autoregressive Models - AR(p)
-To make it more distinct, Exponential Smoothing was used 
-
+Contrary to Exponential Smoothing model, Arima models are more in the spirit of modern machine learning, where we take a model and you try to fit it to our data, whatever structure our data may have. Auto regressive models are basically ```linear regression``` models where the inputs also known as the ```predictors``` are past data points in the time series.
 
 
 
