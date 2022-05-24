@@ -781,7 +781,7 @@ res_hw = hw.fit()
 The result is very encouraging as compared to the SES and Holt's Linear Trend model, the Holt-Winter model fits very for both train and test. Notice that the prediction is no longer lagging behind and earlier the lag was due to model mis-specification. We can also try the different multiplicative methods:
 
 - ```y = (level + trend) x seasonal```: **Add-Mul**
-- ```y = level x (trend + seasonal)```: **Mul- Add**
+- ```y = level x (trend + seasonal)```: **Mul-Add**
 - ```y = level x trend x seasonal```: **Mul-Mul**
 
 We will then use our loss function to select the model which has the least loss in the training and testng datasets. From the result below, we see that we get a better model when we ```add``` the **trend** but ```multiply``` the **seasonality** component. The RMSE is lower in the training set compared to the test set but compared to the other models, this one is doing significantly better. The same is applied when computing the MAE. 
