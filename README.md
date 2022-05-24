@@ -745,6 +745,9 @@ The equations in component form:
 
 #### 5.5.2 Multiplicative Model
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/169959629-5e0f1704-e504-407e-8e2d-165854d21fee.png"/>
+</p>
 
 
 
