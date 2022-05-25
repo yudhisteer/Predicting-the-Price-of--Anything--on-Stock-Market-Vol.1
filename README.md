@@ -818,6 +818,12 @@ Earlier we worked on SMA and EWMA as a way to compute the average of our time se
 
 Unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
 
+#### 6.1 Stochastic Dependence
+
+
+#### 6.2 Stationarity
+
+
 #### 6.1 Autoregressive Models - AR(p)
 Contrary to Exponential Smoothing model, Arima models are more in the spirit of modern machine learning, where we take a model and you try to fit it to our data, whatever structure our data may have. Auto regressive models are basically ```linear regression``` models where the inputs also known as the ```predictors``` are past data points in the time series.
 
