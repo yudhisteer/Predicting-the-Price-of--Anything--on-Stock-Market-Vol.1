@@ -305,15 +305,42 @@ We can consider the following time-series examples of dependent time-series:
 
 - Sound data: speech, music;
 
-In all these examples, as well as in a general time series, data take the form of **discrete** measurements of a real world phenomena that evolves **continuously** in time. A general probabilistic model to describe such phenomena is called a **stochastic process** , which is simply a collection of random variables  indexed by either a continuous or discrete time parameter ```t```. So, a time series data set can be thought of as a **single realization of a stochastic process**.
+In all these examples, as well as in a general time series, data take the form of **discrete** measurements of a real world phenomena that evolves **continuously** in time. A general probabilistic model to describe such phenomena is called a **stochastic process** , which is simply a collection of random variables <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> indexed by either a continuous or discrete time parameter ```t```. So, a time series data set can be thought of as a **single realization of a stochastic process**.
 
 Some of the main characteristics of dependence in a time series are a trend and seasonal variation . These are deterministic dependencies of the random variables <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> of our series on the time stamp ```t```.
 
+#### 3.2.1 Deterministic dependencies in time series: trend, seasonality
+
+Let's denote <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> as the mean function of the marginal distributions of each distinct <img src="https://latex.codecogs.com/png.image?\dpi{110}{X}_t" title="https://latex.codecogs.com/png.image?\dpi{110}{X}_t" /> in the series.  <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> contains both the ```trend``` and the ```seasonal``` variation of the series.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170673275-619db082-0370-4067-8025-7ac53bb59ff3.png"/>
+</p>
 
 
+ - The ```trend``` of the series, denoted <img src="https://latex.codecogs.com/png.image?\dpi{110}m_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}m_{X}(t)" />, is the ```non-constant``` and ```non-cyclical``` component of <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" />. Trend can be **linear** or **nonlinear**, and is often **monotone** in time. 
 
+- The ```seasonal``` variation of the series, denoted <img src="https://latex.codecogs.com/png.image?\dpi{110}s_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}s_{X}(t)" />, is the cyclical component of <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" />. It is a **periodic** function whose values **repeat** at a **fixed time interval**. The period of seasonal variation may be assumed known or unknown depending on the data and application.
 
+Thus we have the following decomposition of the deterministic dependence structure:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170673563-ac4ca4d1-0bfd-4daa-af4c-f9861bf67e60.png"/>
+</p>
+
+Normally, we model a time series as below where <img src="https://latex.codecogs.com/png.image?\dpi{110}{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}{X}(t)" /> is the value of our random variable at time ```t```. <img src="https://latex.codecogs.com/png.image?\dpi{110}\varepsilon&space;_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}\varepsilon _{t}" /> is a white noise time series, <img src="https://latex.codecogs.com/png.image?\dpi{110}m_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}m_{X}(t)" />and <img src="https://latex.codecogs.com/png.image?\dpi{110}s_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}s_{X}(t)" /> are deterministic functions of time. 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170674167-4db96bb9-12e6-4c62-a291-443b1f881054.png"/>
+</p>
+
+Depending on the relative magnitude of the random noise and deterministic variation, the deterministic dependence in the time series may or may not be easily detectable with the naked eye.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170677285-c4856e9e-0819-4c28-9447-fcdfd653cd64.png" />
+</p>
+
+#### 3.2.2 Stochastic Dependence
 
 
 
