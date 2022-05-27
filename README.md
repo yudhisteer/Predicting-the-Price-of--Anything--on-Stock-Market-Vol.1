@@ -352,9 +352,18 @@ Suppose we have two random variables ```X``` and ```Y```. Dependence means that 
 
 The price of a stock tomorrow may be above or below the price of this stock today, and our expectation is that it will be equal to the price today. Because markets are ```efficient```, the best forecast of the price **tomorrow** is the price **today**. In other words, the ```change``` in the price between today and tomorrow is completely ```random``` and ```independent``` of the price today. But the **sum** of the price today with this **change** (the price tomorrow) obviously ```depends``` on the price **today**.
 
+On the other hand, time series like **heart rate** is ```periodic``` and **temperature** has ```seasonal``` variations with a twelve months period. These time series exhibit a ```deterministic dependence```.
+
+Very often it is the case that time series observations that are ```close``` to each other in time are ```strongly correlated```. Recall that if two variables are ```independent```, then their correlation will be ```0```. We will see more about covariance and correlation in the later chapters.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170685165-e6631e4c-7314-4cb3-83b0-e3225655bba6.png" />
+</p>
 
 
-
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
 
 
 #### 3.3 Objectives of Time Series
@@ -376,10 +385,17 @@ Now, why would we want to study time series and what can we learn from it? On a 
     - We may also use time series for control of other parameters. For example, the steering angle of a car based on the forecasting of a specific time series.
 
 
+From a statistical point of view, we want to study time series to understand and exploit the **deterministic** and **stochastic** dependencies of the stochastic process that generated the data. Specifically, we want to develop statistical tools and models to
 
+- **Detect the trend**
 
+- **Detect seasonal variation and determine its period length**
 
+- **Understand the correlation structure within the same time series**
 
+- **Understand the correlation structure between two different time series**
+
+As  mentioned above, one of the main objective is to ```forecast``` future observations of the series. This requires **estimating** the ```trend``` and the ```seasonal``` component and fitting a ```statistical model``` that captures the ```correlation structure``` between adjacent observations. We can then form a ```prediction``` of the future from the past by extrapolating on all the ```dependencies``` in the series that we learn from data with statistics. In some applications of time series these dependence properties are of interest on their own.
 
 
 
