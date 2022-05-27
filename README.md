@@ -309,7 +309,7 @@ In all these examples, as well as in a general time series, data take the form o
 
 Some of the main characteristics of dependence in a time series are a trend and seasonal variation . These are deterministic dependencies of the random variables <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> of our series on the time stamp ```t```.
 
-#### 3.2.1 Deterministic dependencies in time series: trend, seasonality
+##### 3.2.1 Deterministic dependencies: Trend and Seasonality
 
 Let's denote <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> as the mean function of the marginal distributions of each distinct <img src="https://latex.codecogs.com/png.image?\dpi{110}{X}_t" title="https://latex.codecogs.com/png.image?\dpi{110}{X}_t" /> in the series.  <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> contains both the ```trend``` and the ```seasonal``` variation of the series.
 
@@ -340,9 +340,17 @@ Depending on the relative magnitude of the random noise and deterministic variat
   <img src= "https://user-images.githubusercontent.com/59663734/170677285-c4856e9e-0819-4c28-9447-fcdfd653cd64.png" />
 </p>
 
-#### 3.2.2 Stochastic Dependence
+##### 3.2.2 Stochastic Dependence
+The main stochastic feature of time series data is the statistical dependence of the random variables at different time points. Mathematically, statistical dependence of a collection of random variables means that their joint distribution is not equal to the product of their marginal distributions.
 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170680159-a7c15d71-b27e-4f24-9471-638f07aac27f.png" width="450" height="130"/>
+</p>
+
+Suppose we have two random variables ```X``` and ```Y```. Dependence means that kowledge that event ```X``` has occurred provides information about the likelihood of different values of ```Y```. 
+
+The price of a stock tomorrow may be above or below the price of this stock today, and our expectation is that it will be equal to the price today. Because markets are ```efficient```, the best forecast of the price **tomorrow** is the price **today**. In other words, the ```change``` in the price between today and tomorrow is completely ```random``` and ```independent``` of the price today. But the **sum** of the price today with this **change** (the price tomorrow) obviously ```depends``` on the price **today**.
 
 
 
@@ -350,7 +358,7 @@ Depending on the relative magnitude of the random noise and deterministic variat
 
 
 #### 3.3 Objectives of Time Series
-Now, why would we want to study time series and what can we learn from it?
+Now, why would we want to study time series and what can we learn from it? On a higher level, we want to study time series for the ```5``` reasons below:
 
 - **Descriptive Analysis**
      - We may want to analyze in words, just like we did above, the time series. We may also want to analyze the ```components```, i.e, how the trend is changing over time, if we have a seasonality or not. We may also want to understand the ```relationship``` between several time series, understanding the ```dependencies```, ```correlation``` or whether it is ```smooth``` or not. 
