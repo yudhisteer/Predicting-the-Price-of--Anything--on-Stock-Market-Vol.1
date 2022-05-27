@@ -291,7 +291,7 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-#### 3.2 Objectives of time series
+#### 3.2 Objectives of Time Series
 Now, why would we want to study time series and what can we learn from it?
 
 - **Descriptive Analysis**
@@ -310,16 +310,22 @@ Now, why would we want to study time series and what can we learn from it?
     - We may also use time series for control of other parameters. For example, the steering angle of a car based on the forecasting of a specific time series.
 
 
+#### 3.3 Dependence in Time Series
+The most important feature of time series data is that we make no assumption about independence of these random variables. In fact, most time series data are ```dependent```, typically because **past realizations influence future observations** through the nature of the real world phenomenon that produces these data. It is fair to say, that the main goal of time-series analysis is to first ```model``` and then ```estimate from data``` (guided by the model) the **dependence structure** of these random variables.
 
+Statistical dependence can be a boon and a curse. That is, dependence helps us make predictions about the ```future realizations``` from knowledge of the ```past realizations``` (if yesterday was warm, today will probably be warm as well). However, dependence poses technical challenges in the ```distributional analysis``` of estimators. This is because there is effectively ```less statistical information``` in ```dependent data``` about the data generating process, as compared to the case of ```independent observations``` (the basic laws of large numbers and central limit theorems do not even apply).
 
+We can consider the following time-series examples of dependent time-series:
 
+- Economic data: stock prices, inflation rate, GDP, employment rate, interest rate, exchange rates;
 
+- Biometric data: heart rate, blood pressure, weight, fMRI;
 
+- Environmental data: temperature, precipitation, pressure, humidity, pollution;
 
+- Sound data: speech, music;
 
-
-
-
+In all these examples, as well as in a general time series, data take the form of **discrete** measurements of a real world phenomena that evolves **continuously** in time. A general probabilistic model to describe such phenomena is called a **stochastic process** , which is simply a collection of random variables  indexed by either a continuous or discrete time parameter ```t```. So, a time series data set can be thought of as a **single realization of a stochastic process**.
 
 
 <p align="center">
