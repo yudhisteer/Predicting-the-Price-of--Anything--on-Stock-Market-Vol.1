@@ -28,13 +28,10 @@
     - Volatility Clustering
 
 
-3. Understanding Time Series
+3. Exploratory Data Analysis and Static Analysis
 
     - What are time series?
-    - Statistics on time series
-
-4. Exploratory Data Analysis and Static Analysis
-
+    - Objectives of time series
     - QQ Plot
     - T-distribution
     - Confidence Intervals
@@ -43,7 +40,7 @@
     - Alpha and Beta
     - Gaussian Mixture Model
 
-5. Exponential Smoothing and ETS Methods
+4. Exponential Smoothing and ETS Methods
 
     - Simple Moving Average (SMA)
     - Exponentially Weighted Moving Average (EWMA)
@@ -262,34 +259,87 @@ ________________________________________________________ .. ____________________
 
 ------------------------
 
-### 3. Understanding Time Series
+
+### 3. Exploratory Data Analysis and Static Analysis
 
 #### 3.1 What are time series?
+Time series is a special kind of statistical data, specifically, it is a **collection of observations of random variables** <img src="https://latex.codecogs.com/svg.image?x_{1},...,x_{n}" title="https://latex.codecogs.com/svg.image?x_{1},...,x_{n}" /> indexed by a **fixed time intervals**. 
+
+
+For example, if I take ```temperature``` every day, all these data will be my **measurements**. They are not independent and they would be my observations indexed by the day. Let's say I have a random variable for each day and that is the temperature in each day. So our **observations are just realizations of these random variables**. The ```challenge``` is that we only have **one observation** for each of these variables because we have only one measurement for each day. More generally, the probability model is such that we have one random variable for each time stamp and one observation for each random variable. 
+
+Below, we have some real-world time series and we can see how each of them differ from each other. We will later explore terms like ```trend``` and ```seasonality``` in depth. 
+
+![image](https://user-images.githubusercontent.com/59663734/170647202-4502c4d5-15a9-430c-aab0-e2e49699247d.png)
+
+Based on the obeservations above, we see  ```2``` difference between the time series:
+
+- ```Components```
+    - We can **decompose** a time series such that the value at time ```t``` is equal to the ```trend```, the ```seasonality``` and the ```noise```. Note that some of the time series have a trend and some have a seasonaity while some don't.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170649163-471f4ae7-e474-4f8a-a238-e24f095de11c.png"/>
+</p>
+
+- ```Smoothness```
+     - We also observe how some time series is ```smooth``` over time and some are very ```heractic```. The smoothness can be quantified by a **correlation in time**, i.e, values that are fairly ```close``` to each other, they tend to be also pretty similar. so for a smooth time series, we have a large correlation in time and for a heractic one, we have less correlation in time. 
+
+> Time series is a collection of realizations of distinct random variables (i.e. a different random variable at each time index) at equally spaced points in time.
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 3.2 Statistics on time series
 
-------------------------
+#### 3.2 Objectives of time series
+Now, why would we want to study time series and what can we learn from it?
 
-### 4. Exploratory Data Analysis and Static Analysis
+- **Descriptive Analysis**
+     - We may want to analyze in words, just like we did above, the time series. We may also want to analyze the ```components```, i.e, how the trend is changing over time, if we have a seasonality or not. We may also want to understand the ```relationship``` between several time series, understanding the ```dependencies```, ```correlation``` or whether it is ```smooth``` or not. 
 
-#### 4.1 QQ Plot
+- **Modeling**
+    - We may also want to fit a ```statistical model``` to have a compact description of the time series to further enhance our understanding of the time series. 
+
+- **Forecasting**
+    - We may use the statistical model to do forecasting that can help us make better ```business decisions```.
+
+- **Time Series Regression**
+    - We may use time series regression to predict values of one time series by using values of the same time series or other time series in the past. So we may want to predict one time series as a function of others or the same time series. Note that this is a little bit more complicated than normal regression because in regression we typically assume that our data is ```IID```.
+
+ - **Control**
+    - We may also use time series for control of other parameters. For example, the steering angle of a car based on the forecasting of a specific time series.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 4.2 T-distribution
+#### 3.1 QQ Plot
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+#### 3.2 T-distribution
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 4.2 Confidence Intervals
+#### 3.2 Confidence Intervals
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
