@@ -966,6 +966,7 @@ Contrary to Exponential Smoothing model, Arima models are more in the spirit of 
 
 
 
+![image](https://user-images.githubusercontent.com/59663734/170880177-8c01ea3a-3f3c-40d6-87cb-3be5a3790012.png)
 
 
 
