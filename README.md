@@ -924,7 +924,7 @@ The result is very encouraging as compared to the SES and Holt's Linear Trend mo
 We will then use our loss function to select the model which has the least loss in the training and testng datasets. From the result below, we see that we get a better model when we ```add``` the **trend** but ```multiply``` the **seasonality** component. The RMSE is lower in the training set compared to the test set but compared to the other models, this one is doing significantly better. The same is applied when computing the MAE. 
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/169969475-f25e914c-32c2-4d23-b651-4f6eb6c345a1.png" width="550" height="150"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/170880247-73f7c078-54ce-4f60-ae70-6b39edb1a858.png" width="600" height="150"/>
 </p>
 
 Using ```.params``` method, we can get the smoothing coefficients for the level, trend and seasonality:
@@ -966,8 +966,9 @@ Contrary to Exponential Smoothing model, Arima models are more in the spirit of 
 
 
 
-![image](https://user-images.githubusercontent.com/59663734/170880177-8c01ea3a-3f3c-40d6-87cb-3be5a3790012.png)
-
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170880177-8c01ea3a-3f3c-40d6-87cb-3be5a3790012.png" width="620" height="230"/>
+</p>
 
 
 
