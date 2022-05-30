@@ -964,9 +964,15 @@ So what does it mean to compute a mean in a time series? The challenge as explai
   <img src= "https://user-images.githubusercontent.com/59663734/170987648-d4504efb-c209-4a92-a1e7-617b35520c87.png"/>
 </p>
 
+But what we are also interested is how do the values at the different timestamps actually relate to each other? This is measured by the ```covariance```. For example, we can take data for January and June and see how they relate to each other.  
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170998403-5cefc60f-b042-4ea4-b203-369d837c5990.png"/>
+</p>
 
+One big problem if we want to estimate this is that typically we have one time series. That is, we have only one observation for January and only one observation for June. So there's nothing we can average over. The **expected mean** would be just that **single value** of the variable that we have. And that is a problem because that's a very poor data set - only one observation to estimate means and variances or covariances.  And the only way we can typically estimate these kinds of statistics is by being able to do some kind of **averaging**.
 
+ 
 
 
 
