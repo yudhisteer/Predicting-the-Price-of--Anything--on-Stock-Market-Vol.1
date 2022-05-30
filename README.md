@@ -1026,6 +1026,17 @@ We have to types of stationarity: ```weak``` and ```strong```.
   <img src= "https://user-images.githubusercontent.com/59663734/171043439-a0c80bb0-8d55-4fdd-862f-a470dea6e4c1.png"/>
 </p>
 
+##### 6.1.3 What breaks stationarity?
+
+- Trend: non-constant expected value - breaks 1st condition ( <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)&space;=&space;\mu&space;_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t) = \mu _{X}" /> )
+- Seasonality - breaks 1st condition ( <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)&space;=&space;\mu&space;_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t) = \mu _{X}" /> )
+- Non-constant variance - breaks 2nd condition ( <img src="https://latex.codecogs.com/png.image?\dpi{110}var_{X}(t)&space;=&space;\sigma&space;^{2}_X" title="https://latex.codecogs.com/png.image?\dpi{110}var_{X}(t) = \sigma ^{2}_X" /> )
+- Change in the covariance structure - breaks 3rd condition ( <img src="https://latex.codecogs.com/png.image?\dpi{110}cov(X_s,&space;X_t)&space;=&space;\gamma&space;_X(s-t)" title="https://latex.codecogs.com/png.image?\dpi{110}cov(X_s, X_t) = \gamma _X(s-t)" /> )
+
+
+
+
+
 To sum up:
 
 1. In order to do statistical estimation and inference with time series data, we need technical conditions about the ```stochastic process``` from which the data are drawn. The idea is to ensure that observations along a ```single realization``` of the process are ```representative``` of all possible ```realizations``` of the process that we will never get to see. Specifically, we need conditions that would allow us to **estimate** ```population parameters``` of the whole process (e.g. expectations, variances, correlations) with time averages over a ```ingle realization``` of the process. Also, we need conditions that would allow us to **extrapolate** ```statistical models``` fitted to observations from the **past** into the **future**.
