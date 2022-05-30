@@ -955,11 +955,45 @@ Earlier we worked on SMA and EWMA as a way to compute the average of our time se
 
 Unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
 
-
 #### 6.1 Stationarity
+We have seen how we can describe times series and what are their specificities. What we actually want to do in the end is **fit models** to time series to understand them better. In order to fit models  we need to compute statistics like ```mean```, ```variance``` and ```correlation```.
+
+So what does it mean to compute a mean in a time series? The challenge as explained before is that we have only one random variable or one observation per time stamp. If we collect a ```100``` data points over a period of time ```t```, then we have ```100``` random variables. These are actually different random variables and we cannot just average them. What we actually have is ```one mean``` for each data point, i.e, we have **one expected value** for each day.  The same rule applies to the ```variance``` - how much my actual value deviates in expectation from the expectation from the mean. In our example, we will have ```100``` means and ```100``` variances.
 
 
-#### 6.2 Autoregressive Models - AR(p)
+
+
+
+
+
+
+
+
+#### 6.2 Removing Trend and Stationarity
+
+
+
+
+
+
+
+
+#### 6.3 Differencing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 6.4 Autoregressive Models - AR(p)
 Contrary to Exponential Smoothing model, Arima models are more in the spirit of modern machine learning, where we take a model and you try to fit it to our data, whatever structure our data may have. Auto regressive models are basically ```linear regression``` models where the inputs also known as the ```predictors``` are past data points in the time series.
 
 
