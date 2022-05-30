@@ -972,7 +972,57 @@ But what we are also interested is how do the values at the different timestamps
 
 One big problem if we want to estimate this is that typically we have one time series. That is, we have only one observation for January and only one observation for June. So there's nothing we can average over. The **expected mean** would be just that **single value** of the variable that we have. And that is a problem because that's a very poor data set - only one observation to estimate means and variances or covariances.  And the only way we can typically estimate these kinds of statistics is by being able to do some kind of **averaging**.
 
- 
+We need a few ```assumptions``` that the summary statistics of observations are consistent that will hence, allow us to do this averaging and that are central to being able to fit models of time series. And that is the concept of ```stationarity```. Note that these assumptions can be easily violated in time series by the addition of a ```trend```, ```seasonality```, and other time-dependent structures.
+
+> A stationary time series is one whose **statistical properties** such as ```mean```, ```variance```, ```autocorrelation```, etc. are all **constant** over time. Most statistical forecasting methods are based on the assumption that the time series can be rendered approximately ```stationary``` (i.e., "stationarized") through the use of mathematical ```transformations```. A stationarized series is relatively easy to predict: you simply predict that its statistical properties will be the ```same``` in the **future** as they have been in the **past**! The predictions for the stationarized series can then be ```"untransformed"``` by reversing whatever mathematical transformations were previously used to obtain predictions for the original series.
+
+##### 6.1.1 Benefits of Stationarity
+
+According to Jason Brownlee: 
+
+- The observations in a stationary time series are **not dependent on time**.
+
+- Time series are stationary if they do not have **trend** or **seasonal** effects. Summary statistics calculated on the time series are **consistent** over time, like the ```mean``` or the ```variance``` of the observations.
+
+- When a time series is stationary, it can be easier to **model**. ```Statistical modeling``` methods assume or require the time series to be stationary.
+
+##### 6.1.2 Types of Stationarity
+We have to types of stationarity: ```weak``` and ```strong```.
+
+**Weak Stationarity**
+
+- It is a condition on the **first** and **second** statistical moments which means that all the expectations and variances throughtout the time should be the same.
+
+- Now, we do not have one mean for each time stamp but we have only one of them. And the variance also is not different for all the different timestamps. 
+
+- This basically enables us to estimate this **single mean** by averaging our time series because now they have the **same** mean.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171030239-61ebce8a-f3cd-4192-95fa-c419329c13be.png"/>
+</p>
+
+- For the covariance we don't say that all possible pairs of variables have the same covariance. That's a bit too strong. So we say that we have the same covariance given the **gap** between them. So the covariance is only a function of gap.
+
+- For example, the covariance of January and July (6 months apart) has the same covariance as February and August (6 months apart). So basically every pair of months that's six months apart should have the same covariance.
+
+- If weak stationarity holds, we can measure means and variances and covariances. We can estimate those by just averaging over the time points.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171031095-40aaad29-8662-4ec8-a8e8-874dd4e2c761.png"/>
+</p>
+
+
+**Strong Stationarity**
+
+- With weak stationarity it is only the first and second moments which have to agree. However, in strong stationarity, the **entire distribution** has to be the same. 
+
+- For example, if we take two series (5 data points each) of non-overlapping measurements, then strong stationarity states that the distribution of these two sets of measuremnts has to be exactly the same. Basically all sets of five variables, wherever we shift our window, have to be the same.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171032008-cb390206-166d-4117-b914-8f696b0e8e87.png" width="280" height="50"/>
+</p>
+
+
 
 
 
