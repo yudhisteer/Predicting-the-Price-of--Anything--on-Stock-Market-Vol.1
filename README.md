@@ -960,7 +960,9 @@ We have seen how we can describe times series and what are their specificities. 
 
 So what does it mean to compute a mean in a time series? The challenge as explained before is that we have only one random variable or one observation per time stamp. If we collect a ```100``` data points over a period of time ```t```, then we have ```100``` random variables. These are actually different random variables and we cannot just average them. What we actually have is ```one mean``` for each data point, i.e, we have **one expected value** for each day.  The same rule applies to the ```variance``` - how much my actual value deviates in expectation from the expectation from the mean. In our example, we will have ```100``` means and ```100``` variances.
 
-
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170987648-d4504efb-c209-4a92-a1e7-617b35520c87.png"/>
+</p>
 
 
 
