@@ -1049,16 +1049,49 @@ To sum up:
 
 5. However, strong stationarity implies weak stationarity because the autocovariance function depends only on the time interval between the two random variables and not on their absolute position in time. Also, strong stationarity means that the marginal distributions <img src="https://latex.codecogs.com/png.image?\dpi{110}P_t&space;=&space;P_s" title="https://latex.codecogs.com/png.image?\dpi{110}P_t = P_s" /> for all time stamps t, s. Therefore, the marginal mean <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)&space;=&space;\mu&space;_{X}(s)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t) = \mu _{X}(s)" /> for all time stamps t, s.
 
-
-
-
-
-
-
 #### 6.2 Removing Trend and Stationarity
+We have seen that real-world time series data are not all stationary so we need to transform our data for it to be roughly stationary. For that, we can assume our time series to be composed of components: ```trend```, ```seasonality``` and the ```rest```.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171047239-5a103cb5-e6b4-48ba-b8a0-c8fdb9ea658e.png"/>
+</p>
 
+Since the trend and seasonality breaks stationarity then we can remove those ```2``` components and then fit the model to the rest of the time series.
 
+##### 6.2.1 Deterministic Trend
+A trend can be a linear or quadratic function of time. So we can use ```linear regression``` to model the trend. We model the estimate of the trend as shown below:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171047787-0efbb1a1-3670-4a4e-bfcc-c703db38e991.png"/>
+</p>
+
+We then transform our time series by subtracting the above T-hat:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171047895-3d80d614-bbbb-4f31-bf07-843a0e172dd2.png"/>
+</p>
+
+In the example below we have a linear trend upwards. We do a linear regression as a function of time and then we subtract that T-hat. We see that the linear upwards trend is gone in the plot on the right. There may be still some kind of curvy pattern but the linear upwards trend is gone. So that actually had to get the series closer to being stationary.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171048372-4f729361-6bf2-42bf-9136-6f7bdd1b5133.png" width="750" height="310"/>
+</p>
+
+##### 6.2.2 Deterministic Seasonality
+
+1. To remove seasonality we fit a ```periodic``` regression model, S-hat, which we then subtract from our original time series: 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171048754-f09e2f47-e647-4267-9e74-b3e09d85b6e4.png"/>
+</p>
+
+2. We can also subtract monthly averages. For example, if we want to use the monthly averages to remove the seasonality of summer-winter components:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171049117-d7117b62-531a-4964-92a5-6567c676fdd4.png"/>
+</p>
+
+3. We can also use Fourier Analysis to decompose our series into periodic functions with different frequency.
 
 
 
