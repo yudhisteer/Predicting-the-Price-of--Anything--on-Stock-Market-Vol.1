@@ -1022,6 +1022,21 @@ We have to types of stationarity: ```weak``` and ```strong```.
   <img src= "https://user-images.githubusercontent.com/59663734/171032008-cb390206-166d-4117-b914-8f696b0e8e87.png" width="280" height="50"/>
 </p>
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171043439-a0c80bb0-8d55-4fdd-862f-a470dea6e4c1.png"/>
+</p>
+
+To sum up:
+
+1. In order to do statistical estimation and inference with time series data, we need technical conditions about the ```stochastic process``` from which the data are drawn. The idea is to ensure that observations along a ```single realization``` of the process are ```representative``` of all possible ```realizations``` of the process that we will never get to see. Specifically, we need conditions that would allow us to **estimate** ```population parameters``` of the whole process (e.g. expectations, variances, correlations) with time averages over a ```ingle realization``` of the process. Also, we need conditions that would allow us to **extrapolate** ```statistical models``` fitted to observations from the **past** into the **future**.
+
+2. In the statistics of ```regression analysis``` and ```maximum likelihood estimation```, we relies on random sampling (i.e., the **i.i.d.** assumption) to argue that ```sample``` averages are good estimators of the ```population``` averages in moderately large samples because of the ```LLN``` and ```CLT```. Time series data are certainly **not** ```i.i.d.``` but weak and strong stationarity enables one to do inference via time averages along a single sample path, while allowing for stochastic dependencies in the data.
+
+3.  Weak stationarity does not imply strong stationarity because it says nothing about the stationarity of higher order moments of the time series.
+
+4. However, strong stationarity implies weak stationarity because the autocovariance function depends only on the time interval between the two random variables and not on their absolute position in time. Also, strong stationarity means that the marginal distributions <img src="https://latex.codecogs.com/png.image?\dpi{110}P_t&space;=&space;P_s" title="https://latex.codecogs.com/png.image?\dpi{110}P_t = P_s" /> for all time stamps t, s. Therefore, the marginal mean <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)&space;=&space;\mu&space;_{X}(s)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t) = \mu _{X}(s)" /> for all time stamps t, s.
+
+
 
 
 
