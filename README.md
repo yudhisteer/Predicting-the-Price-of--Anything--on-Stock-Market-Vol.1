@@ -1091,10 +1091,22 @@ In the example below we have a linear trend upwards. We do a linear regression a
   <img src= "https://user-images.githubusercontent.com/59663734/171049117-d7117b62-531a-4964-92a5-6567c676fdd4.png"/>
 </p>
 
-3. We can also use Fourier Analysis to decompose our series into periodic functions with different frequency.
+3. We can use Fourier Analysis to decompose our series into periodic functions with different frequency.
 
+4. Finally, we can also do ```smoothing``` - use SMA or EWMA to smooth out the summer-winter seasonality.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171049935-6beae90e-4dfd-40fc-8bf4-9526610f5ad2.png" width="500" height="250"/>
+</p>
 
+##### 6.2.3 Non-linear Transformation
+
+Bside ```trend``` and ```seasonality```, variation that changes over time also breaks stationarity. Changing the values of the series with a ```log
+transformation``` can actually help a lot.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171049876-dd8abf8c-86c6-4cf1-b7d3-3071e9a568b7.png" width="700" height="270"/>
+</p>
 
 
 #### 6.3 Differencing
