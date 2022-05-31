@@ -1250,6 +1250,10 @@ Recall that the white noise process is a **weakly stationary** time series becau
 
 The white noise model is not very interesting. In particular, it has no ```stochastic dependencies``` (**correlations**). The purpose of the white noise model is to model the “best" case ```residuals``` that contain ```no information```, after we fit a good time series **model** to the data and **subtract** the fitted values for the data. That is, we will be completely satisfied with a time series model for a given dataset, if the residuals of that model contain **no further information** about the dependencies in the data. This would mean that our statistical model for the data captures all the ```stochastic dependence``` exhibited in the data, which we can harness for predicting future observation.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171273473-58f9ef23-6112-4519-b971-49ff6a976cbb.png"/>
+</p>
+
 To detect a white noise time series, we first check that the series is ```stationary``` (e.g. by plotting it and making sure there is no trend or seasonal variation or exploding variance) and then look at the ```autocovariance``` function to detect ```stochastic dependencies``` in the data. Of course, we don't know the true autocovariance function of the process that generated the data and have to estimate it with <img src="https://latex.codecogs.com/svg.image?\hat{\gamma&space;}_W(h)" title="https://latex.codecogs.com/svg.image?\hat{\gamma }_W(h)" />. Under appropriate technical conditions, the distribution of the estimator is
 
 <p align="center">
@@ -1267,8 +1271,11 @@ ________________________________________________________ .. ____________________
 
 
 #### 6.2 Random Walk Model
+A time series is a random walk if the value of <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> is obtained from the value of <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t-1}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t-1}" /> by adding a white noise <img src="https://latex.codecogs.com/png.image?\dpi{110}W_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}W_{t}" /> that is ```independent``` of (or **uncorrelated** with) the past history of the series. 
 
-
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171273922-ab632a40-a057-4e53-a440-e5495d8305f7.png"/>
+</p>
 
 
 
