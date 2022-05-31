@@ -50,12 +50,11 @@
 
 5. Time Series Analysis
 
-    - Deterministic dependencies: Trend and Seasonality
+    - Deterministic Dependencies: Trend and Seasonality
     - Stochastic Dependence
     - Stationarity
     - Transformation towards Stationarity
-    - Differencing
-    - Diagnosing Stationarity
+    - Diagnosing Stationarity with Autocorrelation Function (ACF)
 
 5. Statistical Models
 
@@ -1192,7 +1191,7 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-#### 6.5 Differencing
+##### 6.2.4 Differencing
 There's another technique that exists where we do not actually have to do the explicit ```decomposition```. This is called **differencing** or **differentiation**. When differencing we create a new time series which is the difference between consecutive values. 
 
 <p align="center">
