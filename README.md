@@ -1246,7 +1246,7 @@ The figure below shows the white noise process and its corresponding ACF plot. T
   <img src= "https://user-images.githubusercontent.com/59663734/171266859-7ea67cd6-cd44-487e-a05a-5f3761cf2166.png" width="700" height="260"/>
 </p>
 
-Recall that the white noise process is a **weakly stationary** time series because it has a ```constant``` marginal ```mean``` function and its ```autocovariance``` is ```zero```, therefore does not depend at all on the two time stamps ```t ≠ s``` that are distinct. The white noise series need not be strongly stationary unless explicitly assumed to have this strong property.
+Recall that the white noise process is a **weakly stationary** time series because it has a ```constant``` marginal ```mean``` function and its ```autocovariance``` is ```zero```. Therefore it does not depend at all on the two time stamps ```t ≠ s``` that are distinct. The white noise series need not be strongly stationary unless explicitly assumed to have this strong property.
 
 The white noise model is not very interesting. In particular, it has no ```stochastic dependencies``` (**correlations**). The purpose of the white noise model is to model the “best" case ```residuals``` that contain ```no information```, after we fit a good time series **model** to the data and **subtract** the fitted values for the data. That is, we will be completely satisfied with a time series model for a given dataset, if the residuals of that model contain **no further information** about the dependencies in the data. This would mean that our statistical model for the data captures all the ```stochastic dependence``` exhibited in the data, which we can harness for predicting future observation.
 
@@ -1258,15 +1258,7 @@ To detect a white noise time series, we first check that the series is ```statio
 
 which means that we do not expect to see the theoretical acf function exactly as our estimate, but only approximately up to estimation error.
 
-
-
-
-
-
-
-
-
-
+>If our time series is white noise then by definition it is random. Therefore, it **cannot** be predicted.
 
 
 <p align="center">
@@ -1275,6 +1267,27 @@ ________________________________________________________ .. ____________________
 
 
 #### 6.2 Random Walk Model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <p align="center">
@@ -1343,3 +1356,4 @@ ________________________________________________________ .. ____________________
 16. https://towardsdatascience.com/simple-exponential-smoothing-749fc5631bed
 17. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
 18. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
+19. https://machinelearningmastery.com/white-noise-time-series
