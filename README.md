@@ -1182,7 +1182,11 @@ A ```correlogram``` is a chart which shows correlation in data that changes over
   <img src= "https://user-images.githubusercontent.com/59663734/171180679-114db3df-77ee-4a05-a547-ed723b074cc1.png"/>
 </p>
 
+We can use the ACF as a diagnostic tool after transformations to check whether the series is stationary or if there is any kind of patterns left. The autocorrelation tells us about how the linear dependence between the values at different time lags.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171183313-b83b8144-cf2b-45da-89e9-205e14311157.png" width="800" height="400"/>
+</p>
 
 
 
