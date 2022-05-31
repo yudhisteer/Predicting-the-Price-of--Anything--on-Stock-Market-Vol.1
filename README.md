@@ -299,29 +299,6 @@ Based on the obeservations above, we see  ```2``` difference between the time se
 
 > Time series is a collection of realizations of distinct random variables (i.e. a different random variable at each time index) at equally spaced points in time.
 
-<p align="center">
-________________________________________________________ .. __________________________________________________________
-</p>
-
-#### 3.2 Dependence in Time Series
-The most important feature of time series data is that we make no assumption about independence of these random variables. In fact, most time series data are ```dependent```, typically because **past realizations influence future observations** through the nature of the real world phenomenon that produces these data. It is fair to say, that the main goal of time-series analysis is to first ```model``` and then ```estimate from data``` (guided by the model) the **dependence structure** of these random variables.
-
-Statistical dependence can be a boon and a curse. That is, dependence helps us make predictions about the ```future realizations``` from knowledge of the ```past realizations``` (if yesterday was warm, today will probably be warm as well). However, dependence poses technical challenges in the ```distributional analysis``` of estimators. This is because there is effectively ```less statistical information``` in ```dependent data``` about the data generating process, as compared to the case of ```independent observations``` (the basic laws of large numbers and central limit theorems do not even apply).
-
-We can consider the following time-series examples of dependent time-series:
-
-- Economic data: stock prices, inflation rate, GDP, employment rate, interest rate, exchange rates;
-
-- Biometric data: heart rate, blood pressure, weight, fMRI;
-
-- Environmental data: temperature, precipitation, pressure, humidity, pollution;
-
-- Sound data: speech, music;
-
-In all these examples, as well as in a general time series, data take the form of **discrete** measurements of a real world phenomena that evolves **continuously** in time. A general probabilistic model to describe such phenomena is called a **stochastic process** , which is simply a collection of random variables <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> indexed by either a continuous or discrete time parameter ```t```. So, a time series data set can be thought of as a **single realization of a stochastic process**.
-
-Some of the main characteristics of dependence in a time series are a trend and seasonal variation . These are deterministic dependencies of the random variables <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> of our series on the time stamp ```t```.
-
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
@@ -923,7 +900,25 @@ In this section, we will dive deeper of the mathematical components of a time se
 5. To get a stationary time series we need to **transform** our signal to achieve weak stationarity.
 6. To diagnose that we achieved weak stationarity, we will use **autocorrelation**.
 
+
 #### 6.1 Deterministic dependencies: Trend and Seasonality
+The most important feature of time series data is that we make no assumption about independence of these random variables. In fact, most time series data are ```dependent```, typically because **past realizations influence future observations** through the nature of the real world phenomenon that produces these data. It is fair to say, that the main goal of time-series analysis is to first ```model``` and then ```estimate from data``` (guided by the model) the **dependence structure** of these random variables.
+
+Statistical dependence can be a boon and a curse. That is, dependence helps us make predictions about the ```future realizations``` from knowledge of the ```past realizations``` (if yesterday was warm, today will probably be warm as well). However, dependence poses technical challenges in the ```distributional analysis``` of estimators. This is because there is effectively ```less statistical information``` in ```dependent data``` about the data generating process, as compared to the case of ```independent observations``` (the basic laws of large numbers and central limit theorems do not even apply).
+
+We can consider the following time-series examples of dependent time-series:
+
+- Economic data: stock prices, inflation rate, GDP, employment rate, interest rate, exchange rates;
+
+- Biometric data: heart rate, blood pressure, weight, fMRI;
+
+- Environmental data: temperature, precipitation, pressure, humidity, pollution;
+
+- Sound data: speech, music;
+
+In all these examples, as well as in a general time series, data take the form of **discrete** measurements of a real world phenomena that evolves **continuously** in time. A general probabilistic model to describe such phenomena is called a **stochastic process** , which is simply a collection of random variables <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> indexed by either a continuous or discrete time parameter ```t```. So, a time series data set can be thought of as a **single realization of a stochastic process**.
+
+Some of the main characteristics of dependence in a time series are a trend and seasonal variation . These are deterministic dependencies of the random variables <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> of our series on the time stamp ```t```.
 
 Let's denote <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> as the mean function of the marginal distributions of each distinct <img src="https://latex.codecogs.com/png.image?\dpi{110}{X}_t" title="https://latex.codecogs.com/png.image?\dpi{110}{X}_t" /> in the series.  <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> contains both the ```trend``` and the ```seasonal``` variation of the series.
 
