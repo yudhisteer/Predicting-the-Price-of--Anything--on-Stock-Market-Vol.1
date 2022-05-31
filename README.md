@@ -1146,7 +1146,7 @@ Now which transformation - removing trend, removing seasonality or differencing 
 
 - When we decompose our time series, we know exactly what is our trend or seasonality so this makes us understand the time series better. However, on the other hand, we need to choose what kind of seasonality of trend we would need to subtract it from the original time series.
 
-- Differencing is quite simple and straight-forward. We do not need to choose any models and we can also use differencing together with logarithm. However, when doing differencing it shortens our time series so this make not be appropriate for short time series. 
+- Differencing is quite simple and straight-forward. We do not need to choose any models and we can also use differencing together with logarithm. However, when doing differencing it shortens our time series so this make not be appropriate for short time series. Differentiation of the time series not only removes the trend (i.e. ```deterministic dependence``` on time) but also removes ```stochastic dependence``` on the past terms of the series.
 
 In summary:
 
@@ -1156,7 +1156,7 @@ In summary:
 
 3. Fitting a ```periodic regression``` function to a time series can be used to estimate and remove ```seasonal``` variation.
 
-4. Differencing the data **once** can be used to remove a ```linear trend``` and differencing the data **more than once** can be used to remove ```polynomial trends```. Differencing the data is also a standard method to transform a time series with ```exploding variance``` and persistent stochastic dependence into a stationary time series. If the increments of a time series rather then its levels are stationary, then the first difference of the series is stationary.
+4. Differencing the data **once** can be used to remove a ```linear trend``` and differencing the data **more than once** can be used to remove ```polynomial trends```. Differencing the data is also a standard method to transform a time series with ```exploding variance``` and persistent stochastic dependence into a stationary time series. If the increments of a time series rather then its levels are stationary, then the first difference of the series is stationary. 
 
 5. A **variance reducing transformation** like the ```log``` can stabilize the increasing variance of a time series. However, this does not help with persistent dependencies in the time series.
 
