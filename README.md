@@ -204,6 +204,9 @@ ________________________________________________________ .. ____________________
 ![rand_2D](https://user-images.githubusercontent.com/59663734/168471883-1f124262-bcba-4d95-bac4-da51fac10640.gif)
 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170880177-8c01ea3a-3f3c-40d6-87cb-3be5a3790012.png" width="620" height="230"/>
+</p>
 
 
 
@@ -1229,6 +1232,11 @@ We can use the ACF as a diagnostic tool after transformations to check whether t
 
 ------------------------------
 ### 6. Statistical Models
+Earlier we worked on SMA and EWMA as a way to compute the average of our time series. We used SES that modeled the EWMA to do forecasting. Holt's Linear Trend and Holt-Winters were used for forecasting on seasonal datasets which may also have a trend. To make it more distinct, Exponential Smoothing is used for a specific kind of data which model linear trend and seasonality. 
+
+Unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
+
+Before diving into the ARIMA mnodel, it is important to understand other underlying statistical models that will allow us to better understand our time series. We need to first understand if our time series is at all ```predictable```.  
 
 
 #### 6.1 White Noise Model
@@ -1304,15 +1312,10 @@ ________________________________________________________ .. ____________________
 
 #### 6.3 Autoregressive Models: AR(p)
 
-Earlier we worked on SMA and EWMA as a way to compute the average of our time series. We used SES that modeled the EWMA to do forecasting. Holt's Linear Trend and Holt-Winters were used for forecasting on seasonal datasets which may also have a trend. To make it more distinct, Exponential Smoothing is used for a specific kind of data which model linear trend and seasonality. 
 
-Unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
 
 Contrary to Exponential Smoothing model, Arima models are more in the spirit of modern machine learning, where we take a model and you try to fit it to our data, whatever structure our data may have. Auto regressive models are basically ```linear regression``` models where the inputs also known as the ```predictors``` are past data points in the time series.
 
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/170880177-8c01ea3a-3f3c-40d6-87cb-3be5a3790012.png" width="620" height="230"/>
-</p>
 
 
 <p align="center">
