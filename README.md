@@ -1156,18 +1156,22 @@ In summary:
 
 5. A **variance reducing transformation** like the ```log``` can stabilize the increasing variance of a time series. However, this does not help with persistent dependencies in the time series.
 
-#### 6.4 Autocorrelation
+#### 6.4 Diagnosing Stationarity
+Let <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> denote a stationary time series. Recall that this implies that the marginal mean function <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> is constant and the autocovariance function depends only on the difference of the two time stamps. We obtain estimators of the mean <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}" /> , the variance <img src="https://latex.codecogs.com/png.image?\dpi{110}\sigma&space;^2_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\sigma ^2_{X}" /> and the autocovariance function <img src="https://latex.codecogs.com/png.image?\dpi{110}\gamma&space;_{X}(h)" title="https://latex.codecogs.com/png.image?\dpi{110}\gamma _{X}(h)" /> by replacing expectations with sample averages:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171175670-43692277-b328-46a4-9ddf-0a0298f65d69.png" width="400" height="200"/>
+</p>
+
+If the series is stationary, then each observation in the sample averages above contributes statistical information about the common parameters <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu,&space;\sigma&space;^2,&space;\gamma&space;(h)&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\mu, \sigma ^2, \gamma (h) " />. However, most time series are dependent. However, if the stochastic dependences (e.g. correlations) in the series decays sufficiently fast as the time distance between terms get large, then the sample averages have a similar asymptotic behavior as in the classical laws of large numbers and central limit theorems for i.i.d. data. So, under mild technical conditions, we have good estimators of the mean, variance and autocovariance function of a stationary time series.
+
 The autocovariance function (ACF) is a very useful statistical tool for studying the dependence properties of a time series. The ACF is our formal tool for detecting non-stationarity in a time series. Plotting and visualizing the correlation structure of the series is the second step after plotting and visualizing the series itself. 
 
-The "auto" part in autocovariance tells us that two random variables come from the same time-series. Covariance is just the unscaled correlation. Therefore it tells us how related to random variables are. If they are completely unrelated, then the correlation and hence the covariance will be ```zero```. If they are related, that is, they move together either in the same direction or the opposite direction, then this value will be ```non-zero```.
+The "auto" part in autocovariance tells us that two random variables come from the same time-series. Covariance is just the ```unscaled correlation```. Therefore it tells us how related two random variables are. If they are completely **unrelated**, then the correlation and hence the covariance will be ```zero```. If they are **related**, that is, they move together either in the same direction or the opposite direction, then this value will be ```non-zero```.
 
-Recall in weak stationarity the autocovariance is just a function of the gap, i.e, if we pick any two time points in the series, as long as this time difference is the same, the covariance between these two random variables is the same. In other words, the relationship between each value and the time series remains constant over time. If this relationship were to change over time, then we wouldn't be able to fit any such model. That's why we want stationary when we fit these kinds of models.
+Recall in weak stationarity the autocovariance is just a function of the ```gap```, i.e, if we pick any two time points in the series, as long as this time difference is the same, the covariance between these two random variables is the same. In other words, the relationship between each value and the time series remains constant over time. If this relationship were to change over time, then we wouldn't be able to fit any such model. That's why we want stationary when we fit these kinds of models.
 
-
-
-
-
-
+Note that this also implies that the variance remains constant over time. So that's why if we see the variance change over time, as we do with ```volatility clustering```, then we take that as evidence that thetime series is non-stationary. 
 
 
 #### 6.4 Autoregressive Models - AR(p)
