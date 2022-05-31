@@ -1176,13 +1176,13 @@ Recall in weak stationarity the autocovariance is just a function of the ```gap`
 
 Note that this also implies that the variance remains constant over time. So that's why if we see the variance change over time, as we do with ```volatility clustering```, then we take that as evidence that thetime series is non-stationary. 
 
-A ```correlogram``` is a chart which shows correlation in data that changes over time. The x-axis is the **lag**, **h**, and the y-axis is the **autocorrelation** with range of ```-1``` to ```+1```. Below is a series of time series with their correlogram at different values of lag.
+A ```correlogram``` is a chart which shows correlation in data that changes over time. The x-axis is the **lag**, **h**, and the y-axis is the **autocorrelation** with range of ```-1``` to ```+1```. Below is a series of time series with their correlogram at different values of lag. If we see any lagged autocorrelations outside the confidence threshold, we will **reject** that they are equal to ```0```. 
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171180679-114db3df-77ee-4a05-a547-ed723b074cc1.png"/>
 </p>
 
-We can use the ACF as a diagnostic tool after transformations to check whether the series is stationary or if there is any kind of patterns left. The autocorrelation tells us about how the linear dependence between the values at different time lags.
+We can use the ACF as a diagnostic tool after transformations to check whether the series is stationary or if there is any kind of patterns left. The autocorrelation tells us about how the linear dependence between the values at different time lags. Note at lag ```0``` the autocorrelation is ```1``` because we are simply dividing the variance by the variance.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171183313-b83b8144-cf2b-45da-89e9-205e14311157.png" width="800" height="400"/>
