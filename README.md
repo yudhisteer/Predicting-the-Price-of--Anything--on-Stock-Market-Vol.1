@@ -1110,18 +1110,55 @@ transformation``` can actually help a lot.
 
 
 #### 6.3 Differencing
+There's another technique that exists where we do not actually have to do the explicit ```decomposition```. This is called **differencing** or **differentiation**. When differencing we create a new time series which is the difference between consecutive values. 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171114204-0cbb05cf-19b5-4802-85e6-202c3e33503c.png"/>
+</p>
 
+Let's prove how differencing can help remove stationarity. Suppose we have this simple non-stationary time series <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> which is a linear model for some <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\beta " /> plus some i.i.d. Gaussian noise.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171115387-838b8e2e-dfab-40bc-ae63-eb093a0669db.png"/>
+</p>
 
+When we do differencing, we have our new time series <img src="https://latex.codecogs.com/png.image?\dpi{110}Y_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}Y_{t}" /> which constitute of one of the betas plus a difference of these white noises which are indendent of time. <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu(X)&space;=&space;\beta&space;&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\mu(X) = \beta " /> and the variation is determined by the difference of these random variables.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171116616-0651365a-3109-4ebf-889c-cb8ceced0849.png"/>
+</p>
 
+The covariance also doesn't change over time anymore because it's just determined by these random variables. So differencing **one** time removes ```linear trend``` and differencing a **second** time removes ```quadratic trend```.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171118023-5878e506-d7d2-4403-8387-e5f8aeba2913.png"/>
+</p>
 
+In general, if we need to differentiate ```p```times for <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> to become stationary, then we say that the series <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> is integrated of order ```p```.
 
+Below is an example of a time serues when we remove linear trends and when we do differencing. While they kind of have a similar effect, the actual outcome doesn't look exactly the same. In both of the transformations, the linear trend is removed. But the differencing also remove the other curvy patterns that we still have in the detrended time series.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171118771-c8f15ec6-e9a1-4e92-9359-6c4bbccd7f21.png" width="400" height="500"/>
+</p>
 
+Now which transformation - removing trend, removing seasonality or differencing -  should we choose to make our time series stationary?
 
+- When we decompose our time series, we know exactly what is our trend or seasonality so this makes us understand the time series better. However, on the other hand, we need to choose what kind of seasonality of trend we would need to subtract it from the original time series.
+
+- Differencing is quite simple and straight-forward. We do not need to choose any models and we can also use differencing together with logarithm. However, when doing differencing it shortens our time series so this make not be appropriate for short time series. 
+
+In summary:
+
+1. Fitting a ```linear regression model``` of the series on the time index and subtracting off the fitted mean function from the series removes the ```linear trend```. 
+
+2. A **nonparametric regression model** can be used to estimate and remove a ```nonlinear``` (and hence also a ```linear```) trend from a time series. A nonparametric regression can be used to estimate and remove ```seasonal``` variation (which can be seen as a ```nonlinear trend```), but it is much more statistically efficient to use a **parametric** regression on a ```periodic``` function to do this.
+
+3. Fitting a ```periodic regression``` function to a time series can be used to estimate and remove ```seasonal``` variation.
+
+4. Differencing the data **once** can be used to remove a ```linear trend``` and differencing the data **more than once** can be used to remove ```polynomial trends```. Differencing the data is also a standard method to transform a time series with ```exploding variance``` and persistent stochastic dependence into a stationary time series. If the increments of a time series rather then its levels are stationary, then the first difference of the series is stationary.
+
+5. A **variance reducing transformation** like the ```log``` can stabilize the increasing variance of a time series. However, this does not help with persistent dependencies in the time series.
 
 
 #### 6.4 Autoregressive Models - AR(p)
