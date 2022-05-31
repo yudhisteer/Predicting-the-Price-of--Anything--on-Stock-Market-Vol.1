@@ -1157,10 +1157,11 @@ In summary:
 5. A **variance reducing transformation** like the ```log``` can stabilize the increasing variance of a time series. However, this does not help with persistent dependencies in the time series.
 
 #### 6.4 Autocorrelation
+The autocovariance function (ACF) is a very useful statistical tool for studying the dependence properties of a time series. The ACF is our formal tool for detecting non-stationarity in a time series. Plotting and visualizing the correlation structure of the series is the second step after plotting and visualizing the series itself. 
 
+The "auto" part in autocovariance tells us that two random variables come from the same time-series. Covariance is just the unscaled correlation. Therefore it tells us how related to random variables are. If they are completely unrelated, then the correlation and hence the covariance will be ```zero```. If they are related, that is, they move together either in the same direction or the opposite direction, then this value will be ```non-zero```.
 
-
-
+Recall in weak stationarity the autocovariance is just a function of the gap, i.e, if we pick any two time points in the series, as long as this time difference is the same, the covariance between these two random variables is the same. In other words, the relationship between each value and the time series remains constant over time. If this relationship were to change over time, then we wouldn't be able to fit any such model. That's why we want stationary when we fit these kinds of models.
 
 
 
