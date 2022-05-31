@@ -1033,10 +1033,6 @@ We have to types of stationarity: ```weak``` and ```strong```.
 - Non-constant variance - breaks 2nd condition ( <img src="https://latex.codecogs.com/png.image?\dpi{110}var_{X}(t)&space;=&space;\sigma&space;^{2}_X" title="https://latex.codecogs.com/png.image?\dpi{110}var_{X}(t) = \sigma ^{2}_X" /> )
 - Change in the covariance structure - breaks 3rd condition ( <img src="https://latex.codecogs.com/png.image?\dpi{110}cov(X_s,&space;X_t)&space;=&space;\gamma&space;_X(s-t)" title="https://latex.codecogs.com/png.image?\dpi{110}cov(X_s, X_t) = \gamma _X(s-t)" /> )
 
-
-
-
-
 To sum up:
 
 1. In order to do statistical estimation and inference with time series data, we need technical conditions about the ```stochastic process``` from which the data are drawn. The idea is to ensure that observations along a ```single realization``` of the process are ```representative``` of all possible ```realizations``` of the process that we will never get to see. Specifically, we need conditions that would allow us to **estimate** ```population parameters``` of the whole process (e.g. expectations, variances, correlations) with time averages over a ```ingle realization``` of the process. Also, we need conditions that would allow us to **extrapolate** ```statistical models``` fitted to observations from the **past** into the **future**.
@@ -1159,6 +1155,18 @@ In summary:
 4. Differencing the data **once** can be used to remove a ```linear trend``` and differencing the data **more than once** can be used to remove ```polynomial trends```. Differencing the data is also a standard method to transform a time series with ```exploding variance``` and persistent stochastic dependence into a stationary time series. If the increments of a time series rather then its levels are stationary, then the first difference of the series is stationary. 
 
 5. A **variance reducing transformation** like the ```log``` can stabilize the increasing variance of a time series. However, this does not help with persistent dependencies in the time series.
+
+#### 6.4 Autocorrelation
+
+
+
+
+
+
+
+
+
+
 
 
 #### 6.4 Autoregressive Models - AR(p)
