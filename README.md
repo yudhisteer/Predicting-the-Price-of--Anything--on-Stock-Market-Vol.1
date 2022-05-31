@@ -48,16 +48,23 @@
     - Holt's Linear Trend Model
     - Holt-Winters Model
 
-5. ARIMA: Autoregressive Integrated Moving Average
+5. Time Series Analysis
 
+    - Deterministic dependencies: Trend and Seasonality
+    - Stochastic Dependence
     - Stationarity
     - Transformation towards Stationarity
     - Differencing
     - Diagnosing Stationarity
+
+5. Statistical Models
+
     - White Noise Model
     - Random Walk Model
-
-6. VARMA: Vector Autoregressive Moving Average
+    - ARIMA Model
+    - ACF and PACF
+    - Auto ARIMA
+    - VARMA
 
 7. ANN
 
@@ -957,12 +964,74 @@ Below is the prediction for the ```Add-Mul``` model from 1957 to 1961. The green
 ![image](https://user-images.githubusercontent.com/59663734/169971211-c9abf75d-bd81-4ef5-bba6-69a3100ad84f.png)
 
 ------------------------
-### 6. ARIMA: Autoregressive Integrated Moving Average 
-Earlier we worked on SMA and EWMA as a way to compute the average of our time series. We used SES that modeled the EWMA to do forecasting. Holt's Linear Trend and Holt-Winters were used for forecasting on seasonal datasets which may also have a trend. To make it more distinct, Exponential Smoothing is used for a specific kind of data which model linear trend and seasonality. 
 
-Unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
+### 6. Time Series Analysis
+In this section, we will dive deeper of the mathematical components of a time series and what transformations we need to undertake in order to fit statistical models to our data in order to do forecasting. We will follow the steps below:
 
-#### 6.1 Stationarity
+1. We start with our time series which is a collection of **random variables** indexed by time.
+2. We want to fit some kind of **model** to explain and understand our time series to do a **forecast**.
+3. In order to do that, we need to estimate some **statistics**.
+4. To do these estimations, we need our time series to be **stationary**.
+5. To get a stationary time series we need to **transform** our signal to achieve weak stationarity.
+6. To diagnose that we achieved weak stationarity, we will use **autocorrelation**.
+
+#### 6.1 Deterministic dependencies: Trend and Seasonality
+
+Let's denote <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> as the mean function of the marginal distributions of each distinct <img src="https://latex.codecogs.com/png.image?\dpi{110}{X}_t" title="https://latex.codecogs.com/png.image?\dpi{110}{X}_t" /> in the series.  <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> contains both the ```trend``` and the ```seasonal``` variation of the series.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170673275-619db082-0370-4067-8025-7ac53bb59ff3.png"/>
+</p>
+
+
+ - The ```trend``` of the series, denoted <img src="https://latex.codecogs.com/png.image?\dpi{110}m_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}m_{X}(t)" />, is the ```non-constant``` and ```non-cyclical``` component of <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" />. Trend can be **linear** or **nonlinear**, and is often **monotone** in time. 
+
+- The ```seasonal``` variation of the series, denoted <img src="https://latex.codecogs.com/png.image?\dpi{110}s_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}s_{X}(t)" />, is the cyclical component of <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" />. It is a **periodic** function whose values **repeat** at a **fixed time interval**. The period of seasonal variation may be assumed known or unknown depending on the data and application.
+
+Thus we have the following decomposition of the deterministic dependence structure:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170673563-ac4ca4d1-0bfd-4daa-af4c-f9861bf67e60.png"/>
+</p>
+
+Normally, we model a time series as below where <img src="https://latex.codecogs.com/png.image?\dpi{110}{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}{X}(t)" /> is the value of our random variable at time ```t```. <img src="https://latex.codecogs.com/png.image?\dpi{110}\varepsilon&space;_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}\varepsilon _{t}" /> is a white noise time series, <img src="https://latex.codecogs.com/png.image?\dpi{110}m_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}m_{X}(t)" />and <img src="https://latex.codecogs.com/png.image?\dpi{110}s_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}s_{X}(t)" /> are deterministic functions of time. 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170674167-4db96bb9-12e6-4c62-a291-443b1f881054.png"/>
+</p>
+
+Depending on the relative magnitude of the random noise and deterministic variation, the deterministic dependence in the time series may or may not be easily detectable with the naked eye.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170677285-c4856e9e-0819-4c28-9447-fcdfd653cd64.png" />
+</p>
+
+#### 6.2 Stochastic Dependence
+The main stochastic feature of time series data is the statistical dependence of the random variables at different time points. Mathematically, statistical dependence of a collection of random variables means that their joint distribution is not equal to the product of their marginal distributions.
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170680159-a7c15d71-b27e-4f24-9471-638f07aac27f.png" width="450" height="130"/>
+</p>
+
+Suppose we have two random variables ```X``` and ```Y```. Dependence means that kowledge that event ```X``` has occurred provides information about the likelihood of different values of ```Y```. 
+
+The price of a stock tomorrow may be above or below the price of this stock today, and our expectation is that it will be equal to the price today. Because markets are ```efficient```, the best forecast of the price **tomorrow** is the price **today**. In other words, the ```change``` in the price between today and tomorrow is completely ```random``` and ```independent``` of the price today. But the **sum** of the price today with this **change** (the price tomorrow) obviously ```depends``` on the price **today**.
+
+On the other hand, time series like **heart rate** is ```periodic``` and **temperature** has ```seasonal``` variations with a twelve months period. These time series exhibit a ```deterministic dependence```.
+
+Very often it is the case that time series observations that are ```close``` to each other in time are ```strongly correlated```. Recall that if two variables are ```independent```, then their correlation will be ```0```. We will see more about covariance and correlation in the later chapters.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/170685165-e6631e4c-7314-4cb3-83b0-e3225655bba6.png" />
+</p>
+
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+#### 6.3 Stationarity
 We have seen how we can describe times series and what are their specificities. What we actually want to do in the end is **fit models** to time series to understand them better. In order to fit models  we need to compute statistics like ```mean```, ```variance``` and ```correlation```.
 
 So what does it mean to compute a mean in a time series? The challenge as explained before is that we have only one random variable or one observation per time stamp. If we collect a ```100``` data points over a period of time ```t```, then we have ```100``` random variables. These are actually different random variables and we cannot just average them. What we actually have is ```one mean``` for each data point, i.e, we have **one expected value** for each day.  The same rule applies to the ```variance``` - how much my actual value deviates in expectation from the expectation from the mean. In our example, we will have ```100``` means and ```100``` variances.
@@ -1058,7 +1127,7 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-#### 6.2 Transformation towards Stationarity
+#### 6.4 Transformation towards Stationarity
 We have seen that real-world time series data are not all stationary so we need to transform our data for it to be roughly stationary. For that, we can assume our time series to be composed of components: ```trend```, ```seasonality``` and the ```rest```.
 
 <p align="center">
@@ -1123,7 +1192,7 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-#### 6.3 Differencing
+#### 6.5 Differencing
 There's another technique that exists where we do not actually have to do the explicit ```decomposition```. This is called **differencing** or **differentiation**. When differencing we create a new time series which is the difference between consecutive values. 
 
 <p align="center">
@@ -1180,7 +1249,8 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-#### 6.4 Diagnosing Stationarity
+#### 6.6 Diagnosing Stationarity
+We saw how we can decompose our time series or use differencing to make our time series stationary. Now, we could only observe visually if our time series seem to be visually or not. We did not have any mathematical model that can guarantee us that the signal is indeed weak stationary. In this section, we will explore the ```autocorrelation function``` or the ```correlogram``` which will provide us a way to diagnose when our data is stationary.
 
 ##### 6.4.1 Sample Estimates for Stationary Series
 Let <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> denote a stationary time series. Recall that this implies that the marginal mean function <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> is constant and the autocovariance function depends only on the difference of the two time stamps. We obtain **estimators** of the mean <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}" /> , the variance <img src="https://latex.codecogs.com/png.image?\dpi{110}\sigma&space;^2_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\sigma ^2_{X}" /> and the autocovariance function <img src="https://latex.codecogs.com/png.image?\dpi{110}\gamma&space;_{X}(h)" title="https://latex.codecogs.com/png.image?\dpi{110}\gamma _{X}(h)" /> by replacing expectations with ```sample averages```:
@@ -1226,10 +1296,15 @@ ________________________________________________________ .. ____________________
 
 
 
-
+------------------------------
 
 
 #### 6.4 Autoregressive Models - AR(p)
+
+Earlier we worked on SMA and EWMA as a way to compute the average of our time series. We used SES that modeled the EWMA to do forecasting. Holt's Linear Trend and Holt-Winters were used for forecasting on seasonal datasets which may also have a trend. To make it more distinct, Exponential Smoothing is used for a specific kind of data which model linear trend and seasonality. 
+
+Unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
+
 Contrary to Exponential Smoothing model, Arima models are more in the spirit of modern machine learning, where we take a model and you try to fit it to our data, whatever structure our data may have. Auto regressive models are basically ```linear regression``` models where the inputs also known as the ```predictors``` are past data points in the time series.
 
 
