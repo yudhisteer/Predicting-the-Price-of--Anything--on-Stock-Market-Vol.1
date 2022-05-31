@@ -1285,6 +1285,9 @@ A time series is a random walk if the value of <img src="https://latex.codecogs.
   <img src= "https://user-images.githubusercontent.com/59663734/171273922-ab632a40-a057-4e53-a440-e5495d8305f7.png"/>
 </p>
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171280886-121bc134-0730-4822-85a5-d6bc67b9a8c7.png" width="500" height="260"/>
+</p>
 
 
 
