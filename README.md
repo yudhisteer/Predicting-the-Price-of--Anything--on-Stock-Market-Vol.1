@@ -56,10 +56,12 @@
     - Transformation towards Stationarity
     - Diagnosing Stationarity with Autocorrelation Function (ACF)
 
-5. Statistical Models
+6. Statistical Models
 
     - White Noise Model
     - Random Walk Model
+    - Autoregressive Model: AR(p)
+    - Moving Average Model: MA(q)
     - ARIMA Model
     - ACF and PACF
     - Auto ARIMA
@@ -890,7 +892,7 @@ Below is the prediction for the ```Add-Mul``` model from 1957 to 1961. The green
 
 ------------------------
 
-### 6. Time Series Analysis
+### 5. Time Series Analysis
 In this section, we will dive deeper of the mathematical components of a time series and what transformations we need to undertake in order to fit statistical models to our data in order to do forecasting. We will follow the steps below:
 
 1. We start with our time series which is a collection of **random variables** indexed by time.
@@ -1225,6 +1227,11 @@ We can use the ACF as a diagnostic tool after transformations to check whether t
   <img src= "https://user-images.githubusercontent.com/59663734/171183313-b83b8144-cf2b-45da-89e9-205e14311157.png" width="800" height="400"/>
 </p>
 
+------------------------------
+### 6. Statistical Models
+
+
+#### 6.1 White Noise Model
 
 
 <p align="center">
@@ -1232,17 +1239,15 @@ ________________________________________________________ .. ____________________
 </p>
 
 
+#### 6.2 Random Walk Model
 
 
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
 
 
-
-
-
-------------------------------
-
-
-#### 6.4 Autoregressive Models - AR(p)
+#### 6.3 Autoregressive Models: AR(p)
 
 Earlier we worked on SMA and EWMA as a way to compute the average of our time series. We used SES that modeled the EWMA to do forecasting. Holt's Linear Trend and Holt-Winters were used for forecasting on seasonal datasets which may also have a trend. To make it more distinct, Exponential Smoothing is used for a specific kind of data which model linear trend and seasonality. 
 
@@ -1250,20 +1255,9 @@ Unfortunately we could not really use it in our stock prices datasets because we
 
 Contrary to Exponential Smoothing model, Arima models are more in the spirit of modern machine learning, where we take a model and you try to fit it to our data, whatever structure our data may have. Auto regressive models are basically ```linear regression``` models where the inputs also known as the ```predictors``` are past data points in the time series.
 
-
-
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/170880177-8c01ea3a-3f3c-40d6-87cb-3be5a3790012.png" width="620" height="230"/>
 </p>
-
-
-
-
-
-
-
-
-
 
 
 <p align="center">
@@ -1271,11 +1265,13 @@ ________________________________________________________ .. ____________________
 </p>
 
 
+#### 6.4 Moving Average Model: MA(q)
 
 
 
-
-
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
 
 
 
