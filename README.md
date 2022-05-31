@@ -1236,7 +1236,7 @@ Earlier we worked on SMA and EWMA as a way to compute the average of our time se
 
 Unfortunately we could not really use it in our stock prices datasets because we do not have seasonality in such data. Recall that stock prices follow a ```random walk``` and hence, we need a more robust model for prediction - the **ARIMA model**.
 
-Before diving into the ARIMA mnodel, it is important to understand other underlying statistical models that will allow us to better understand our time series. We need to first understand if our time series is at all ```predictable```.  
+Before diving into the ARIMA mnodel, it is important to explore other statistical models that will allow us to better understand our time series. We need to first understand if our time series is at all ```predictable```.  
 
 
 #### 6.1 White Noise Model
@@ -1256,21 +1256,17 @@ The figure below shows the white noise process and its corresponding ACF plot. T
 
 Recall that the white noise process is a **weakly stationary** time series because it has a ```constant``` marginal ```mean``` function and its ```autocovariance``` is ```zero```. Therefore it does not depend at all on the two time stamps ```t ≠ s``` that are distinct. The white noise series need not be strongly stationary unless explicitly assumed to have this strong property.
 
+>If our time series is white noise then by definition it is ```random```. Therefore, it **cannot** be predicted.
+
 The white noise model is not very interesting. In particular, it has no ```stochastic dependencies``` (**correlations**). The purpose of the white noise model is to model the “best" case ```residuals``` that contain ```no information```, after we fit a good time series **model** to the data and **subtract** the fitted values for the data. That is, we will be completely satisfied with a time series model for a given dataset, if the residuals of that model contain **no further information** about the dependencies in the data. This would mean that our statistical model for the data captures all the ```stochastic dependence``` exhibited in the data, which we can harness for predicting future observation.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171273473-58f9ef23-6112-4519-b971-49ff6a976cbb.png"/>
 </p>
 
-To detect a white noise time series, we first check that the series is ```stationary``` (e.g. by plotting it and making sure there is no trend or seasonal variation or exploding variance) and then look at the ```autocovariance``` function to detect ```stochastic dependencies``` in the data. Of course, we don't know the true autocovariance function of the process that generated the data and have to estimate it with <img src="https://latex.codecogs.com/svg.image?\hat{\gamma&space;}_W(h)" title="https://latex.codecogs.com/svg.image?\hat{\gamma }_W(h)" />. Under appropriate technical conditions, the distribution of the estimator is
+To detect a white noise time series, we first check that the series is ```stationary``` (e.g. by plotting it and making sure there is no trend or seasonal variation or exploding variance) and then look at the ```autocovariance``` function to detect ```stochastic dependencies``` in the data. 
 
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171271849-b4fe8b3b-18c4-43bf-8ef3-b2ecd73791ac.png"/>
-</p>
 
-which means that we do not expect to see the theoretical acf function exactly as our estimate, but only approximately up to estimation error.
-
->If our time series is white noise then by definition it is random. Therefore, it **cannot** be predicted.
 
 
 <p align="center">
