@@ -48,7 +48,14 @@
     - Holt's Linear Trend Model
     - Holt-Winters Model
 
-5. ARIMA: Autoregressive Integrated Moving Average 
+5. ARIMA: Autoregressive Integrated Moving Average
+
+    - Stationarity
+    - Transformation towards Stationarity
+    - Differencing
+    - Diagnosing Stationarity
+    - White Noise Model
+    - Random Walk Model
 
 6. VARMA: Vector Autoregressive Moving Average
 
@@ -1045,7 +1052,13 @@ To sum up:
 
 5. However, strong stationarity implies weak stationarity because the autocovariance function depends only on the time interval between the two random variables and not on their absolute position in time. Also, strong stationarity means that the marginal distributions <img src="https://latex.codecogs.com/png.image?\dpi{110}P_t&space;=&space;P_s" title="https://latex.codecogs.com/png.image?\dpi{110}P_t = P_s" /> for all time stamps t, s. Therefore, the marginal mean <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)&space;=&space;\mu&space;_{X}(s)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t) = \mu _{X}(s)" /> for all time stamps t, s.
 
-#### 6.2 Removing Trend and Stationarity
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+
+#### 6.2 Transformation towards Stationarity
 We have seen that real-world time series data are not all stationary so we need to transform our data for it to be roughly stationary. For that, we can assume our time series to be composed of components: ```trend```, ```seasonality``` and the ```rest```.
 
 <p align="center">
@@ -1105,6 +1118,11 @@ transformation``` can actually help a lot.
 </p>
 
 
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+
 #### 6.3 Differencing
 There's another technique that exists where we do not actually have to do the explicit ```decomposition```. This is called **differencing** or **differentiation**. When differencing we create a new time series which is the difference between consecutive values. 
 
@@ -1155,6 +1173,12 @@ In summary:
 4. Differencing the data **once** can be used to remove a ```linear trend``` and differencing the data **more than once** can be used to remove ```polynomial trends```. Differencing the data is also a standard method to transform a time series with ```exploding variance``` and persistent stochastic dependence into a stationary time series. If the increments of a time series rather then its levels are stationary, then the first difference of the series is stationary. 
 
 5. A **variance reducing transformation** like the ```log``` can stabilize the increasing variance of a time series. However, this does not help with persistent dependencies in the time series.
+
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
 
 #### 6.4 Diagnosing Stationarity
 
