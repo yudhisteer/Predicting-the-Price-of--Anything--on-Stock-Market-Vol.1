@@ -899,11 +899,11 @@ In this section, we will dive deeper of the mathematical components of a time se
 2. We want to fit some kind of **model** to explain and understand our time series to do a **forecast**.
 3. In order to do that, we need to estimate some **statistics**.
 4. To do these estimations, we need our time series to be **stationary**.
-5. To get a stationary time series we need to **transform** our signal to achieve weak stationarity.
+5. To get a stationary time series we need to **transform** our signal to achieve **weak stationarity**.
 6. To diagnose that we achieved weak stationarity, we will use **autocorrelation**.
 
 
-#### 6.1 Deterministic dependencies: Trend and Seasonality
+#### 5.1 Deterministic dependencies: Trend and Seasonality
 The most important feature of time series data is that we make no assumption about independence of these random variables. In fact, most time series data are ```dependent```, typically because **past realizations influence future observations** through the nature of the real world phenomenon that produces these data. It is fair to say, that the main goal of time-series analysis is to first ```model``` and then ```estimate from data``` (guided by the model) the **dependence structure** of these random variables.
 
 Statistical dependence can be a boon and a curse. That is, dependence helps us make predictions about the ```future realizations``` from knowledge of the ```past realizations``` (if yesterday was warm, today will probably be warm as well). However, dependence poses technical challenges in the ```distributional analysis``` of estimators. This is because there is effectively ```less statistical information``` in ```dependent data``` about the data generating process, as compared to the case of ```independent observations``` (the basic laws of large numbers and central limit theorems do not even apply).
@@ -951,7 +951,7 @@ Depending on the relative magnitude of the random noise and deterministic variat
   <img src= "https://user-images.githubusercontent.com/59663734/170677285-c4856e9e-0819-4c28-9447-fcdfd653cd64.png" />
 </p>
 
-#### 6.2 Stochastic Dependence
+#### 5.2 Stochastic Dependence
 The main stochastic feature of time series data is the statistical dependence of the random variables at different time points. Mathematically, statistical dependence of a collection of random variables means that their joint distribution is not equal to the product of their marginal distributions.
 
 
@@ -976,7 +976,7 @@ Very often it is the case that time series observations that are ```close``` to 
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 6.3 Stationarity
+#### 5.3 Stationarity
 We have seen how we can describe times series and what are their specificities. What we actually want to do in the end is **fit models** to time series to understand them better. In order to fit models  we need to compute statistics like ```mean```, ```variance``` and ```correlation```.
 
 So what does it mean to compute a mean in a time series? The challenge as explained before is that we have only one random variable or one observation per time stamp. If we collect a ```100``` data points over a period of time ```t```, then we have ```100``` random variables. These are actually different random variables and we cannot just average them. What we actually have is ```one mean``` for each data point, i.e, we have **one expected value** for each day.  The same rule applies to the ```variance``` - how much my actual value deviates in expectation from the expectation from the mean. In our example, we will have ```100``` means and ```100``` variances.
@@ -997,7 +997,7 @@ We need a few ```assumptions``` that the summary statistics of observations are 
 
 > A stationary time series is one whose **statistical properties** such as ```mean```, ```variance```, ```autocorrelation```, etc. are all **constant** over time. Most statistical forecasting methods are based on the assumption that the time series can be rendered approximately ```stationary``` (i.e., "stationarized") through the use of mathematical ```transformations```. A stationarized series is relatively easy to predict: you simply predict that its statistical properties will be the ```same``` in the **future** as they have been in the **past**! The predictions for the stationarized series can then be ```"untransformed"``` by reversing whatever mathematical transformations were previously used to obtain predictions for the original series.
 
-##### 6.1.1 Benefits of Stationarity
+##### 5.1.1 Benefits of Stationarity
 
 According to Jason Brownlee: 
 
@@ -1007,7 +1007,7 @@ According to Jason Brownlee:
 
 - When a time series is stationary, it can be easier to **model**. ```Statistical modeling``` methods assume or require the time series to be stationary.
 
-##### 6.1.2 Types of Stationarity
+##### 5.1.2 Types of Stationarity
 We have to types of stationarity: ```weak``` and ```strong```.
 
 **Weak Stationarity**
@@ -1047,7 +1047,7 @@ We have to types of stationarity: ```weak``` and ```strong```.
   <img src= "https://user-images.githubusercontent.com/59663734/171043439-a0c80bb0-8d55-4fdd-862f-a470dea6e4c1.png"/>
 </p>
 
-##### 6.1.3 What breaks stationarity?
+##### 5.1.3 What breaks stationarity?
 
 - Trend: non-constant expected value - breaks 1st condition ( <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)&space;=&space;\mu&space;_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t) = \mu _{X}" /> )
 - Seasonality - breaks 1st condition ( <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)&space;=&space;\mu&space;_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t) = \mu _{X}" /> )
@@ -1072,7 +1072,7 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-#### 6.4 Transformation towards Stationarity
+#### 5.4 Transformation towards Stationarity
 We have seen that real-world time series data are not all stationary so we need to transform our data for it to be roughly stationary. For that, we can assume our time series to be composed of components: ```trend```, ```seasonality``` and the ```rest```.
 
 <p align="center">
@@ -1081,7 +1081,7 @@ We have seen that real-world time series data are not all stationary so we need 
 
 Since the trend and seasonality breaks stationarity then we can remove those ```2``` components and then fit the model to the rest of the time series.
 
-##### 6.2.1 Deterministic Trend
+##### 5.2.1 Deterministic Trend
 A trend can be a linear or quadratic function of time. So we can use ```linear regression``` to model the trend. We model the estimate of the trend as shown below:
 
 <p align="center">
@@ -1100,7 +1100,7 @@ In the example below we have a linear trend upwards. We do a linear regression a
   <img src= "https://user-images.githubusercontent.com/59663734/171048372-4f729361-6bf2-42bf-9136-6f7bdd1b5133.png" width="750" height="310"/>
 </p>
 
-##### 6.2.2 Deterministic Seasonality
+##### 5.2.2 Deterministic Seasonality
 
 1. To remove seasonality we fit a ```periodic``` regression model, S-hat, which we then subtract from our original time series: 
 
@@ -1122,7 +1122,7 @@ In the example below we have a linear trend upwards. We do a linear regression a
   <img src= "https://user-images.githubusercontent.com/59663734/171049935-6beae90e-4dfd-40fc-8bf4-9526610f5ad2.png" width="500" height="250"/>
 </p>
 
-##### 6.2.3 Non-linear Transformation
+##### 5.2.3 Non-linear Transformation
 
 Bside ```trend``` and ```seasonality```, variation that changes over time also breaks stationarity. Changing the values of the series with a ```log
 transformation``` can actually help a lot.
@@ -1137,7 +1137,7 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-##### 6.2.4 Differencing
+##### 5.2.4 Differencing
 There's another technique that exists where we do not actually have to do the explicit ```decomposition```. This is called **differencing** or **differentiation**. When differencing we create a new time series which is the difference between consecutive values. 
 
 <p align="center">
@@ -1194,10 +1194,10 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-#### 6.6 Diagnosing Stationarity
+#### 5.6 Diagnosing Stationarity
 We saw how we can decompose our time series or use differencing to make our time series stationary. Now, we could only observe visually if our time series seem to be visually or not. We did not have any mathematical model that can guarantee us that the signal is indeed weak stationary. In this section, we will explore the ```autocorrelation function``` or the ```correlogram``` which will provide us a way to diagnose when our data is stationary.
 
-##### 6.4.1 Sample Estimates for Stationary Series
+##### 5.4.1 Sample Estimates for Stationary Series
 Let <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> denote a stationary time series. Recall that this implies that the marginal mean function <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}(t)" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}(t)" /> is constant and the autocovariance function depends only on the difference of the two time stamps. We obtain **estimators** of the mean <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\mu _{X}" /> , the variance <img src="https://latex.codecogs.com/png.image?\dpi{110}\sigma&space;^2_{X}" title="https://latex.codecogs.com/png.image?\dpi{110}\sigma ^2_{X}" /> and the autocovariance function <img src="https://latex.codecogs.com/png.image?\dpi{110}\gamma&space;_{X}(h)" title="https://latex.codecogs.com/png.image?\dpi{110}\gamma _{X}(h)" /> by replacing expectations with ```sample averages```:
 
 <p align="center">
@@ -1206,7 +1206,7 @@ Let <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https:
 
 If the series is stationary, then each observation in the sample averages above contributes statistical information about the common parameters <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu,&space;\sigma&space;^2,&space;\gamma&space;(h)&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\mu, \sigma ^2, \gamma (h) " />. However, most time series are ```dependent```. However, if the ```stochastic dependences``` (e.g. **correlations**) in the series decays sufficiently fast as the time distance between terms get large, then the sample averages have a similar asymptotic behavior as in the classical ```laws of large numbers``` and ```central limit theorems``` for i.i.d. data. So, under mild technical conditions, we have good **estimators** of the mean, variance and autocovariance function of a stationary time series.
 
-##### 6.4.2 Autocovariance Function (ACF)
+##### 5.4.2 Autocovariance Function (ACF)
 The autocovariance function (ACF) is a very useful statistical tool for studying the dependence properties of a time series. The ACF is our formal tool for detecting non-stationarity in a time series. Plotting and visualizing the correlation structure of the series is the second step after plotting and visualizing the series itself. 
 
 The "auto" part in autocovariance tells us that two random variables come from the same time-series. Covariance is just the ```unscaled correlation```. Therefore it tells us how related two random variables are. If they are completely **unrelated**, then the correlation and hence the covariance will be ```zero```. If they are **related**, that is, they move together either in the same direction or the opposite direction, then this value will be ```non-zero```.
@@ -1232,6 +1232,41 @@ We can use the ACF as a diagnostic tool after transformations to check whether t
 
 
 #### 6.1 White Noise Model
+The simplest time series model is the white noise process <img src="https://latex.codecogs.com/svg.image?\begin{Bmatrix}W_{t}\end{Bmatrix}_t" title="https://latex.codecogs.com/svg.image?\begin{Bmatrix}W_{t}\end{Bmatrix}_t" /> of random variables which are identically distributed and independent such that there's no dependency between the time steps. Often we see that they are actually Gaussian with mean and covariance equal to ```0``` and having the same variance <img src="https://latex.codecogs.com/svg.image?\sigma&space;^{2}_W" title="https://latex.codecogs.com/svg.image?\sigma ^{2}_W" />. 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171269006-07ca3520-97dd-47d0-9cf3-c470bce63220.png" width="350" height="120"/>
+</p>
+
+The autocovariance is a function only of the ```gap``` between ```s``` and ```t```. If ```s = t (gap = 0)```, then the autocovariance is ```non-zero```. Otherwise it is ```0```. So white noise model is ```weakly stationary```. What we actually want is to take the data that we want to fit models, reduce it down to white noise. Once what remains is just white noise, then we know we have fit all the signal that we could.
+
+The figure below shows the white noise process and its corresponding ACF plot. The latter clearly indicates that there is **no correlation** (up to estimation error indicated by the blue dashed lines) between the terms of the series at different lags. 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171266859-7ea67cd6-cd44-487e-a05a-5f3761cf2166.png" width="700" height="260"/>
+</p>
+
+Recall that the white noise process is a **weakly stationary** time series because it has a ```constant``` marginal ```mean``` function and its ```autocovariance``` is ```zero```, therefore does not depend at all on the two time stamps ```t ≠ s``` that are distinct. The white noise series need not be strongly stationary unless explicitly assumed to have this strong property.
+
+The white noise model is not very interesting. In particular, it has no ```stochastic dependencies``` (**correlations**). The purpose of the white noise model is to model the “best" case ```residuals``` that contain ```no information```, after we fit a good time series **model** to the data and **subtract** the fitted values for the data. That is, we will be completely satisfied with a time series model for a given dataset, if the residuals of that model contain **no further information** about the dependencies in the data. This would mean that our statistical model for the data captures all the ```stochastic dependence``` exhibited in the data, which we can harness for predicting future observation.
+
+To detect a white noise time series, we first check that the series is ```stationary``` (e.g. by plotting it and making sure there is no trend or seasonal variation or exploding variance) and then look at the ```autocovariance``` function to detect ```stochastic dependencies``` in the data. Of course, we don't know the true autocovariance function of the process that generated the data and have to estimate it with <img src="https://latex.codecogs.com/svg.image?\hat{\gamma&space;}_W(h)" title="https://latex.codecogs.com/svg.image?\hat{\gamma }_W(h)" />. Under appropriate technical conditions, the distribution of the estimator is
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171271849-b4fe8b3b-18c4-43bf-8ef3-b2ecd73791ac.png"/>
+</p>
+
+which means that we do not expect to see the theoretical acf function exactly as our estimate, but only approximately up to estimation error.
+
+
+
+
+
+
+
+
+
+
 
 
 <p align="center">
