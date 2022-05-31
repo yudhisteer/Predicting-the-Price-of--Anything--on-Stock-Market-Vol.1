@@ -1256,8 +1256,6 @@ The figure below shows the white noise process and its corresponding ACF plot. T
 
 Recall that the white noise process is a **weakly stationary** time series because it has a ```constant``` marginal ```mean``` function and its ```autocovariance``` is ```zero```. Therefore it does not depend at all on the two time stamps ```t ≠ s``` that are distinct. The white noise series need not be strongly stationary unless explicitly assumed to have this strong property.
 
->If our time series is white noise then by definition it is ```random```. Therefore, it **cannot** be predicted.
-
 The white noise model is not very interesting. In particular, it has no ```stochastic dependencies``` (**correlations**). The purpose of the white noise model is to model the “best" case ```residuals``` that contain ```no information```, after we fit a good time series **model** to the data and **subtract** the fitted values for the data. That is, we will be completely satisfied with a time series model for a given dataset, if the residuals of that model contain **no further information** about the dependencies in the data. This would mean that our statistical model for the data captures all the ```stochastic dependence``` exhibited in the data, which we can harness for predicting future observation.
 
 <p align="center">
@@ -1265,6 +1263,12 @@ The white noise model is not very interesting. In particular, it has no ```stoch
 </p>
 
 To detect a white noise time series, we first check that the series is ```stationary``` (e.g. by plotting it and making sure there is no trend or seasonal variation or exploding variance) and then look at the ```autocovariance``` function to detect ```stochastic dependencies``` in the data. 
+
+In summary:
+
+- White noise is a series that is **NOT** predictable, as it’s a sequence of ```random``` numbers.
+-  If we built a model and its ```residuals``` (the difference between predicted and actual) values look like ```white noise```, then we know we did everything to make the model as good as possible.
+-  If the residuals of our model is **not** white noise (there are visible patterns in the residuals), then we know there is a ```better model``` for our time series.
 
 
 
@@ -1284,7 +1288,12 @@ A time series is a random walk if the value of <img src="https://latex.codecogs.
 
 
 
+In summary:
 
+- Just like white noise, random walk series also is **NOT** predictable. 
+- What makes it different from white noise is the fact that the values are **not** a list of random numbers. The ```current``` value depends on the ```previous``` one.
+- If the data looks like white noise or random walk, don’t bother with ```forecasting```.
+- No learnable patterns are found in a random walk once the series is ```stationary```.
 
 
 
@@ -1363,3 +1372,4 @@ ________________________________________________________ .. ____________________
 17. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
 18. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
 19. https://machinelearningmastery.com/white-noise-time-series
+20. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
