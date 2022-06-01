@@ -1497,16 +1497,21 @@ We would use this model if we believe that each point in the time series is ```l
 
 
 #### 6.6 Autoregressive Integrated Moving Average Model: ARIMA(p,d,q)
+A time series is an ```ARIMA(p,d,q)``` model if the difference of order ```d```, is an ```ARMA(p,q)``` model. ARIMA models are the most general class of forecasting models for time series that can be ```stationarized``` by transformations such as **differencing**, **logging**, and or **deflating**.
 
+Recall that a time series is ```stationary``` if all of its statistical properties — **mean**, **variance**, **autocorrelations**, etc.— are ```constant``` in time.  Thus, it has **no** ```trend```, no ```heteroscedasticity```, and a **constant** degree of ```wiggliness.```
 
+> An ARIMA model can be viewed as a ```filter``` that tries to separate the **signal** from the **noise**, and the signal is then ```extrapolated``` into the future to obtain ```forecasts```. - Robert Nau
 
+The ARIMA forecasting equation for a stationary time series is a ```linear``` equation in which the **predictors** consist of ```lags``` of the **dependent** variable and/or lags of the **forecast** ```errors```.
 
+Lags of the **stationarized** series in the forecasting equation are called ```autoregressive``` terms, lags of the forecast **errors** are called ```moving average``` terms, and a time series which needs to be **differenced** to be made stationary is said to be an ```integrated``` version of a stationary series. **Random-walk** and **random-trend models**, **autoregressive models**, and e**xponential smoothing models** are all special cases of ARIMA models.
 
+A nonseasonal ARIMA model is classified as an ```ARIMA(p,d,q)``` model where:
 
-
-
-
-
+- **p**: is the number of ```autoregressive terms```
+- **d**: is the number of ```nonseasonal differences``` needed for ```stationarity```
+- **q**: is the number of ```lagged forecast errors``` in the ```prediction``` equation
 
 
 ------------------------
