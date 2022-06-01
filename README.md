@@ -1313,30 +1313,58 @@ Using these representations we can find the:
   <img src= "https://user-images.githubusercontent.com/59663734/171348026-4fcc848a-6099-433e-9311-8c074547136f.png" width="200" height="150"/>
 </p>
 
-
-
 - **covariance function**
 
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171348161-543c2414-f40d-4b56-a639-dd3f16322ad1.png" width="470" height="220"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/171348161-543c2414-f40d-4b56-a639-dd3f16322ad1.png" width="520" height="220"/>
 </p>
 
 - **autocorrelation function**
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171348249-7271c24a-15a2-48c7-8dc1-0c6307fd0f09.png" width="330" height="230"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/171348249-7271c24a-15a2-48c7-8dc1-0c6307fd0f09.png" width="320" height="220"/>
 </p>
 
-Notice that the covariance is not a function of the gap but instead a function of the magnitude of s and t. Since the mean is not zero and the variance is not constant, then we conclude that the random model series is not ```stationary```.
+Notice that the covariance is not a function of the gap but instead a function of the magnitude of s and t. Since the mean is not zero and the variance is not constant, then we conclude that the random model series is **not** ```stationary```.
 
 
 ##### 6.2.2 Statistics of Random Walk with Drift
 
+Similarly, the equation for a random walk with drift:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171349943-1d3aaed0-26a7-4828-8425-ec3d584a57df.png" width="260" height="220"/>
+</p>
+
+- **marginal mean function**
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171350322-4cdad5ca-a765-4cba-a7b6-c2ed7295096e.png" width="260" height="110"/>
+</p>
+
+- **covariance function**
 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171350350-600046b4-641c-4690-a890-86b3b1e56122.png" width="260" height="180"/>
+</p>
 
+- **autocorrelation function**
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171350394-00a18afe-f9ba-4967-87e3-32a39af1bf27.png" width="260" height="35"/>
+</p>
+
+The random walk is **not** ```stationary``` because the variance is growing with time and the autocovariance depends on the smallest of the two time stamps rather than on the difference.
+
+So the random walk with and without drift are both stationary but when we do ```differencing``` we get a ```stationary``` time series as shown below:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171351777-8987521b-7652-41ec-a476-8a745fb3c498.png"/>
+</p>
+
+The result is the **white noise** <img src="https://latex.codecogs.com/png.image?\dpi{110}W_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}W_{t}" /> which has a mean equal to ```0``` and the same variance. So this means that the random walk and the differenced random walk **cannot** be ```predicted```.
 
 In summary:
 
@@ -1344,20 +1372,6 @@ In summary:
 - What makes it different from white noise is the fact that the values are **not** a list of random numbers. The ```current``` value depends on the ```previous``` one.
 - If the data looks like white noise or random walk, don’t bother with ```forecasting```.
 - No learnable patterns are found in a random walk once the series is ```stationary```.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <p align="center">
@@ -1423,3 +1437,4 @@ ________________________________________________________ .. ____________________
 18. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
 19. https://machinelearningmastery.com/white-noise-time-series
 20. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
+21. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
