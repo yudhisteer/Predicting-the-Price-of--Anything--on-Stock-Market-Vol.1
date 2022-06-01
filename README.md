@@ -1493,7 +1493,9 @@ Before we explore the ARIMA model, we will look at the ```Autoregressive Moving 
 
 We would use this model if we believe that each point in the time series is ```linearly correlated``` with both **pass points** in the time series as well as **past errors** of the model.
 
-
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
 
 
 #### 6.6 Autoregressive Integrated Moving Average Model: ARIMA(p,d,q)
@@ -1512,6 +1514,39 @@ A nonseasonal ARIMA model is classified as an ```ARIMA(p,d,q)``` model where:
 - **p**: is the number of ```autoregressive terms```
 - **d**: is the number of ```nonseasonal differences``` needed for ```stationarity```
 - **q**: is the number of ```lagged forecast errors``` in the ```prediction``` equation
+
+The **goal** of the ARIMA model is to turn the "knobs" as shown below until the **residuals** are ```white noise```:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171458474-9694ea24-0426-42a8-9a41-dda8bf142d78.png" width="550" height="140"/>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ------------------------
