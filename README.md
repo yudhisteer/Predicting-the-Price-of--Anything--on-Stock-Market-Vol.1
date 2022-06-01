@@ -1518,14 +1518,14 @@ A nonseasonal ARIMA model is classified as an ```ARIMA(p,d,q)``` model where:
 **ARIMA Forecasting Equation**
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171460728-ae17c157-fbd1-4e34-8543-c07f458f49e2.png"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/171464671-a2c5c095-4407-4040-9ed3-60b2da55fe4f.png"/>
 </p>
 
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}W_t" title="https://latex.codecogs.com/png.image?\dpi{110}W_t" />: constant
 - <img src="https://latex.codecogs.com/svg.image?\triangledown&space;\hat{X_t}" title="https://latex.codecogs.com/svg.image?\triangledown \hat{X_t}" />:  the differenced (stationarized) series
 - <img src="https://latex.codecogs.com/svg.image?\triangledown&space;\hat{X_t}&space;=&space;X_t" title="https://latex.codecogs.com/svg.image?\triangledown \hat{X_t} = X_t" /> if no difference.
 - <img src="https://latex.codecogs.com/svg.image?\phi_1\cdot&space;X_{t-1}&space;&plus;&space;...&plus;\phi_p\cdot&space;X_{t-p}" title="https://latex.codecogs.com/svg.image?\phi_1\cdot X_{t-1} + ...+\phi_p\cdot X_{t-p}" />: AR terms (lagged values of y)
 - <img src="https://latex.codecogs.com/svg.image?-\theta&space;_1\cdot&space;W_{t-1}&space;-&space;...-\theta&space;_q\cdot&space;W_{t-q}" title="https://latex.codecogs.com/svg.image?-\theta _1\cdot W_{t-1} - ...-\theta _q\cdot W_{t-q}" />: MA terms (lagged errors)
-- <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu" title="https://latex.codecogs.com/png.image?\dpi{110}\mu" />: constant
 - By convention the **AR** terms are ```+``` and the **MA** terms are ```-```
 -   Usually ```p+q <2``` and either ```p=0``` or ```q=0 ```(pure AR or pure MA model)
 
