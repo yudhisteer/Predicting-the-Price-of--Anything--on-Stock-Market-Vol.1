@@ -1446,20 +1446,21 @@ Using these representations we can find the:
 - **autocovariance function**
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171409525-0fa15083-2763-444f-beb3-242c5d0c7bf8.png" width="310" height="150"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/171409525-0fa15083-2763-444f-beb3-242c5d0c7bf8.png" width="330" height="150"/>
 </p>
 
 
-Some properties od the MA model:
+Some properties of the MA model:
 
 - autocovariance <img src="https://latex.codecogs.com/png.image?\dpi{110}\gamma&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\gamma " /> depends only on the gap <img src="https://latex.codecogs.com/png.image?\dpi{110}|s-t|" title="https://latex.codecogs.com/png.image?\dpi{110}|s-t|" /> therefore, it is ```stationary```.
 
-- ACF of an MA model reflects order: <img src="https://latex.codecogs.com/png.image?\dpi{110}\gamma&space;|s-t|&space;=&space;0&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\gamma |s-t| = 0 " /> if <img src="https://latex.codecogs.com/png.image?\dpi{110}|s-t|&space;>&space;q" title="https://latex.codecogs.com/png.image?\dpi{110}|s-t| > q" />
+- ACF of an MA model reflects order: <img src="https://latex.codecogs.com/png.image?\dpi{110}\gamma&space;|s-t|&space;=&space;0&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\gamma |s-t| = 0 " />  if  ![CodeCogsEqn (65)](https://user-images.githubusercontent.com/59663734/171412291-ab6d6b63-235c-442a-ada0-ffcf9ed922d4.png)
+
 
 ACF gives order ```q``` of the moving average model therefore, if given an ACF, we can distinguish whether we have an ```MA```, ```AR``` or```white noise``` model as shown below:
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171410212-23ee514a-bafa-47a7-8dd2-3275295a41e9.png"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/171410212-23ee514a-bafa-47a7-8dd2-3275295a41e9.png" width="600" height="250"/>
 </p>
 
 In the plot above, we see that the ACF of the white noise is within the confidence interval of ```0```. That of the AR model decays exponentially and never reaches ```0```. While the MA model becomes ```0``` at ```h = 2``` which indicates that we have an MA model of order ```1```. 
