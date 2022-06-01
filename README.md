@@ -1380,10 +1380,12 @@ ________________________________________________________ .. ____________________
 
 
 #### 6.3 Autoregressive Models: AR(p)
+Autoregressive models are basically ```linear regression``` models where the inputs also known as the ```predictors``` are past data points in the time series. Here, <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> is a linear function of the past ```p``` observations. 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171354323-e92ec072-7d59-4624-9bdd-8d0e389f7f4a.png"/>
+</p>
 
-
-Contrary to Exponential Smoothing model, Arima models are more in the spirit of modern machine learning, where we take a model and you try to fit it to our data, whatever structure our data may have. Auto regressive models are basically ```linear regression``` models where the inputs also known as the ```predictors``` are past data points in the time series.
 
 
 
@@ -1408,7 +1410,7 @@ ________________________________________________________ .. ____________________
   <img src= "https://user-images.githubusercontent.com/59663734/167879610-5d6285bc-cf74-41e3-99e1-8db24d809dfc.png" width="500" height="350"/>
 </p>
 
-
+Contrary to Exponential Smoothing model, Arima models are more in the spirit of modern machine learning, where we take a model and you try to fit it to our data, whatever structure our data may have. 
 
 
 
