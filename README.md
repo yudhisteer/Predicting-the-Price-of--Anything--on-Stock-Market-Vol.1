@@ -62,7 +62,8 @@
     - Random Walk Model
     - Autoregressive Model: AR(p)
     - Moving Average Model: MA(q)
-    - ARIMA Model
+    - Autoregressive Moving Average Model: ARMA(p,q)
+    - Autoregressive Integrated Moving Average Model: ARIMA(p,d,q)
     - ACF and PACF
     - Auto ARIMA
     - VARMA
@@ -1469,14 +1470,33 @@ In the plot above, we see that the ACF of the white noise is within the confiden
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 6.5 ARMA Model
+#### 6.5 Autoregressive Moving Average Model: ARMA(p,q)
+Before we explore the ARIMA model, we will look at the ```Autoregressive Moving Average``` - ARMA(p,q) - model which is a combination of the AR(p) and MA(q) model.
+
+**Autoregressive:**
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171449700-602753c1-a645-4115-adea-b6efe5ae81ec.png"/>
+</p>
+
+**Moving Average:**
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171449995-5d424ebd-6de3-4340-91f5-126e046eb962.png"/>
+</p>
+
+**ARMA(p,q):**
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171451577-fa045755-40f5-4f73-be03-8ba2fd6e4c36.png"/>
+</p>
+
+We would use this model if we believe that each point in the time series is ```linearly correlated``` with both **pass points** in the time series as well as **past errors** of the model.
 
 
 
 
-
-
-
+#### 6.6 Autoregressive Integrated Moving Average Model: ARIMA(p,d,q)
 
 
 
