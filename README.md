@@ -1386,6 +1386,45 @@ Autoregressive models are basically ```linear regression``` models where the inp
   <img src= "https://user-images.githubusercontent.com/59663734/171354323-e92ec072-7d59-4624-9bdd-8d0e389f7f4a.png"/>
 </p>
 
+The definition of the model is ```recursive```, meaning that we can relate <img src="https://latex.codecogs.com/png.image?\dpi{110}X_t" title="https://latex.codecogs.com/png.image?\dpi{110}X_t" /> to any previous term of the series. So, <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> depends on <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t-1}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t-1}" />, and <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t-1}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t-1}" /> depends on <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t-2}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t-2}" />, and <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t-2}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t-2}" /> depends on <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t-3}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t-3}" />, etc. Because of this recursive nature of the model, all terms of the series are **dependent** .
+
+**First-order autoregressive model: AR(1) | ARIMA(1,0,0)**
+
+If the series is ```stationary``` and ```autocorrelated```, then with autoregressive can be predicted as a multiple of its own previous value, plus a constant. For a first order model, we take only the first X-term along with its coefficient and the constant.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171395339-ae71f12f-a7ea-4b2b-b530-fe76a59da547.png"/>
+</p>
+
+
+If the slope coefficient <img src="https://latex.codecogs.com/png.image?\dpi{110}\phi_1&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\phi_1 " /> is **positive** and less than ```1``` in magnitude, the model describes ```mean-reverting``` behavior in which next period’s value should be predicted to be <img src="https://latex.codecogs.com/png.image?\dpi{110}\phi_1&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\phi_1 " /> times as far away from the mean as this period’s value.  
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171394993-5e1add6e-20e0-4716-b44e-10e7d781ab35.png" width="500" height="250"/>
+</p>
+
+If <img src="https://latex.codecogs.com/png.image?\dpi{110}\phi_1&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\phi_1 " /> is **negative**, it predicts mean-reverting behavior with alternation of signs, i.e., it also predicts that X will be below the mean next period if it is above the mean this period. At each time step, it flips over the x-axis exhibiting an **oscillating behavior**.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171395032-a18c8b07-ed04-4368-b6c4-7e8f50543a92.png" width="500" height="250"/>
+</p>
+
+Figure below shows a time series and its estimated acf function of an autoregressive process. All autocorrelations are non-zero, and the magnitude of autocovariance between the terms of the series ```decays``` rapidly as the time difference ```h``` **increases**.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171396239-1d20e37a-42b0-4b7d-aff6-e5cb9ab3fcee.png" width="700" height="250"/>
+</p>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
