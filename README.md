@@ -1285,9 +1285,56 @@ A time series is a random walk if the value of <img src="https://latex.codecogs.
   <img src= "https://user-images.githubusercontent.com/59663734/171273922-ab632a40-a057-4e53-a440-e5495d8305f7.png"/>
 </p>
 
+A time series <img src="https://latex.codecogs.com/png.image?\dpi{110}Y_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}Y_{t}" /> is a random walk with drift if it is equal to the sum of a random walk process <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> (with no drift) with a deterministic linear trend:
+
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171280886-121bc134-0730-4822-85a5-d6bc67b9a8c7.png" width="500" height="260"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/171346562-a605f4c2-a85a-4d48-9699-26d420c24d14.png"/>
 </p>
+
+
+Figure below shows the graph of a random walk with and without drift. Notice how the graph of a random walk differs from that of a white noise. And more interestingly, how a random walk closely ressembles the graph of stock prices. Does this mean something?
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171333572-7dff7a58-4f52-4ce8-bd32-59a5c0bb4d08.png" width="500" height="260"/>
+</p>
+
+##### 6.2.1 Statistics of Random Walk without Drift
+To compute the basic statistics (mean, variance, covariance) of the random walk, it is useful to write <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" /> as a sum of the white noise that accumulate over time:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171347122-21376464-bcd5-44e9-8e99-5f0af135e98a.png" width="240" height="200"/>
+</p>
+
+Using these representations we can find the:
+
+- **marginal mean function**
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171348026-4fcc848a-6099-433e-9311-8c074547136f.png" width="200" height="150"/>
+</p>
+
+
+
+- **covariance function**
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171348161-543c2414-f40d-4b56-a639-dd3f16322ad1.png" width="470" height="220"/>
+</p>
+
+- **autocorrelation function**
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171348249-7271c24a-15a2-48c7-8dc1-0c6307fd0f09.png" width="330" height="230"/>
+</p>
+
+Notice that the covariance is not a function of the gap but instead a function of the magnitude of s and t. Since the mean is not zero and the variance is not constant, then we conclude that the random model series is not ```stationary```.
+
+
+##### 6.2.2 Statistics of Random Walk with Drift
+
+
+
 
 
 
