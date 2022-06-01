@@ -1538,7 +1538,7 @@ The **goal** of the ARIMA model is to turn the "knobs" as shown below until the 
 
 
 ##### 6.6.1 ARIMA(0,1,0): Random Walk
-In ARIMA(0,1,0), we have no AR and MA components so we have only the I(1) part. 
+In ARIMA(0,1,0), we have no AR and MA components so we have only the ```I(1)``` part. 
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171473307-feec6677-676d-4ae0-8405-9193b203fa8c.png"/>
@@ -1547,16 +1547,15 @@ In ARIMA(0,1,0), we have no AR and MA components so we have only the I(1) part.
 The equation above is exactly the random walk model discussed earlier.
 
 ##### 6.6.2 ARIMA(0,1,1): Simple Exponential Smoothing
-If the errors of a random walk model are ```autocorrelated```, perhaps the problem can be fixed by adding **one lag** of the dependent variable to the prediction equation, i.e., by regressing the first difference of X on itself lagged by one period. This would yield the following prediction equation:
-
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171474555-070dea83-7c26-4207-9f95-8c22f538b947.png"/>
-</p>
 
 
 
 ##### 6.6.3 ARIMA(1,1,0): Differenced First-order Autoregressive Model
+If the errors of a random walk model are ```autocorrelated```, perhaps the problem can be fixed by adding **one lag** of the dependent variable to the prediction equation, i.e., by regressing the first difference of X on itself lagged by one period. This would yield the following prediction equation:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171476475-fd3532c4-dc50-4f74-83f2-3f7da976dd40.png"/>
+</p>
 
 
 
