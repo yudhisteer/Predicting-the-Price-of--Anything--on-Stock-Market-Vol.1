@@ -1515,7 +1515,7 @@ A nonseasonal ARIMA model is classified as an ```ARIMA(p,d,q)``` model where:
 - **d**: is the number of ```nonseasonal differences``` needed for ```stationarity```
 - **q**: is the number of ```lagged forecast errors``` in the ```prediction``` equation
 
-**ARIMA Forecasting Equation**
+##### 6.6.1 ARIMA Forecasting Equation
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171475577-bdc62539-17a0-46b5-9815-4b64475478e4.png"/>
@@ -1537,7 +1537,7 @@ The **goal** of the ARIMA model is to turn the "knobs" as shown below until the 
 </p>
 
 
-##### 6.6.1 ARIMA(0,1,0): Random Walk
+##### 6.6.2 ARIMA(0,1,0): Random Walk
 In ARIMA(0,1,0), we have no AR and MA components so we have only the ```I(1)``` part. 
 
 <p align="center">
@@ -1546,11 +1546,18 @@ In ARIMA(0,1,0), we have no AR and MA components so we have only the ```I(1)``` 
 
 The equation above is exactly the random walk model discussed earlier.
 
-##### 6.6.2 ARIMA(0,1,1): Simple Exponential Smoothing
+##### 6.6.3 ARIMA(0,1,1): Simple Exponential Smoothing
+Rather than taking the most recent observation as the forecast of the next observation, it is better to use an average of the last few observations in order to filter out the noise and more accurately estimate the local mean. The simple exponential smoothing (SES) model uses an  ```exponentially weighted moving average``` of past values to achieve this effect.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171480714-530c9814-54b2-45b6-8f4b-f57c91172bb1.png"/>
+</p>
 
 
+This means that you can fit a simple exponential smoothing by specifying it as an ARIMA(0,1,1) model without constant, and the estimated MA(1) coefficient corresponds to 1-minus-alpha in the SES formula. As <img src="https://latex.codecogs.com/png.image?\dpi{110}\theta_1&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\theta_1 " /> approaches ```1```, the ARIMA(0,1,1)-without-constant model becomes a **very-long-term moving average**, and as <img src="https://latex.codecogs.com/png.image?\dpi{110}\theta_1&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\theta_1 " /> approaches ```0``` it becomes a **random-walk-without-drift model**.
 
-##### 6.6.3 ARIMA(1,1,0): Differenced First-order Autoregressive Model
+
+##### 6.6.4 ARIMA(1,1,0): Differenced First-order Autoregressive Model
 If the errors of a random walk model are ```autocorrelated```, perhaps the problem can be fixed by adding **one lag** of the dependent variable to the prediction equation, i.e., by regressing the first difference of X on itself lagged by one period. This would yield the following prediction equation:
 
 <p align="center">
@@ -1558,9 +1565,21 @@ If the errors of a random walk model are ```autocorrelated```, perhaps the probl
 </p>
 
 
+In summary:
 
+- Some series are better fitted by AR terms, others are better fitted by MA terms (at a given level of differencing).
 
+- If the stationarized series has **positive** autocorrelation at lag ```1```, **AR** terms often work best.  If it has **negative** autocorrelation at lag ```1```, **MA** terms often work best. 
 
+- An ```MA(1)``` term often works well to **fine-tune** the effect of a nonseasonal difference, while an ```AR(1)``` term often works well to **compensate** for the lack of a nonseasonal difference, so the choice between them may depend on whether a **difference** has been used.
+
+- A series displays autoregressive (AR) behavior if it apparently feels a ```restoring force``` that tends to pull it back toward its **mean**.
+
+- A series displays moving-average (MA) behavior if it apparently undergoes random ```shocks``` whose effects are felt in two or more **consecutive** periods.
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
 
 
 
