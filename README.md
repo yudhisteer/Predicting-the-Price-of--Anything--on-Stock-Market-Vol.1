@@ -1515,6 +1515,21 @@ A nonseasonal ARIMA model is classified as an ```ARIMA(p,d,q)``` model where:
 - **d**: is the number of ```nonseasonal differences``` needed for ```stationarity```
 - **q**: is the number of ```lagged forecast errors``` in the ```prediction``` equation
 
+**ARIMA Forecasting Equation**
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171460728-ae17c157-fbd1-4e34-8543-c07f458f49e2.png"/>
+</p>
+
+- <img src="https://latex.codecogs.com/svg.image?\triangledown&space;\hat{X_t}" title="https://latex.codecogs.com/svg.image?\triangledown \hat{X_t}" />:  the differenced (stationarized) series
+- <img src="https://latex.codecogs.com/svg.image?\triangledown&space;\hat{X_t}&space;=&space;X_t" title="https://latex.codecogs.com/svg.image?\triangledown \hat{X_t} = X_t" /> if no difference.
+- <img src="https://latex.codecogs.com/svg.image?\phi_1\cdot&space;X_{t-1}&space;&plus;&space;...&plus;\phi_p\cdot&space;X_{t-p}" title="https://latex.codecogs.com/svg.image?\phi_1\cdot X_{t-1} + ...+\phi_p\cdot X_{t-p}" />: AR terms (lagged values of y)
+- <img src="https://latex.codecogs.com/svg.image?-\theta&space;_1\cdot&space;W_{t-1}&space;-&space;...-\theta&space;_q\cdot&space;W_{t-q}" title="https://latex.codecogs.com/svg.image?-\theta _1\cdot W_{t-1} - ...-\theta _q\cdot W_{t-q}" />: MA terms (lagged errors)
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu" title="https://latex.codecogs.com/png.image?\dpi{110}\mu" />: constant
+- By convention the **AR** terms are ```+``` and the **MA** terms are ```-```
+-   Usually ```p+q <2``` and either ```p=0``` or ```q=0 ```(pure AR or pure MA model)
+
+
 The **goal** of the ARIMA model is to turn the "knobs" as shown below until the **residuals** are ```white noise```:
 
 <p align="center">
@@ -1522,16 +1537,18 @@ The **goal** of the ARIMA model is to turn the "knobs" as shown below until the 
 </p>
 
 
+##### 6.6.1 ARIMA(0,1,0): Random Walk
 
 
 
 
 
+##### 6.6.2 ARIMA(0,1,1): Simple Exponential Smoothing
 
 
 
 
-
+##### 6.6.3 ARIMA(1,1,0): Differenced First-order Autoregressive Model
 
 
 
