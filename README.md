@@ -1518,14 +1518,14 @@ A nonseasonal ARIMA model is classified as an ```ARIMA(p,d,q)``` model where:
 **ARIMA Forecasting Equation**
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171464671-a2c5c095-4407-4040-9ed3-60b2da55fe4f.png"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/171475577-bdc62539-17a0-46b5-9815-4b64475478e4.png"/>
 </p>
 
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}W_t" title="https://latex.codecogs.com/png.image?\dpi{110}W_t" />: constant
 - <img src="https://latex.codecogs.com/svg.image?\triangledown&space;\hat{X_t}" title="https://latex.codecogs.com/svg.image?\triangledown \hat{X_t}" />:  the differenced (stationarized) series
 - <img src="https://latex.codecogs.com/svg.image?\triangledown&space;\hat{X_t}&space;=&space;X_t" title="https://latex.codecogs.com/svg.image?\triangledown \hat{X_t} = X_t" /> if no difference.
-- <img src="https://latex.codecogs.com/svg.image?\phi_1\cdot&space;X_{t-1}&space;&plus;&space;...&plus;\phi_p\cdot&space;X_{t-p}" title="https://latex.codecogs.com/svg.image?\phi_1\cdot X_{t-1} + ...+\phi_p\cdot X_{t-p}" />: AR terms (lagged values of y)
-- <img src="https://latex.codecogs.com/svg.image?-\theta&space;_1\cdot&space;W_{t-1}&space;-&space;...-\theta&space;_q\cdot&space;W_{t-q}" title="https://latex.codecogs.com/svg.image?-\theta _1\cdot W_{t-1} - ...-\theta _q\cdot W_{t-q}" />: MA terms (lagged errors)
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\phi_1\cdot&space;\triangledown&space;X_{t-1}&space;&plus;&space;...&plus;&space;\phi_p\cdot&space;\triangledown&space;X_{t-p}" title="https://latex.codecogs.com/png.image?\dpi{110}\phi_1\cdot \triangledown X_{t-1} + ...+ \phi_p\cdot \triangledown X_{t-p}" />: AR terms (lagged values of y)
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}-&space;\theta_1\cdot&space;W_{t-1}&space;-&space;...-\theta_q\cdot&space;W_{t-q}" title="https://latex.codecogs.com/png.image?\dpi{110}- \theta_1\cdot W_{t-1} - ...-\theta_q\cdot W_{t-q}" />: MA terms (lagged errors)
 - By convention the **AR** terms are ```+``` and the **MA** terms are ```-```
 -   Usually ```p+q <2``` and either ```p=0``` or ```q=0 ```(pure AR or pure MA model)
 
@@ -1538,13 +1538,20 @@ The **goal** of the ARIMA model is to turn the "knobs" as shown below until the 
 
 
 ##### 6.6.1 ARIMA(0,1,0): Random Walk
+In ARIMA(0,1,0), we have no AR and MA components so we have only the I(1) part. 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171473307-feec6677-676d-4ae0-8405-9193b203fa8c.png"/>
+</p>
 
-
-
+The equation above is exactly the random walk model discussed earlier.
 
 ##### 6.6.2 ARIMA(0,1,1): Simple Exponential Smoothing
+If the errors of a random walk model are ```autocorrelated```, perhaps the problem can be fixed by adding **one lag** of the dependent variable to the prediction equation, i.e., by regressing the first difference of X on itself lagged by one period. This would yield the following prediction equation:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171474555-070dea83-7c26-4207-9f95-8c22f538b947.png"/>
+</p>
 
 
 
