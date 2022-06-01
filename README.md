@@ -1415,31 +1415,76 @@ Figure below shows a time series and its estimated acf function of an autoregres
   <img src= "https://user-images.githubusercontent.com/59663734/171396239-1d20e37a-42b0-4b7d-aff6-e5cb9ab3fcee.png" width="700" height="250"/>
 </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
 #### 6.4 Moving Average Model: MA(q)
+The moving average model is similar to the autoregressive model in that it is a ```linear``` function of past ```error``` terms. We will assume our errors are i.i.d. Gaussian distributed with mean ```0``` and variance <img src="https://latex.codecogs.com/png.image?\dpi{110}\sigma^2&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\sigma^2 " /> which is similar to the **white noise**. In the moving average model, there is no input data but in order to know these errors, we must have compared at the previous **predictions** with the previous **true** values of the time series.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171404139-ad624792-e918-4775-8a31-f9c958f56198.png"/>
+</p>
+
+Figure below shows that the moving average is  actually **smoother** than the white noise because it averages out some of the sharpnesses.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171404525-18407eaa-4e1d-4b09-8ba0-7bb6635851bc.png" width="500" height="400"/>
+</p>
 
 
+Using these representations we can find the:
+
+- **marginal mean function**
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171406687-f311595f-1a05-4f81-9679-32b0984b93da.png"/>
+</p>
+
+
+- **autocovariance function**
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171409525-0fa15083-2763-444f-beb3-242c5d0c7bf8.png" width="310" height="150"/>
+</p>
+
+
+Some properties od the MA model:
+
+- autocovariance <img src="https://latex.codecogs.com/png.image?\dpi{110}\gamma&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\gamma " /> depends only on the gap <img src="https://latex.codecogs.com/png.image?\dpi{110}|s-t|" title="https://latex.codecogs.com/png.image?\dpi{110}|s-t|" /> therefore, it is ```stationary```.
+
+- ACF of an MA model reflects order: <img src="https://latex.codecogs.com/png.image?\dpi{110}\gamma&space;|s-t|&space;=&space;0&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\gamma |s-t| = 0 " /> if <img src="https://latex.codecogs.com/png.image?\dpi{110}|s-t|&space;>&space;q" title="https://latex.codecogs.com/png.image?\dpi{110}|s-t| > q" />
+
+ACF gives order ```q``` of the moving average model therefore, if given an ACF, we can distinguish whether we have an ```MA```, ```AR``` or```white noise``` model as shown below:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171410212-23ee514a-bafa-47a7-8dd2-3275295a41e9.png"/>
+</p>
+
+In the plot above, we see that the ACF of the white noise is within the confidence interval of ```0```. That of the AR model decays exponentially and never reaches ```0```. While the MA model becomes ```0``` at ```h = 2``` which indicates that we have an MA model of order ```1```. 
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
+
+#### 6.5 ARMA Model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
