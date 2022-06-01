@@ -1409,7 +1409,7 @@ If <img src="https://latex.codecogs.com/png.image?\dpi{110}\phi_1&space;" title=
   <img src= "https://user-images.githubusercontent.com/59663734/171395032-a18c8b07-ed04-4368-b6c4-7e8f50543a92.png" width="500" height="250"/>
 </p>
 
-Figure below shows a time series and its estimated acf function of an autoregressive process. All autocorrelations are non-zero, and the magnitude of autocovariance between the terms of the series ```decays``` rapidly as the time difference ```h``` **increases**.
+Figure below shows a time series and its estimated acf function of an autoregressive process. All autocorrelations are non-zero, and the magnitude of autocovariance between the terms of the series ```decays exponentially``` (never zero) as the time difference ```h``` **increases**.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171396239-1d20e37a-42b0-4b7d-aff6-e5cb9ab3fcee.png" width="700" height="250"/>
