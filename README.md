@@ -1616,6 +1616,24 @@ ma_6 = np.array(ma_6)
 
 #### 6.7.2 PACF for AR(p)
 
+```python
+# AR(2)
+x2 = [0,0]
+phi_1 = 0.5
+phi_2 = -0.3
+for i in range(1000):
+    x = phi_1*x2[-1] + phi_2*x2[-2] + 0.1*np.random.randn()
+    #print(x)
+    x2.append(x)
+    
+x2 = np.array(x2)
+```
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171613968-e9349c1e-8b87-4238-a9f8-8b32ab461148.png" width="850" height="600"/>
+</p>
+
+
 
 
 <p align="center">
@@ -1626,8 +1644,6 @@ ma_6 = np.array(ma_6)
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171612446-68d4251a-822b-4ece-b9c7-f020a3cfa263.png" width="870" height="400"/>
 </p>
-
-
 
 
 <p align="center">
