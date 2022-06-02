@@ -1561,7 +1561,7 @@ This means that you can fit a simple exponential smoothing by specifying it as a
 If the errors of a random walk model are ```autocorrelated```, perhaps the problem can be fixed by adding **one lag** of the dependent variable to the prediction equation, i.e., by regressing the first difference of X on itself lagged by one period. This would yield the following prediction equation:
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/171476475-fd3532c4-dc50-4f74-83f2-3f7da976dd40.png"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/171476475-fd3532c4-dc50-4f74-83f2-3f7da976dd40.png" />
 </p>
 
 
@@ -1581,13 +1581,66 @@ In summary:
 ________________________________________________________ .. __________________________________________________________
 </p>
 
+#### 6.7 ACF and PACF
+After a time series has been stationarized by differencing, the next step in fitting an ARIMA model is to determine whether ```AR``` or ```MA``` terms are needed to correct any autocorrelation that remains in the differenced series. By looking at the ```autocorrelation function (ACF)``` and ```partial autocorrelation (PACF)``` plots of the differenced series, we can tentatively identify the numbers of ```AR``` and/or ```MA``` terms that are needed. Recall tha the ACF plot is merely a bar chart of the coefficients of **correlation** between a time series and **lags** of itself. The PACF plot is a plot of the **partial correlation** coefficients between the series and **lags** of itself.
+
+> In general, the "partial" correlation between two variables is the amount of correlation between them which is not explained by their mutual correlations with a specified set of other variables. For example, if we are regressing a variable Y on other variables X1, X2, and X3, the partial correlation between Y and X3 is the amount of correlation between Y and X3 that is not explained by their common correlations with X1 and X2. 
+
+#### 6.7.1 ACF for MA(q)
+
+
+```python
+# MA(6)
+theta_1 = 0.5
+theta_2 = -0.3
+theta_3 = 0.7
+theta_4 = 0.2
+theta_5 = -0.8
+theta_6 = -0.9
+
+errors = 0.1 * np.random.randn(1000)
+ma_6 = []
+
+for i in range(1000):
+    x = theta_1*errors[i-1] + theta_2*errors[i-2] + theta_3*errors[i-3] + \
+        theta_4*errors[i-4] + theta_5*errors[i-5] + theta_6*errors[i-6] + errors[i]
+    ma_6.append(x)
+ma_6 = np.array(ma_6)
+```
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171607513-10d7c2d1-d506-4e76-abac-b476bbaec988.png" width="850" height="600"/>
+</p>
+
+
+
+#### 6.7.2 PACF for AR(p)
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171610532-47ccc12a-bfdb-46cc-885c-5f562800471f.png" width="850" height="400"/>
+</p>
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171612446-68d4251a-822b-4ece-b9c7-f020a3cfa263.png" width="870" height="400"/>
+</p>
+
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/171611386-c17a6991-16ec-4f4f-93c2-92038e9a87ab.png" width="870" height="400"/>
+</p>
 
 
 
 
 
-
-
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
 
 
 
