@@ -1742,9 +1742,6 @@ Equivalently, it is equal to:
 
 This is the amount by which the change from the previous period to the current period is different from the change that was observed exactly one year earlier. For example, the first difference of the seasonal difference in September 1995 is equal to the August-to-September change in ```1995``` minus the August-to-September change in ```1994```. If the first difference of the seasonal difference of Y is pure **noise**, then Y is described by a ```seasonal random trend model```.
 
-##### 6.8.3 SARIMAX
-
-
 
 In summary:
 
@@ -1767,6 +1764,8 @@ In summary:
 - The ```seasonal random walk model``` assumes that the expected values of all future seasonal differences are equal to the average seasonal difference calculated over the whole history of the time series. 
 
 - In contrast, the ```seasonal random trend model``` assumes that the expected values of all future seasonal differences are equal to the **most recently** observed seasonal difference. Moreover, the seasonal random trend model assumes that the actual seasonal differences will be undergoing a ```zero-growth random walk```--rather than fluctuating around some constant mean value--so their values will become very uncertain in the distant future.
+
+##### 6.8.3 SARIMAX
 
 ------------------------
 
