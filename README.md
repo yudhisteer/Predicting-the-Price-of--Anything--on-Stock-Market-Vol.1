@@ -1636,8 +1636,6 @@ We select the value of ```q``` at the sharp cutoff:
   <img src= "https://user-images.githubusercontent.com/59663734/171607513-10d7c2d1-d506-4e76-abac-b476bbaec988.png" width="850" height="600"/>
 </p>
 
-
-
 ##### 6.7.2 PACF for AR(p)
 Similar to ACF, the PACF tells us the number of ```AR``` terms that should be used for forecasting. If the ```partial autocorrelation``` is **significant** at lag ```k``` and not significant at any higher order lags, then this suggests that we should try fitting an **autoregressive** model of order ```k```.
 
@@ -1659,8 +1657,6 @@ We select the value of ```p``` at the sharp cutoff:
   <img src= "https://user-images.githubusercontent.com/59663734/171613968-e9349c1e-8b87-4238-a9f8-8b32ab461148.png" width="850" height="600"/>
 </p>
 
-
-
 ##### 6.7.3 ACF and PACF on Stock Returns
 Now, we will test the ACF and PACF on some stock returns of Google, Apple and IBM. Note that we have already tested the **stationarity** of the log returns with the ```Augmented Dickey–Fuller test``` above. 
 
@@ -1681,11 +1677,7 @@ Apple's stock prices follows an ARIMA (0,1,0) model:
   <img src= "https://user-images.githubusercontent.com/59663734/171611386-c17a6991-16ec-4f4f-93c2-92038e9a87ab.png" width="870" height="400"/>
 </p>
 
-Note that all the above results shows that the time series follows an ```ARIMA (0,1,0)``` which is the ```Random Walk``` model. This shows that we **cannot predict** these time series and the best forecasting model we can ge tis the ```Naive forecast```.
-
-<p align="center">
-________________________________________________________ .. __________________________________________________________
-</p>
+Note that all the above results shows that the time series follows an ```ARIMA (0,1,0)``` which is the ```Random Walk``` model. This shows that we **cannot predict** these time series and the best forecasting model we can get is the ```Naive forecast```.
 
 ------------------------
 
@@ -1708,9 +1700,21 @@ The seasonal difference of a time series is the series of changes from one seaso
   <img src= "https://user-images.githubusercontent.com/59663734/172382264-aa2d1a20-dffa-4606-a759-ce166ebade53.png"/>
 </p>
 
-The first difference of the seasonal difference of a monthly time series Y at period t is equal to (Yt - Yt-12) - (Yt-1 - Yt-13). Equivalently, it is equal to (Yt - Yt-1) - (Yt-12 - Yt-13). This is the amount by which the change from the previous period to the current period is different from the change that was observed exactly one year earlier. Thus, for example, the first difference of the seasonal difference in September 1995 is equal to the August-to-September change in 1995 minus the August-to-September change in 1994. If the first difference of the seasonal difference of Y is pure noise, then Y is described by a seasonal random trend model.
+The first difference of the seasonal difference of a monthly time series Y at period t is equal to
 
-Here is a plot of the first difference of the seasonal difference of AUTOSALE/CPI. Note that it now appears stationary without obvious signs of seasonality. (We should look
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/172437013-4b4e735c-ccda-47b4-b04e-bb7d5d1645f2.png"/>
+</p>
+
+
+Equivalently, it is equal to:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/172437239-6f0fee41-16e4-4a7d-84fd-51ca8331c17e.png"/>
+</p>
+
+
+This is the amount by which the change from the previous period to the current period is different from the change that was observed exactly one year earlier. For example, the first difference of the seasonal difference in September 1995 is equal to the August-to-September change in ```1995``` minus the August-to-September change in ```1994```. If the first difference of the seasonal difference of Y is pure **noise**, then Y is described by a ```seasonal random trend model```.
 
 
 
@@ -1720,7 +1724,11 @@ In summary:
 
 - Seasonal differencing usually removes the gross features of seasonality from a series, as well as most of the trend.
 
-- A ```seasonal random walk model``` is a special case of an ARIMA model in which there is **one order of seasonal differencing**, **a constant term**, and no other parameters - ```ARIMA(0,0,0)x(0,1,0)``` model with constant.
+- A ```seasonal random walk model``` is a special case of an ARIMA model in which there is **one order of seasonal differencing**, **a constant term**, and no other parameters - ```ARIMA(0,0,0)x(0,1,0)``` model with constant. For example, the model assumes that September's value this year is a random step away from September's value last year, October's value this year is a random step away from October's value last year and the mean value of every step is equal to ```μ```:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/172438899-b94876a5-99a4-4674-8fdf-bc0fd9347d4e.png"/>
+</p>
 
 - The ```seasonal random trend model``` is a special case of an ARIMA model in which there is **one order of non-seasonal differencing**, **one order of seasonal differencing**, and **no constant** or other parameters - ```ARIMA(0,1,0)x(0,1,0)``` model.
 
