@@ -65,8 +65,8 @@
     - Autoregressive Moving Average Model: ARMA(p,q)
     - Autoregressive Integrated Moving Average Model: ARIMA(p,d,q)
     - ACF and PACF
-    - Seasonal ARIMA and Auto ARIMA
-    - VARMA
+    - Auto ARIMA, SARIMA and SARIMAX
+    - VAR, VARMA and VARMAX
 
 7. ANN
 
@@ -1703,8 +1703,12 @@ Note that all the above results shows that the time series follows an ```ARIMA (
 
 ------------------------
 
-#### 6.8 Seasonal ARIMA and Auto ARIMA
-Seasonal ARIMA models rely on ```seasonal lags``` and differences to fit the seasonal pattern. The seasonal part of an ARIMA model is summarized by three additional parameters: 
+#### 6.8 Auto ARIMA, SARIMA and SARIMAX
+
+##### 6.8.1 Auto ARIMA
+
+##### 6.8.2 SARIMA
+Seasonal ARIMA (SARIMA) models rely on ```seasonal lags``` and differences to fit the seasonal pattern. The seasonal part of an ARIMA model is summarized by three additional parameters: 
 
 - **P**: of seasonal autoregressive terms 
 - **D**: of seasonal differences 
@@ -1737,6 +1741,8 @@ Equivalently, it is equal to:
 
 
 This is the amount by which the change from the previous period to the current period is different from the change that was observed exactly one year earlier. For example, the first difference of the seasonal difference in September 1995 is equal to the August-to-September change in ```1995``` minus the August-to-September change in ```1994```. If the first difference of the seasonal difference of Y is pure **noise**, then Y is described by a ```seasonal random trend model```.
+
+##### 6.8.3 SARIMAX
 
 
 
