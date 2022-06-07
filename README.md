@@ -1730,9 +1730,15 @@ In summary:
   <img src= "https://user-images.githubusercontent.com/59663734/172438899-b94876a5-99a4-4674-8fdf-bc0fd9347d4e.png"/>
 </p>
 
-- The ```seasonal random trend model``` is a special case of an ARIMA model in which there is **one order of non-seasonal differencing**, **one order of seasonal differencing**, and **no constant** or other parameters - ```ARIMA(0,1,0)x(0,1,0)``` model.
+- The ```seasonal random trend model``` is a special case of an ARIMA model in which there is **one order of non-seasonal differencing**, **one order of seasonal differencing**, and **no constant** or other parameters - ```ARIMA(0,1,0)x(0,1,0)``` model. Seasonal random trend model assumes that the seasonal trend (difference) observed this month is a random step away from the trend that was observed last month, where the steps are assumed to have mean ```zero```. In other words, the expected seasonal difference this month is the same as the seasonal difference observed last month. 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/172452786-0153d6d8-8269-4ae7-abc3-94d340c44227.png"/>
+</p>
 
+- The ```seasonal random walk model``` assumes that the expected values of all future seasonal differences are equal to the average seasonal difference calculated over the whole history of the time series. 
+
+- In contrast, the ```seasonal random trend model``` assumes that the expected values of all future seasonal differences are equal to the **most recently** observed seasonal difference. Moreover, the seasonal random trend model assumes that the actual seasonal differences will be undergoing a ```zero-growth random walk```--rather than fluctuating around some constant mean value--so their values will become very uncertain in the distant future.
 
 
 
