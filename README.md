@@ -1604,6 +1604,7 @@ ________________________________________________________ .. ____________________
 #### 6.7 ACF and PACF
 After a time series has been stationarized by differencing, the next step in fitting an ARIMA model is to determine whether ```AR``` or ```MA``` terms are needed to correct any autocorrelation that remains in the differenced series. By looking at the ```autocorrelation function (ACF)``` and ```partial autocorrelation (PACF)``` plots of the differenced series, we can tentatively identify the numbers of ```AR``` and/or ```MA``` terms that are needed. Recall tha the ACF plot is merely a bar chart of the coefficients of **correlation** between a time series and **lags** of itself. The PACF plot is a plot of the **partial correlation** coefficients between the series and **lags** of itself.
 
+> In general, the "partial" correlation between two variables is the amount of correlation between them which is not explained by their mutual correlations with a specified set of other variables. For example, if we are regressing a variable Y on other variables X1, X2, and X3, the partial correlation between Y and X3 is the amount of correlation between Y and X3 that is not explained by their common correlations with X1 and X2. 
 
 ##### 6.7.1 ACF for MA(q)
 If the autocorrelation is **significant** at lag ```k``` but not at any higher lags, this indicates that exactly ```k``` **MA** terms should be used in the forecasting equation.
@@ -1638,9 +1639,6 @@ We select the value of ```q``` at the sharp cutoff:
 
 
 ##### 6.7.2 PACF for AR(p)
-
-> In general, the "partial" correlation between two variables is the amount of correlation between them which is not explained by their mutual correlations with a specified set of other variables. For example, if we are regressing a variable Y on other variables X1, X2, and X3, the partial correlation between Y and X3 is the amount of correlation between Y and X3 that is not explained by their common correlations with X1 and X2. 
-
 Similar to ACF, the PACF tells us the number of ```AR``` terms that should be used for forecasting. If the ```partial autocorrelation``` is **significant** at lag ```k``` and not significant at any higher order lags, then this suggests that we should try fitting an **autoregressive** model of order ```k```.
 
 ```python
@@ -1664,25 +1662,26 @@ We select the value of ```p``` at the sharp cutoff:
 
 
 ##### 6.7.3 ACF and PACF on Stock Returns
+Now, we will test the ACF and PACF on some stock returns of Google, Apple and IBM. Note that we have already tested the **stationarity** of the log returns with the ```Augmented Dickey–Fuller test``` above. 
 
-
+Google's stock prices follows an ARIMA (0,1,0) model:
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171610532-47ccc12a-bfdb-46cc-885c-5f562800471f.png" width="850" height="400"/>
 </p>
 
+IBM's stock prices follows an ARIMA (0,1,0) model:
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171612446-68d4251a-822b-4ece-b9c7-f020a3cfa263.png" width="870" height="400"/>
 </p>
 
+Apple's stock prices follows an ARIMA (0,1,0) model:
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171611386-c17a6991-16ec-4f4f-93c2-92038e9a87ab.png" width="870" height="400"/>
 </p>
 
-
-
-
+Note that all the above results shows that the time series follows an ```ARIMA (0,1,0)``` which is the ```Random Walk``` model. This shows that we **cannot predict** these time series and the best forecasting model we can ge tis the ```Naive forecast```.
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
