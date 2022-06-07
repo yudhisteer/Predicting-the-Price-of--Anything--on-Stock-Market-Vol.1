@@ -54,7 +54,7 @@
     - Stochastic Dependence
     - Stationarity
     - Transformation towards Stationarity
-    - Diagnosing Stationarity with Autocorrelation Function (ACF)
+    - Diagnosing Stationarity
 
 6. Statistical Models
 
@@ -1210,7 +1210,25 @@ Let <img src="https://latex.codecogs.com/png.image?\dpi{110}X_{t}" title="https:
 
 If the series is stationary, then each observation in the sample averages above contributes statistical information about the common parameters <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu,&space;\sigma&space;^2,&space;\gamma&space;(h)&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\mu, \sigma ^2, \gamma (h) " />. However, most time series are ```dependent```. However, if the ```stochastic dependences``` (e.g. **correlations**) in the series decays sufficiently fast as the time distance between terms get large, then the sample averages have a similar asymptotic behavior as in the classical ```laws of large numbers``` and ```central limit theorems``` for i.i.d. data. So, under mild technical conditions, we have good **estimators** of the mean, variance and autocovariance function of a stationary time series.
 
-##### 5.4.2 Autocovariance Function (ACF)
+
+##### 5.4.2 Augmented Dickey–Fuller Test
+ACF and PACF assume stationarity of the underlying time series. Staionarity can be checked by performing an Augmented Dickey-Fuller (ADF) test:
+
+- **p-value > 0.05**: ```Fail to reject the null hypothesis (H0)```, the data has a unit root and is ```non-stationary```.
+- **p-value <= 0.05**: ```Reject the null hypothesis (H0)```, the data does not have a unit root and is ```stationary```.
+
+
+.
+.
+.
+.
+.
+
+
+If the time series is **stationary**, compute the ```ACF``` and ```PACF```. If the time series is **not stationary**, try ```differencing``` the time series and check its stationarity again.
+
+
+##### 5.4.3 Autocovariance Function (ACF)
 The autocovariance function (ACF) is a very useful statistical tool for studying the dependence properties of a time series. The ACF is our formal tool for detecting non-stationarity in a time series. Plotting and visualizing the correlation structure of the series is the second step after plotting and visualizing the series itself. 
 
 The "auto" part in autocovariance tells us that two random variables come from the same time-series. Covariance is just the ```unscaled correlation```. Therefore it tells us how related two random variables are. If they are completely **unrelated**, then the correlation and hence the covariance will be ```zero```. If they are **related**, that is, they move together either in the same direction or the opposite direction, then this value will be ```non-zero```.
@@ -1230,6 +1248,8 @@ We can use the ACF as a diagnostic tool after transformations to check whether t
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171183313-b83b8144-cf2b-45da-89e9-205e14311157.png" width="800" height="400"/>
 </p>
+
+
 
 ------------------------------
 ### 6. Statistical Models
@@ -1584,10 +1604,11 @@ ________________________________________________________ .. ____________________
 #### 6.7 ACF and PACF
 After a time series has been stationarized by differencing, the next step in fitting an ARIMA model is to determine whether ```AR``` or ```MA``` terms are needed to correct any autocorrelation that remains in the differenced series. By looking at the ```autocorrelation function (ACF)``` and ```partial autocorrelation (PACF)``` plots of the differenced series, we can tentatively identify the numbers of ```AR``` and/or ```MA``` terms that are needed. Recall tha the ACF plot is merely a bar chart of the coefficients of **correlation** between a time series and **lags** of itself. The PACF plot is a plot of the **partial correlation** coefficients between the series and **lags** of itself.
 
-> In general, the "partial" correlation between two variables is the amount of correlation between them which is not explained by their mutual correlations with a specified set of other variables. For example, if we are regressing a variable Y on other variables X1, X2, and X3, the partial correlation between Y and X3 is the amount of correlation between Y and X3 that is not explained by their common correlations with X1 and X2. 
 
-#### 6.7.1 ACF for MA(q)
+##### 6.7.1 ACF for MA(q)
+If the autocorrelation is **significant** at lag ```k``` but not at any higher lags, this indicates that exactly ```k``` **MA** terms should be used in the forecasting equation.
 
+Below is an example of synthetic moving average data created to show how the value of ```q``` is reflected in the ACF plot:
 
 ```python
 # MA(6)
@@ -1608,13 +1629,19 @@ for i in range(1000):
 ma_6 = np.array(ma_6)
 ```
 
+We select the value of ```q``` at the sharp cutoff:
+
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171607513-10d7c2d1-d506-4e76-abac-b476bbaec988.png" width="850" height="600"/>
 </p>
 
 
 
-#### 6.7.2 PACF for AR(p)
+##### 6.7.2 PACF for AR(p)
+
+> In general, the "partial" correlation between two variables is the amount of correlation between them which is not explained by their mutual correlations with a specified set of other variables. For example, if we are regressing a variable Y on other variables X1, X2, and X3, the partial correlation between Y and X3 is the amount of correlation between Y and X3 that is not explained by their common correlations with X1 and X2. 
+
+Similar to ACF, the PACF tells us the number of ```AR``` terms that should be used for forecasting. If the ```partial autocorrelation``` is **significant** at lag ```k``` and not significant at any higher order lags, then this suggests that we should try fitting an **autoregressive** model of order ```k```.
 
 ```python
 # AR(2)
@@ -1628,12 +1655,15 @@ for i in range(1000):
     
 x2 = np.array(x2)
 ```
+We select the value of ```p``` at the sharp cutoff:
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/171613968-e9349c1e-8b87-4238-a9f8-8b32ab461148.png" width="850" height="600"/>
 </p>
 
 
+
+##### 6.7.3 ACF and PACF on Stock Returns
 
 
 <p align="center">
@@ -1696,3 +1726,4 @@ Contrary to Exponential Smoothing model, Arima models are more in the spirit of 
 19. https://machinelearningmastery.com/white-noise-time-series
 20. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
 21. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
+22. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
