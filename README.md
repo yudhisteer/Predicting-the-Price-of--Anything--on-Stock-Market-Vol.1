@@ -1768,8 +1768,18 @@ In summary:
 
 - In contrast, the ```seasonal random trend model``` assumes that the expected values of all future seasonal differences are equal to the **most recently** observed seasonal difference. Moreover, the seasonal random trend model assumes that the actual seasonal differences will be undergoing a ```zero-growth random walk```--rather than fluctuating around some constant mean value--so their values will become very uncertain in the distant future.
 
+------------------------
 
 
+#### 6.9 VAR, VARMA and VARMAX
+
+##### 6.9.1 VAR
+
+
+##### 6.9.2 VARMA
+
+
+##### 6.9.3 VARMAX
 
 
 ------------------------
