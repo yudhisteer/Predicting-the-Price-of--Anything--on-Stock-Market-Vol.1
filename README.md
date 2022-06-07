@@ -1239,7 +1239,7 @@ def adf(x):
 We see that the log returns of the stock prices for Google, Apple and IBM are all **stationary**. We would use these stationary time series later to check the ACF and PACF and then evaluate if we can peform forecasting.
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/172456311-bc1193c8-09e2-468c-ac8d-5a5da6d12706.png" width="850" height="270"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/172456311-bc1193c8-09e2-468c-ac8d-5a5da6d12706.png" />
 </p>
 
 If the time series is **stationary**, compute the ```ACF``` and ```PACF```. If the time series is **not stationary**, try ```differencing``` the time series and check its stationarity again.
