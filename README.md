@@ -65,7 +65,7 @@
     - Autoregressive Moving Average Model: ARMA(p,q)
     - Autoregressive Integrated Moving Average Model: ARIMA(p,d,q)
     - ACF and PACF
-    - Auto ARIMA
+    - Seasonal ARIMA and Auto ARIMA
     - VARMA
 
 7. ANN
@@ -1686,6 +1686,47 @@ Note that all the above results shows that the time series follows an ```ARIMA (
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
+
+------------------------
+
+#### 6.8 Seasonal ARIMA and Auto ARIMA
+Seasonal ARIMA models rely on ```seasonal lags``` and differences to fit the seasonal pattern. The seasonal part of an ARIMA model is summarized by three additional parameters: 
+
+- **P**: of seasonal autoregressive terms 
+- **D**: of seasonal differences 
+- **Q**: of seasonal moving-average terms 
+
+The complete model is called an ```ARIMA(p,d,q) x (P,D,Q)``` model. We have 3 more "knobs" as shown below:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/172380845-99497418-a8b1-4748-b7a2-d8da6c9b07d4.png" width="600" height="200"/>
+</p>
+
+The seasonal difference of a time series is the series of changes from one season to the next. For monthly data, in which there are ```12``` periods in a season, the seasonal difference of ```Y``` at period ```t```:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/172382264-aa2d1a20-dffa-4606-a759-ce166ebade53.png"/>
+</p>
+
+The first difference of the seasonal difference of a monthly time series Y at period t is equal to (Yt - Yt-12) - (Yt-1 - Yt-13). Equivalently, it is equal to (Yt - Yt-1) - (Yt-12 - Yt-13). This is the amount by which the change from the previous period to the current period is different from the change that was observed exactly one year earlier. Thus, for example, the first difference of the seasonal difference in September 1995 is equal to the August-to-September change in 1995 minus the August-to-September change in 1994. If the first difference of the seasonal difference of Y is pure noise, then Y is described by a seasonal random trend model.
+
+Here is a plot of the first difference of the seasonal difference of AUTOSALE/CPI. Note that it now appears stationary without obvious signs of seasonality. (We should look
+
+
+
+In summary:
+
+- If the ```seasonal difference``` of Y is stationary ```white noise``` (i.i.d. with no autocorrelation), then Y is described by a **seasonal random walk model**: each value is a random step away from the value that occurred exactly ```one season ago```.
+
+- Seasonal differencing usually removes the gross features of seasonality from a series, as well as most of the trend.
+
+- A ```seasonal random walk model``` is a special case of an ARIMA model in which there is **one order of seasonal differencing**, **a constant term**, and no other parameters - ```ARIMA(0,0,0)x(0,1,0)``` model with constant.
+
+- The ```seasonal random trend model``` is a special case of an ARIMA model in which there is **one order of non-seasonal differencing**, **one order of seasonal differencing**, and **no constant** or other parameters - ```ARIMA(0,1,0)x(0,1,0)``` model.
+
+
+
+
 
 
 
