@@ -1212,20 +1212,42 @@ If the series is stationary, then each observation in the sample averages above 
 
 
 ##### 5.4.2 Augmented Dickey–Fuller Test
-ACF and PACF assume stationarity of the underlying time series. Staionarity can be checked by performing an Augmented Dickey-Fuller (ADF) test:
+ACF and PACF assume stationarity of the underlying time series. Staionarity can be checked by performing an Augmented Dickey-Fuller (ADF) test. For that we need a ```null hypothesis``` which is the time series is ```non-stationary``` and an ```alternative hypothesis``` which is the time series is ```stationary```.
 
 - **p-value > 0.05**: ```Fail to reject the null hypothesis (H0)```, the data has a unit root and is ```non-stationary```.
 - **p-value <= 0.05**: ```Reject the null hypothesis (H0)```, the data does not have a unit root and is ```stationary```.
 
+Recall that this relates to the ```I``` parameter in the ARIMA model. So we want to difference our time series until it becomes stationary.
 
-.
-.
-.
-.
-.
+Below is a function to test the stationarity of time series:
 
+```python
+from statsmodels.tsa.stattools import adfuller
+
+# function for Augmented Dickey–Fuller Test 
+def adf(x):
+    res = adfuller(x)
+    print("Test Statistic: ", res[0])
+    print("P-value: ", res[1])
+    
+    if res[1] < 0.05:
+        print("Stationary")
+    else:
+        print("Non-stationary")
+```
+
+We see that the log returns of the stock prices for Google, Apple and IBM are all **stationary**. We would use these stationary time series later to check the ACF and PACF and then evaluate if we can peform forecasting.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/172456311-bc1193c8-09e2-468c-ac8d-5a5da6d12706.png" width="850" height="270"/>
+</p>
 
 If the time series is **stationary**, compute the ```ACF``` and ```PACF```. If the time series is **not stationary**, try ```differencing``` the time series and check its stationarity again.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/172459953-a9288cc7-7756-40a8-ae02-811c020d35c6.png" width="400" height="400"/>
+</p>
+
 
 
 ##### 5.4.3 Autocovariance Function (ACF)
