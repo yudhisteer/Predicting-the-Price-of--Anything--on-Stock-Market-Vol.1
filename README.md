@@ -1763,7 +1763,7 @@ logmodel = pm.auto_arima(train['LogPassengers'],
                      m=12)
 ```
 
-```pmdarima``` will select the best order for us that will minimize the ```AIC``` value. The model gives us ```p=2```, ```Q=1``` and a seasonal differencin; ```D=1```.
+```pmdarima``` will select the best order for us that will minimize the ```AIC``` value. The model gives us ```p=2```, ```Q=1``` and a seasonal differencing -  ```D=1```.
 
 ```python
 Best model:  ARIMA(2,0,0)(0,1,1)[12] intercept
