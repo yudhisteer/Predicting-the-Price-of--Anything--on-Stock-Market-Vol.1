@@ -213,10 +213,6 @@ ________________________________________________________ .. ____________________
 ![rand_2D](https://user-images.githubusercontent.com/59663734/168471883-1f124262-bcba-4d95-bac4-da51fac10640.gif)
 
 
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/170880177-8c01ea3a-3f3c-40d6-87cb-3be5a3790012.png" width="620" height="230"/>
-</p>
-
 
 
 
@@ -1714,6 +1710,19 @@ Note that all the above results shows that the time series follows an ```ARIMA (
 #### 6.8 Auto ARIMA, SARIMA and SARIMAX
 
 ##### 6.8.1 Auto ARIMA
+So far, we have plot the ACF and PACF graphs and manually chosen the ```p``` and ```q``` values that would fit our ARIMA model. By following this strategy, we might end up with a suboptimal answer. Now, we will use a popular time series package (**pmdarima**) which contains a function called ```auto arima``` that automatically finds the best model for us. That is, it tries a bunch of different settings and returns the best settings according to some criteria (```AIC``` and ```BIC```). 
+
+The reason we choose Auto ARIMA is because manually looking at the ACF and PACF does not always lead to the ```optimal``` answer. Auto Arima does a more exhaustive search (**stepwise**(default) or **gridsearch**) and therefore has a better opportunity of finding the best answer.
+
+
+
+
+
+
+
+
+
+
 
 ##### 6.8.2 SARIMA
 Seasonal ARIMA (SARIMA) models rely on ```seasonal lags``` and differences to fit the seasonal pattern. The seasonal part of an ARIMA model is summarized by three additional parameters: 
@@ -1769,7 +1778,7 @@ logmodel = pm.auto_arima(train['LogPassengers'],
 Best model:  ARIMA(2,0,0)(0,1,1)[12] intercept
 ```
 
-Notice how for the first 12 rows of forecasting, the model gives us near ```0``` values. Initally we don't have values for season behind, so we can't make prediction. However, we see that the forecasting on the test set looks as good as the Holt-Winter's method.
+Notice how for the first 12 rows of forecasting, the model gives us approx. ```0``` as value. Initally we don't have values for the season behind, so we can't make prediction. However, we see that the forecasting on the test set closely matches the real values.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173038613-af3f9c60-16b1-4641-8f9c-ab68004f6df8.png" width="700" height="500"/>
@@ -1778,7 +1787,7 @@ Notice how for the first 12 rows of forecasting, the model gives us near ```0```
 Below we have the RMSE and MSE loss on the logged and non-logged data. Surprisingly, the SARIMA model did better on the non-logged data. Notice how the train errors are high compared to the other models. This is because, we did not have the initial forecasting values so it increased our loss. The **SARIMA** model did better than the **non-seasonal Auto ARIMA** model but not better than the **non-seasonal Manual ARIMA** where we painstakingly choose our ```p``` and ```q``` values from the PACF and ACF plots respectively.
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/173041616-ddf3e053-ad27-4ce8-b6b6-08950a6c8021.png" width="500" height="300"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/173054099-31ec4c16-7716-4c85-b1c1-3ab9d7ef28a2.png" width="600" height="350"/>
 </p>
 
 
