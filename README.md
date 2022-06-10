@@ -1714,11 +1714,38 @@ So far, we have plot the ACF and PACF graphs and manually chosen the ```p``` and
 
 The reason we choose Auto ARIMA is because manually looking at the ACF and PACF does not always lead to the ```optimal``` answer. Auto Arima does a more exhaustive search (**stepwise**(default) or **gridsearch**) and therefore has a better opportunity of finding the best answer.
 
+We create a model using the ```auto_arima``` method from ```pmdarima``` package. We state seasonal as False and allow a maximum of ```10``` iterations to find the best model. 
 
+```python
+model = pm.auto_arima(train,
+                     error_action='ignore',
+                     trace=True,
+                     suppress_warnings=True,
+                     maxiter=10,
+                     seasonal=False)
+```
 
+Although earlier we found that Google's stock prices followed a **Random Walk**. Auto ARIMA found that a ```(3, 1, 0)``` model would be best to fit the data.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173117672-1e5c6447-0bdc-411d-99b9-76450ef044cd.png" width="280" height="350"/>
+</p>
 
+We fit the data with the model and plot the results of the in-sample and out-of-sample forecasts. Notice how the prediction is very close to the true values for the in-sample data. We observe that the model predicts the next data point ```similar``` or ```close``` to the latest one for the ```in-sample``` dataset - as if the time series has been shifted by one time step. Alas, as soon as we forecast for the ```out-of-sample``` dataset, our prediction is approx. a **straight line**. This is because stock prices has **no seasonality** and no apparent **pattern** inherent in the data. Hence, forecasting would just capture the **trend** of the in-sample data and forecast a trending line or use the last known value as prediction for every future time steps similar to the ```Naive forecast```.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173116845-743852a1-12db-43eb-a623-7e39c7583a0c.png" width="600" height="280"/>
+</p>
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173116791-d348edab-41ab-4a7a-808d-4b260059ee58.png" width="600" height="280"/>
+</p>
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173116578-90d903fa-4812-41d0-925d-d21a35606754.png" width="600" height="280"/>
+</p>
+
+Although our forecasting line could not really capture all the intricacies in the real data, notice how the ```confidence interval``` nicely capture the possibilities of the ```out-of-sample``` data. All the testing data fits into the confidence interval. Even the forecasting line captured the overall ```trend``` of the out-of-sample data.
 
 
 
