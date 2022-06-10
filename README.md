@@ -9,6 +9,13 @@
 ## Methods
 
 ## Dataset(s)
+1. ```Airline Passengers```: Dataset provides monthly totals of a US airline passengers from **1949** to **1960**. 
+
+2. ```Johnson & Johnson Quarterly EPS```: Dataset contains quarterly earnings per share history from **1960** to **1980**.
+
+3. ```S&P500```: Stock market index tracking the performance of 500 large companies listed on stock exchanges in the United States from **2010** to **2018**. We will use mainly Google's, IBM's, Apple's and Starbucks' share price information for analysis. 
+
+
 
 ## Plan of Action
 
