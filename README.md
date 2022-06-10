@@ -1765,13 +1765,14 @@ Best model:  ARIMA(2,0,0)(0,1,1)[12] intercept
 Notice how for the first 12 rows of forecasting, the model gives us near ```0``` values. Initally we don't have values for season behind, so we can't make prediction. However, we see that the forecasting on the test set looks as good as the Holt-Winter's method.
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/173038613-af3f9c60-16b1-4641-8f9c-ab68004f6df8.png"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/173038613-af3f9c60-16b1-4641-8f9c-ab68004f6df8.png" width="700" height="500"/>
 </p>
 
-Below we have the RMSE and MSE loss on the logged and non-logged data. Surprisingly, the SARIMA model did better on the non-logged data. Notice how the train errors are high compared to the other models. This is because, we did not have the initial forecasting values so it increased our loss. The SARIMA model did better than the non-seasonal Auto ARIMA model but not better than the non-seasonal Manual ARIMA where we painstakingly choose our ```p``` and ```q``` values from the PACF and ACF plots respectively.
+Below we have the RMSE and MSE loss on the logged and non-logged data. Surprisingly, the SARIMA model did better on the non-logged data. Notice how the train errors are high compared to the other models. This is because, we did not have the initial forecasting values so it increased our loss. The **SARIMA** model did better than the **non-seasonal Auto ARIMA** model but not better than the **non-seasonal Manual ARIMA** where we painstakingly choose our ```p``` and ```q``` values from the PACF and ACF plots respectively.
 
-
-![image](https://user-images.githubusercontent.com/59663734/173041616-ddf3e053-ad27-4ce8-b6b6-08950a6c8021.png)
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173041616-ddf3e053-ad27-4ce8-b6b6-08950a6c8021.png" width="500" height="300"/>
+</p>
 
 
 In summary:
