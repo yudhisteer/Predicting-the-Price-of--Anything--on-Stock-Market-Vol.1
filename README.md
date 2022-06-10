@@ -1751,7 +1751,7 @@ Although the forecast above kind of nearly captures the trend of the in-sample d
 
 ![image](https://user-images.githubusercontent.com/59663734/173121699-2a0e4260-3399-4ab6-82b8-524b690e8dc8.png)
 
-On the ```in-sample``` we see how the model perfectly fitted a line but for the out-of-sample dataset we are completely **wrong**! When we have a zoom-out view of the stock price, it indeed shows an ```increasing trend``` and the forecasting does capture this with the ```green``` line. However, something happens at the end of our in-sample data and we see a sharp **decline** for the next ```60``` days. The model fails to predict such a ```decresing trending``` line and even the confidence interval barely captures the out-of-sample data. Imagine relying on our model and investing a huge amount of money on that day!
+On the ```in-sample``` we see how the model perfectly fitted a line but for the out-of-sample dataset we are completely **wrong**! When we have a zoom-out view of the stock price, it indeed shows an ```increasing trend``` and the forecasting does capture this with the ```green``` line. However, something happens at the end of our in-sample data and we see a sharp **decline** for the next ```60``` days. The model **fails** to predict such a ```decresing trending``` line and even the confidence interval barely captures the out-of-sample data. Imagine relying on our model and investing a huge amount of money on that day!
 
 > These examples clearly shows that stock prices tends to follow a **random walk** and deciphering a pattern in the data is almost if not ```impossible```. 
 
