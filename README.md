@@ -1743,6 +1743,32 @@ Equivalently, it is equal to:
 
 This is the amount by which the change from the previous period to the current period is different from the change that was observed exactly one year earlier. For example, the first difference of the seasonal difference in September 1995 is equal to the August-to-September change in ```1995``` minus the August-to-September change in ```1994```. If the first difference of the seasonal difference of Y is pure **noise**, then Y is described by a ```seasonal random trend model```.
 
+Below we do a SARIMA forecasting on the Airline Passengers dataset. We will apply log transformation on our time series to make it stationary. Then we call the ```auto_arima``` method from ```pmdarima``` with ```m``` equal to ```12``` which equals the seasonality period. 
+
+```python
+import pmdarima as pm
+
+logmodel = pm.auto_arima(train['LogPassengers'],
+                     trace=True,
+                     suppress_warnings=True,
+                     seasonal=True,
+                     stepwise=True,
+                     m=12)
+```
+
+```pmdarima``` will select the best order for us that will minimize the ```AIC``` value. The model gives us ```p=2```, ```Q=1``` and a seasonal differencin; ```D=1```.
+
+```python
+Best model:  ARIMA(2,0,0)(0,1,1)[12] intercept
+```
+
+Notice how for the first 12 rows of forecasting, the model gives us near ```0``` values. This is because we don't have the previous ```12``` values when differencing. However, we see that the forecasting on the test set looks as good as the Holt-Winter's method.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173038613-af3f9c60-16b1-4641-8f9c-ab68004f6df8.png"/>
+</p>
+
+
 
 In summary:
 
