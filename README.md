@@ -1714,7 +1714,7 @@ So far, we have plot the ACF and PACF graphs and manually chosen the ```p``` and
 
 The reason we choose Auto ARIMA is because manually looking at the ACF and PACF does not always lead to the ```optimal``` answer. Auto Arima does a more exhaustive search (**stepwise**(default) or **gridsearch**) and therefore has a better opportunity of finding the best answer.
 
-We create a model using the ```auto_arima``` method from ```pmdarima``` package. We state seasonal as False and allow a maximum of ```10``` iterations to find the best model. 
+We create a model using the ```auto_arima``` method from ```pmdarima``` package. We state seasonal as ```False``` and allow a maximum of ```10``` iterations to find the best model. We will try to forecast ```30``` time steps into the future for **Google**'s Stock Price.
 
 ```python
 model = pm.auto_arima(train,
@@ -1747,8 +1747,13 @@ We fit the data with the model and plot the results of the in-sample and out-of-
 
 Although our forecasting line could not really capture all the intricacies in the real data, notice how the ```confidence interval``` nicely capture the possibilities of the ```out-of-sample``` data. All the testing data fits into the confidence interval. Even the forecasting line captured the overall ```trend``` of the out-of-sample data.
 
+Although the forecast above kind of nearly captures the trend of the in-sample data, when I changed my horizon period to be ```60``` and fit a model (```ARIMA(2, 1, 2)```) on **Apple**'s Stock Price, the result is not as convincing anymore:
 
+![image](https://user-images.githubusercontent.com/59663734/173121699-2a0e4260-3399-4ab6-82b8-524b690e8dc8.png)
 
+On the ```in-sample``` we see how the model perfectly fitted a line but for the out-of-sample dataset we are completely **wrong**! When we have a zoom-out view of the stock price, it indeed shows an ```increasing trend``` and the forecasting does capture this with the ```green``` line. However, something happens at the end of our in-sample data and we see a sharp **decline** for the next ```60``` days. The model fails to predict such a ```decresing trending``` line and even the confidence interval barely captures the out-of-sample data. Imagine relying on our model and investing a huge amount of money on that day!
+
+> These examples clearly shows that stock prices tends to follow a **random walk** and deciphering a pattern in the data is almost if not ```impossible```. 
 
 
 ##### 6.8.2 SARIMA
