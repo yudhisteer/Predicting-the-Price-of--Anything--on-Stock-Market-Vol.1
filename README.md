@@ -1791,9 +1791,14 @@ On the ```in-sample``` we see how the model perfectly fitted a line but for the 
 ##### 6.8.2 Auto ARIMA on Airline Passengers
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/173215531-4d995c12-d6cb-498d-b8cd-5477bccba404.png" width="500" height="300"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/173226321-50e14b35-35cb-4221-bddd-c5f529fbe513.png" width="900" height="250"/>
 </p>
 
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173215531-4d995c12-d6cb-498d-b8cd-5477bccba404.png" width="500" height="300"/>
+</p>
 
 
 
