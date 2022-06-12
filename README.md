@@ -1610,42 +1610,6 @@ If the errors of a random walk model are ```autocorrelated```, perhaps the probl
   <img src= "https://user-images.githubusercontent.com/59663734/171476475-fd3532c4-dc50-4f74-83f2-3f7da976dd40.png" />
 </p>
 
-
-##### 6.6.5 ARIMA(12,1,12): Forecasting on Airline Passengers Dataset
-
-
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/173234916-ab3090f2-418c-4d09-a5b5-2fd12e5b11bf.png" width="800" height="230"/>
-</p>
-
-
-
-
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/173234567-252e19bd-abdd-4c7b-8fd9-3053621d0d4b.png" width="700" height="300"/>
-</p>
-
-
-
-
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/173215653-080899fa-1c52-4f93-bb5e-5321e41295a2.png" width="500" height="250"/>
-</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 In summary:
 
 - Some series are better fitted by AR terms, others are better fitted by MA terms (at a given level of differencing).
@@ -1739,6 +1703,49 @@ Apple's stock prices follows an ARIMA (0,1,0) model:
 </p>
 
 Note that all the above results shows that the time series follows an ```ARIMA (0,1,0)``` which is the ```Random Walk``` model. This shows that we **cannot predict** these time series and the best forecasting model we can get is the ```Naive forecast```.
+
+##### 6.7.4 ACF and PACF on Airline Passengers
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173234916-ab3090f2-418c-4d09-a5b5-2fd12e5b11bf.png" width="800" height="230"/>
+</p>
+
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173234567-252e19bd-abdd-4c7b-8fd9-3053621d0d4b.png" width="700" height="300"/>
+</p>
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173215653-080899fa-1c52-4f93-bb5e-5321e41295a2.png" width="570" height="250"/>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ------------------------
 
