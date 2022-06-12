@@ -1611,6 +1611,28 @@ If the errors of a random walk model are ```autocorrelated```, perhaps the probl
 </p>
 
 
+
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173215653-080899fa-1c52-4f93-bb5e-5321e41295a2.png" width="500" height="250"/>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 In summary:
 
 - Some series are better fitted by AR terms, others are better fitted by MA terms (at a given level of differencing).
@@ -1709,7 +1731,7 @@ Note that all the above results shows that the time series follows an ```ARIMA (
 
 #### 6.8 Auto ARIMA, SARIMA and SARIMAX
 
-##### 6.8.1 Auto ARIMA
+##### 6.8.1 Auto ARIMA on Stock Prices
 So far, we have plot the ACF and PACF graphs and manually chosen the ```p``` and ```q``` values that would fit our ARIMA model. By following this strategy, we might end up with a suboptimal answer. Now, we will use a popular time series package (**pmdarima**) which contains a function called ```auto arima``` that automatically finds the best model for us. That is, it tries a bunch of different settings and returns the best settings according to some criteria (```AIC``` and ```BIC```). 
 
 The reason we choose Auto ARIMA is because manually looking at the ACF and PACF does not always lead to the ```optimal``` answer. Auto Arima does a more exhaustive search (**stepwise**(default) or **gridsearch**) and therefore has a better opportunity of finding the best answer.
@@ -1756,7 +1778,35 @@ On the ```in-sample``` we see how the model perfectly fitted a line but for the 
 > These examples clearly shows that stock prices tends to follow a **random walk** and deciphering a pattern in the data is almost if not ```impossible```. 
 
 
-##### 6.8.2 SARIMA
+
+
+
+
+
+##### 6.8.2 Auto ARIMA on Airline Passengers
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173215531-4d995c12-d6cb-498d-b8cd-5477bccba404.png" width="500" height="300"/>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##### 6.8.3 SARIMA
 Seasonal ARIMA (SARIMA) models rely on ```seasonal lags``` and differences to fit the seasonal pattern. The seasonal part of an ARIMA model is summarized by three additional parameters: 
 
 - **P**: of seasonal autoregressive terms 
@@ -1819,7 +1869,7 @@ Notice how for the first 12 rows of forecasting, the model gives us approx. ```0
 Below we have the RMSE and MSE loss on the logged and non-logged data. Surprisingly, the SARIMA model did better on the non-logged data. Notice how the train errors are high compared to the other models. This is because, we did not have the initial forecasting values so it increased our loss. The **SARIMA** model did better than the **non-seasonal Auto ARIMA** model but not better than the **non-seasonal Manual ARIMA** where we painstakingly choose our ```p``` and ```q``` values from the PACF and ACF plots respectively.
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/173054099-31ec4c16-7716-4c85-b1c1-3ab9d7ef28a2.png" width="600" height="350"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/173215368-5517b03a-0d83-479b-91cf-06d74bb6d007.png" width="600" height="350"/>
 </p>
 
 
@@ -1845,7 +1895,7 @@ In summary:
 
 - In contrast, the ```seasonal random trend model``` assumes that the expected values of all future seasonal differences are equal to the **most recently** observed seasonal difference. Moreover, the seasonal random trend model assumes that the actual seasonal differences will be undergoing a ```zero-growth random walk```--rather than fluctuating around some constant mean value--so their values will become very uncertain in the distant future.
 
-##### 6.8.3 SARIMAX
+##### 6.8.4 SARIMAX
 
 ------------------------
 
