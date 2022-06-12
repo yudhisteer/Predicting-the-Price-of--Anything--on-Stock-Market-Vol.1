@@ -1778,9 +1778,14 @@ On the ```in-sample``` we see how the model perfectly fitted a line but for the 
 > These examples clearly shows that stock prices tends to follow a **random walk** and deciphering a pattern in the data is almost if not ```impossible```. 
 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173222488-c3176240-beca-4de7-b869-52a2c5e972bc.png" width="600" height="400"/>
+</p>
+
+![image](https://user-images.githubusercontent.com/59663734/173225599-9849ce5b-18ba-4b3a-bf55-a17ef96b1d0c.png)
 
 
-
+![image](https://user-images.githubusercontent.com/59663734/173225572-f79f4535-5032-4af3-b7c8-9fee906142b1.png)
 
 
 ##### 6.8.2 Auto ARIMA on Airline Passengers
