@@ -1611,6 +1611,19 @@ If the errors of a random walk model are ```autocorrelated```, perhaps the probl
 </p>
 
 
+##### 6.6.5 ARIMA(12,1,12): Forecasting on Airline Passengers Dataset
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173234916-ab3090f2-418c-4d09-a5b5-2fd12e5b11bf.png" width="800" height="230"/>
+</p>
+
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173234567-252e19bd-abdd-4c7b-8fd9-3053621d0d4b.png" width="700" height="300"/>
+</p>
 
 
 
