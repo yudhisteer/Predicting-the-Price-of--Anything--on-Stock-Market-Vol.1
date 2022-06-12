@@ -1753,7 +1753,7 @@ Although earlier we found that Google's stock prices followed a **Random Walk**.
   <img src= "https://user-images.githubusercontent.com/59663734/173117672-1e5c6447-0bdc-411d-99b9-76450ef044cd.png" width="280" height="350"/>
 </p>
 
-We fit the data with the model and plot the results of the in-sample and out-of-sample forecasts. Notice how the prediction is very close to the true values for the in-sample data. We observe that the model predicts the next data point ```similar``` or ```close``` to the latest one for the ```in-sample``` dataset - as if the time series has been shifted by one time step. Alas, as soon as we forecast for the ```out-of-sample``` dataset, our prediction is approx. a **straight line**. This is because stock prices has **no seasonality** and no apparent **pattern** inherent in the data. Hence, forecasting would just capture the **trend** of the in-sample data and forecast a trending line or use the last known value as prediction for every future time steps similar to the ```Naive forecast```.
+We fit the data with the model and plot the results of the in-sample and out-of-sample forecasts. Notice how the prediction is very close to the true values for the in-sample data. We observe that the model predicts the next data point ```similar``` or ```close``` to the latest one for the ```in-sample``` dataset - as if the time series has been shifted by one time step. Alas, as soon as we forecast for the ```out-of-sample``` dataset, our prediction is approx. a **straight line**. This is because stock prices has **no seasonality** and no apparent **pattern** inherent in the data. Hence, forecasting would just capture the **trend** of the in-sample data and forecast a trending line or use the last known value as prediction for every future time steps similar to the ```Naive Forecast```.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173116845-743852a1-12db-43eb-a623-7e39c7583a0c.png" width="600" height="280"/>
@@ -1777,15 +1777,38 @@ On the ```in-sample``` we see how the model perfectly fitted a line but for the 
 
 > These examples clearly shows that stock prices tends to follow a **random walk** and deciphering a pattern in the data is almost if not ```impossible```. 
 
+Next, we will vary our horizon steps to be ```1```, ```2```, ```3```, ```5```, ```10```, ```30```, ```60``` and ```90```. We will let ```auto_arima``` fit a model to the data and benchmark the **ARIMA** model against the **Naive Forecast**. For all the example above, we have let ```stepwise``` equal to ```True```, ```max iterations``` equal to ```10``` and ```seasonal``` equal to ```False```. We will perform our experiment for Google's, Apple's, IBM's and Starbuck's stock prices. Below are the results:
+
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173222488-c3176240-beca-4de7-b869-52a2c5e972bc.png" width="600" height="400"/>
 </p>
 
+- Notice how for most scenarios, the **Naive Forecast** is a better model than the **ARIMA**.
+- The best fitting model for ```IBM``` is a **Random Walk** which means that IBM's stock retuns are completely **unpredictable** given lag values and lag errors.
+- For ```Apple```, the ARIMA model won only once when our forecast horizon was ```3```.
+- For ```Google```'s stock, we have a tie game - 4:4. However, it seems that a Naive Forecast seems to be a better model for bigger horizon steps(>= 30).
+- ```Starbuck```'s stock prices seems to be the most promising one with ```auto_arima``` successfully finding a model better than the Naive Forecast ```6``` out of ```8``` times.
+
+Below is the forecast of Google's stock price for horizon steps of ```10```, ```30```, ```60``` and ```90```. We see that at as our horizon periods increase, our forecasts become worst. We actually have a downward trend but the ARIMA model predicted an increasing one. 
+
 ![image](https://user-images.githubusercontent.com/59663734/173225599-9849ce5b-18ba-4b3a-bf55-a17ef96b1d0c.png)
 
 
+We then fit a model to all the ```4``` companies mentioned at a horizon period equal to ```360```. Surprisingly, The ARIMA model predicted a better model than the Naive Forecast on ```3``` out of ```4``` instances. It successfully captured the **increasing trend** of Google's, Apple's and Starbucks' time series. For IBM's a **downward trend** would have been better but it nonetheless, predicted the ```Naive Forecast``` as the best model. 
+
 ![image](https://user-images.githubusercontent.com/59663734/173225572-f79f4535-5032-4af3-b7c8-9fee906142b1.png)
+
+It seems that for **short horizon periods**, the ARIMA model is inferior compared to the Naive Forecast but in the **long term**, the **ARIMA** does a better ```forecasting```!
+
+
+
+
+
+
+
+
+
 
 
 ##### 6.8.2 Auto ARIMA on Airline Passengers
