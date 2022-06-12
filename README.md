@@ -1907,6 +1907,18 @@ In summary:
 
 ##### 6.8.4 SARIMAX
 
+So far the models we've looked at consider past values of a dataset and past errors to determine future trends, seasonality and forecasted values. We look now to models that encompass these non-seasonal (p,d,q) and seasonal (P,D,Q,m) factors, but introduce the idea that external factors (environmental, economic, etc.) can also influence a time series, and be used in forecasting.
+
+
+
+
+
+
+
+
+
+
+
 ------------------------
 
 
