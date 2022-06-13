@@ -1705,51 +1705,31 @@ Apple's stock prices follows an ARIMA (0,1,0) model:
 Note that all the above results shows that the time series follows an ```ARIMA (0,1,0)``` which is the ```Random Walk``` model. This shows that we **cannot predict** these time series and the best forecasting model we can get is the ```Naive forecast```.
 
 ##### 6.7.4 ACF and PACF on Airline Passengers
-
+If we now plot the ACF and PACF graphs for the Airline Passengers dataset, we get a high siginificant correlation at ```p = 12``` and ```q = 12```. 
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173234916-ab3090f2-418c-4d09-a5b5-2fd12e5b11bf.png" width="800" height="230"/>
 </p>
 
 
-
+We then plot an ```ARIMA (12,1,12)``` model. Note that we would have preferred a more **parsimonious** model because we now have ```24``` coefficients for both ```p``` and ```q```. This may lead to ```overfitting```. The model on the logged data performed better than our Holt-Winters method by about ```7.72%```.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173234567-252e19bd-abdd-4c7b-8fd9-3053621d0d4b.png" width="700" height="300"/>
 </p>
 
-
+We perform more tests with different models and compute the RMSE and MAE for each:
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173215653-080899fa-1c52-4f93-bb5e-5321e41295a2.png" width="570" height="250"/>
 </p>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ------------------------
 
 #### 6.8 Auto ARIMA, SARIMA and SARIMAX
+
+We saw that it is now always obvious to get the right ```p``` and ```q``` values to get the least error. We will then use **Auto ARIMA** that will do a better ```search``` for us and get us the right model for our data. We will also see how **SARIMA** could be used to model data having ```seasonality``` and how it is better than non-seasonal ARIMA on the same dataset. Finally, we will explore **SARIMAX** which allows us to incorporate ```exogeneous``` data on top of our time series to find the most optimal model. 
 
 ##### 6.8.1 Auto ARIMA on Stock Prices
 So far, we have plot the ACF and PACF graphs and manually chosen the ```p``` and ```q``` values that would fit our ARIMA model. By following this strategy, we might end up with a suboptimal answer. Now, we will use a popular time series package (**pmdarima**) which contains a function called ```auto arima``` that automatically finds the best model for us. That is, it tries a bunch of different settings and returns the best settings according to some criteria (```AIC``` and ```BIC```). 
@@ -1822,16 +1802,21 @@ We then fit a model to all the ```4``` companies mentioned at a horizon period e
 It seems that for **short horizon periods**, the ARIMA model is inferior compared to the Naive Forecast but in the **long term**, the **ARIMA** does a better ```forecasting```!
 
 
-
-
-
-
-
-
-
-
-
 ##### 6.8.2 Auto ARIMA on Airline Passengers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173226321-50e14b35-35cb-4221-bddd-c5f529fbe513.png" width="900" height="250"/>
