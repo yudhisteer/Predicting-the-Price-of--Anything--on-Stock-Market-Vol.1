@@ -1803,46 +1803,20 @@ It seems that for **short horizon periods**, the ARIMA model is inferior compare
 
 
 ##### 6.8.2 Auto ARIMA on Airline Passengers
-
-
-
-
-
-
-
-
-
-
-
-
-
+We will now test the Auto ARIMA on the airline passengers dataset. We tested on both the ```logged``` and ```non-logged``` dataset and with ```stepwise``` equal to ```True``` and ```False``` alternatively. We got an AR(p) equal to ```12``` similar to what we found above with the PACF plot. However, we got a ```MA(q)``` value of only ```2```. 
 
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173226321-50e14b35-35cb-4221-bddd-c5f529fbe513.png" width="900" height="250"/>
 </p>
 
-
+With Auto ARIMA we got a more **parsimonious** model which is good to prevent overfitting. But we got a higher RMSE than our Manual ARIMA. 
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173215531-4d995c12-d6cb-498d-b8cd-5477bccba404.png" width="500" height="300"/>
 </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+We will now see if we could get a better model with **SARIMA** which is especially used for time series which contain **seasonality**.
 
 ##### 6.8.3 SARIMA
 Seasonal ARIMA (SARIMA) models rely on ```seasonal lags``` and differences to fit the seasonal pattern. The seasonal part of an ARIMA model is summarized by three additional parameters: 
