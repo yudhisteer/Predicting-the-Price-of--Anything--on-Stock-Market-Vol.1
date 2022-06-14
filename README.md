@@ -15,6 +15,8 @@
 
 3. ```S&P500```: Stock market index tracking the performance of 500 large companies listed on stock exchanges in the United States from **2010** to **2018**. We will use mainly Google's, IBM's, Apple's and Starbucks' share price information for analysis. 
 
+4. ```Restaurant Visitors```: The data considers daily visitors to four restaurants located in the United States, subject to American holidays. The dataset contains ```478``` days of restaurant data, plus an additional ```39``` days of holiday data for forecasting purposes.
+
 
 
 ## Plan of Action
@@ -1816,6 +1818,8 @@ With Auto ARIMA we got a more **parsimonious** model which is good to prevent ov
   <img src= "https://user-images.githubusercontent.com/59663734/173215531-4d995c12-d6cb-498d-b8cd-5477bccba404.png" width="500" height="300"/>
 </p>
 
+> Notice how for the Airline Passengers dataset, Auto ARIMA choose to look at the ```12``` **(AR(12))** past values for forecasting but for the stock prices, it looks only for ```1``` or ```2``` past data points or past errors **(AR(1/2)** or **MA(1/2))**. This is because no specific pattern or seasonality is found and the best way to forecast is by looking at the stock price of one or two days before. 
+
 We will now see if we could get a better model with **SARIMA** which is especially used for time series which contain **seasonality**.
 
 ##### 6.8.3 SARIMA
@@ -1911,14 +1915,24 @@ In summary:
 
 So far the models we've looked at consider past values of a dataset and past errors to determine future trends, seasonality and forecasted values. We have also looked at models that encompass the non-seasonal (p,d,q) and seasonal (P,D,Q,m) factors. Now, we will introduce the idea that **external factors** (environmental, economic, etc.) can also influence a time series, and be used in forecasting.
 
+Some important notes on SARIMAX:
+
+- The "**X**" in SARIMAX denotes an **Exogenous** variable to  model and predict the time-series.
+- Exogenous variable are **outside information** and **NOT** **historical label data**. In general, we should have some intuition about what relates to the column we are trying to forecast. 
+- SARIMAX is **NOT** a way to model a **multivariate** time series (i.e. predict more than one target). It predicts only one target but under the influence of another feature. 
+
+For the example below, we will work with the Restaurant Visitors dataset which contains the total number of visitors in ```4``` restaurants each day. For the exagenous variable we will use the column ```holiday_name``` which shows if we had a public holiday on a particular day.
+
+
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/173294675-4b4706dd-ae21-4cef-bd67-20d461eea6af.png" width="750" height="330"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/173514984-cc660662-0e37-4d6f-b91c-1a1bc808a084.png" width="450" height="180"/>
 </p>
 
 
 
-
-
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173294675-4b4706dd-ae21-4cef-bd67-20d461eea6af.png" width="750" height="330"/>
+</p>
 
 
 ------------------------
