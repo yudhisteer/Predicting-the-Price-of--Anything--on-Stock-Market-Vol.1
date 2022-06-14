@@ -1921,14 +1921,37 @@ Some important notes on SARIMAX:
 - Exogenous variable are **outside information** and **NOT** **historical label data**. In general, we should have some intuition about what relates to the column we are trying to forecast. 
 - SARIMAX is **NOT** a way to model a **multivariate** time series (i.e. predict more than one target). It predicts only one target but under the influence of another feature. 
 
-For the example below, we will work with the Restaurant Visitors dataset which contains the total number of visitors in ```4``` restaurants each day. For the exagenous variable we will use the column ```holiday_name``` which shows if we had a public holiday on a particular day.
-
+For the example below, we will work with the Restaurant Visitors dataset which contains the total number of visitors in ```4``` restaurants each day. For the exagenous variable we will use the column ```holiday``` which shows if we had a public holiday on a particular day. 
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173514984-cc660662-0e37-4d6f-b91c-1a1bc808a084.png" width="450" height="180"/>
 </p>
 
+We can start by identifying if we have seasonality in our data by decomposing the time-series:
 
+```python
+result = seasonal_decompose(df1['Total Visitors'])
+result.plot();
+```
+
+From the seasonal plot, it appears we do have a strong seasonality and if we zoom in we can observe that the seasonality period is of order ```7```. That is, **weekly seasonality**.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/173518908-daa5aa3c-1f86-449d-a6d9-ab9650a44062.png" width="750" height="330"/>
+</p>
+
+We will first fit a ```SARIMA``` model of order **(0,0,0)x(1,0,1,7)** which has an RMSE Error of ```31.91260224```.
+
+```python
+# SARIMA without exog
+model_without_exog model = SARIMAX(train['Total Visitors'], order=(0,0,0), seasonal_order=(1,0,1,7), enforce_invertibility=False)
+```
+Then we fit a ```SARIMAX``` model of the same order with our exogenous data. We get an RMSE Error of ```23.2155683``` - reducing the error by ```27.3%``` from the SARIMA model.
+
+```python
+# SARIMA with exog
+model_with_exog = SARIMAX(train['Total Visitors'], exog=train['holiday'], order=(0,0,0), seasonal_order=(1,0,1,7), enforce_invertibility=False)
+```
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173294675-4b4706dd-ae21-4cef-bd67-20d461eea6af.png" width="750" height="330"/>
