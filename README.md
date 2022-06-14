@@ -1945,7 +1945,7 @@ We will first fit a ```SARIMA``` model of order **(0,0,0)x(1,0,1,7)** which has 
 
 ```python
 # SARIMA without exog
-model_without_exog model = SARIMAX(train['Total Visitors'], order=(0,0,0), seasonal_order=(1,0,1,7), enforce_invertibility=False)
+model_without_exog = SARIMAX(train['Total Visitors'], order=(0,0,0), seasonal_order=(1,0,1,7), enforce_invertibility=False)
 ```
 Then we fit a ```SARIMAX``` model of the same order with our exogenous data. We get an RMSE Error of ```23.2155683``` - reducing the error by ```27.3%``` from the SARIMA model.
 
@@ -1959,13 +1959,34 @@ We then plot the graph of the real data, the models with and without exog. Notic
   <img src= "https://user-images.githubusercontent.com/59663734/173294675-4b4706dd-ae21-4cef-bd67-20d461eea6af.png" width="750" height="330"/>
 </p>
 
-
 ------------------------
-
-
 #### 6.9 VAR, VARMA and VARMAX
+So far, we have only considered a **univariate** time series. That is, we assume a **unidirectional relationship** between the feature and the target - the feature impacts the target but the target does not impact the feature. However, that is not always the case. For example, an increase in income can result in an increase in spending. Or, an increase in spending can be due to an increase in income. So we model each time-series as if they influence each other equally. 
 
 ##### 6.9.1 VAR
+
+
+Some important notes on VARMA:
+
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ##### 6.9.2 VARMA
