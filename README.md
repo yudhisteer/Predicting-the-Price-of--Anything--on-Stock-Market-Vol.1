@@ -1920,6 +1920,7 @@ Some important notes on SARIMAX:
 - The "**X**" in SARIMAX denotes an **Exogenous** variable to  model and predict the time-series.
 - Exogenous variable are **outside information** and **NOT** **historical label data**. In general, we should have some intuition about what relates to the column we are trying to forecast. 
 - SARIMAX is **NOT** a way to model a **multivariate** time series (i.e. predict more than one target). It predicts only one target but under the influence of another feature. 
+- Therefore, we need to know the future of our exogenous variable or have some very confident estimations based on some other data.
 
 For the example below, we will work with the Restaurant Visitors dataset which contains the total number of visitors in ```4``` restaurants each day. For the exagenous variable we will use the column ```holiday``` which shows if we had a public holiday on a particular day. 
 
@@ -1952,6 +1953,7 @@ Then we fit a ```SARIMAX``` model of the same order with our exogenous data. We 
 # SARIMA with exog
 model_with_exog = SARIMAX(train['Total Visitors'], exog=train['holiday'], order=(0,0,0), seasonal_order=(1,0,1,7), enforce_invertibility=False)
 ```
+We then plot the graph of the real data, the models with and without exog. Notice how with exog variable the model is able to predict **close** to the real values compared to the model without exog. We see a significant improvement in the forecasting at the days when there are holidays. The predictions remain the same for the other days for both the SARIMA and SARIMAX.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/173294675-4b4706dd-ae21-4cef-bd67-20d461eea6af.png" width="750" height="330"/>
