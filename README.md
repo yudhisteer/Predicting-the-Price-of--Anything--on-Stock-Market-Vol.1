@@ -37,7 +37,6 @@
     - Adjusted close, stock splits and dividends
     - Volatility Clustering
 
-
 3. Exploratory Data Analysis and Static Analysis
 
     - What are time series?
@@ -77,14 +76,6 @@
     - ACF and PACF
     - Auto ARIMA, SARIMA and SARIMAX
     - VAR, VARMA and VARMAX
-
-7. ANN
-
-8. CNN
-
-9. RNN
-
-10. RL
 
 -----------------
 
@@ -347,17 +338,6 @@ From a statistical point of view, we want to study time series to understand and
 - **Understand the correlation structure between two different time series**
 
 As  mentioned above, one of the main objective is to ```forecast``` future observations of the series. This requires **estimating** the ```trend``` and the ```seasonal``` component and fitting a ```statistical model``` that captures the ```correlation structure``` between adjacent observations. We can then form a ```prediction``` of the future from the past by extrapolating on all the ```dependencies``` in the series that we learn from data with statistics. In some applications of time series these dependence properties are of interest on their own.
-
-
-
-
-
-
-
-
-
-
-
 
 
 <p align="center">
@@ -1963,31 +1943,30 @@ We then plot the graph of the real data, the models with and without exog. Notic
 #### 6.9 VAR, VARMA and VARMAX
 So far, we have only considered a **univariate** time series. That is, we assume a **unidirectional relationship** between the feature and the target - the feature impacts the target but the target does not impact the feature. However, that is not always the case. For example, an increase in income can result in an increase in spending. Or, an increase in spending can be due to an increase in income. So we model each time-series as if they influence each other equally. 
 
+##### 6.9.1 Granger Causality
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##### 6.9.1 VAR
 
 
 Some important notes on VARMA:
 
 - 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ##### 6.9.2 VARMA
 
@@ -2010,25 +1989,26 @@ Contrary to Exponential Smoothing model, Arima models are more in the spirit of 
 ## Conclusion
 
 ## References
-1. https://people.duke.edu/~rnau/411rand.htm
-2. https://towardsdatascience.com/how-to-detect-random-walk-and-white-noise-in-time-series-forecasting-bdb5bbd4ef81
-3. https://www.investopedia.com/terms/r/randomwalktheory.asp#:~:text=Key%20Takeaways,to%20predict%20its%20future%20movement.
-4. https://www.mit.edu/~kardar/teaching/projects/chemotaxis(AndreaSchmidt)/random.htm
-5. https://people.duke.edu/~rnau/411diff.htm
-6. https://www.investopedia.com/ask/answers/04/031104.asp
-7. https://people.duke.edu/~rnau/411georw.htm
-8. https://www.wsj.com/articles/SB109804865418747444
-9. http://www.econ.yale.edu/~shiller/pubs/p1055.pdf
-10. https://knowledge.wharton.upenn.edu/article/is-that-a-100-bill-lying-on-the-ground-two-views-of-market-efficiency-2/
-11. https://nokiamob.net/2020/04/17/rumors-about-nokia-hostile-takeover-causes-stock-price-surge/
-12. https://nokiamob.net/2020/02/27/bloomberg-and-reuters-post-conflicting-reports-about-nokia-exploring-strategic-options/
-13. https://www.investopedia.com/terms/s/sma.asp#:~:text=A%20simple%20moving%20average%20smooths,the%20security's%20price%20is%20decreasing
-14. https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/simple-moving-average-sma/
-15. https://www.investopedia.com/terms/d/deathcross.asp
-16. https://towardsdatascience.com/simple-exponential-smoothing-749fc5631bed
-17. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
-18. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
-19. https://machinelearningmastery.com/white-noise-time-series
-20. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
-21. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
-22. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
+1. https://hbr.org/2009/01/why-we-cant-predict-financial
+2. https://people.duke.edu/~rnau/411rand.htm
+3. https://towardsdatascience.com/how-to-detect-random-walk-and-white-noise-in-time-series-forecasting-bdb5bbd4ef81
+4. https://www.investopedia.com/terms/r/randomwalktheory.asp#:~:text=Key%20Takeaways,to%20predict%20its%20future%20movement.
+5. https://www.mit.edu/~kardar/teaching/projects/chemotaxis(AndreaSchmidt)/random.htm
+6. https://people.duke.edu/~rnau/411diff.htm
+7. https://www.investopedia.com/ask/answers/04/031104.asp
+8. https://people.duke.edu/~rnau/411georw.htm
+9. https://www.wsj.com/articles/SB109804865418747444
+10. http://www.econ.yale.edu/~shiller/pubs/p1055.pdf
+11. https://knowledge.wharton.upenn.edu/article/is-that-a-100-bill-lying-on-the-ground-two-views-of-market-efficiency-2/
+12. https://nokiamob.net/2020/04/17/rumors-about-nokia-hostile-takeover-causes-stock-price-surge/
+13. https://nokiamob.net/2020/02/27/bloomberg-and-reuters-post-conflicting-reports-about-nokia-exploring-strategic-options/
+14. https://www.investopedia.com/terms/s/sma.asp#:~:text=A%20simple%20moving%20average%20smooths,the%20security's%20price%20is%20decreasing
+15. https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/simple-moving-average-sma/
+16. https://www.investopedia.com/terms/d/deathcross.asp
+17. https://towardsdatascience.com/simple-exponential-smoothing-749fc5631bed
+18. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
+19. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
+20. https://machinelearningmastery.com/white-noise-time-series
+21. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
+22. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
+23. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
