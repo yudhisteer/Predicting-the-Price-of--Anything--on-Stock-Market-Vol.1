@@ -2001,17 +2001,22 @@ To sum up:
 - While it is fairly easy to measure correlations between series - when one goes up the other goes up, and vice versa - it's another thing to observe changes in one series **correlated** to changes in another after a consistent amount of time (**lagged values**). 
 - This may indicate the presence of **causality**, that changes in the first series influenced the behavior of the second. However, it may also be that both series are affected by some **third factor**, just at different rates. 
 - Still, it can be useful if changes in one series can predict upcoming changes in another, whether there is causality or not. In this case we say that one series **"Granger-causes"** another.
+- Testing for Granger-causality using ```F-statistics``` when one or both time series are ```non-stationary``` can lead to nearly **false causality**. If both the time series are **NOT** ```stationary``` then ```differencing```, ```detrending``` or other techniques must first be employed before using the Granger Causality test.
 
 ##### 6.9.2 VAR
 We have stated that we can use one time-series to forecast another and have seen a statistical method which can be used to help us choose the right time-series, it is now time to model a ```Vector Autoregressive``` model.
 
 First consider two ```AR(1)``` models and reflect why it cannot be used to as a substitue of a VAR model:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174480161-020768cb-6e41-4f41-bdb7-4e739593f727.png"/>
+</p>
 
+The reason why we cannot use two AR models is because there are no **crossterms**. So one time-series cannot affect the other.
 
-
-
-
+- Previously <img src="https://latex.codecogs.com/png.image?\dpi{110}y_t" title="https://latex.codecogs.com/png.image?\dpi{110}y_t" /> and <img src="https://latex.codecogs.com/png.image?\dpi{110}y_{t-1}" title="https://latex.codecogs.com/png.image?\dpi{110}y_{t-1}" /> were scalers but now they are **vectors** of size ```D```. 
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\theta" title="https://latex.codecogs.com/png.image?\dpi{110}\theta" /> and 
+<img src="https://latex.codecogs.com/png.image?\dpi{110}\phi&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\phi " /> were also scalers but now they are **matrices** of size ```DxD```.
 
 
 
@@ -2061,8 +2066,9 @@ First consider two ```AR(1)``` models and reflect why it cannot be used to as a 
 19. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
 20. https://machinelearningmastery.com/white-noise-time-series
 21. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
-22. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
-23. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
-24. https://hbr.org/2015/06/beware-spurious-correlations
-25. https://www.tylervigen.com/spurious-correlations
-26. https://www.investopedia.com/terms/s/spurious_correlation.asp
+22. https://medium.com/swlh/using-granger-causality-test-to-know-if-one-time-series-is-impacting-in-predicting-another
+23. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
+24. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
+25. https://hbr.org/2015/06/beware-spurious-correlations
+26. https://www.tylervigen.com/spurious-correlations
+27. https://www.investopedia.com/terms/s/spurious_correlation.asp
