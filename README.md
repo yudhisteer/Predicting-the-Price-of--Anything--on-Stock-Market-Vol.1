@@ -1944,6 +1944,56 @@ We then plot the graph of the real data, the models with and without exog. Notic
 So far, we have only considered a **univariate** time series. That is, we assume a **unidirectional relationship** between the feature and the target - the feature impacts the target but the target does not impact the feature. However, that is not always the case. For example, an increase in income can result in an increase in spending. Or, an increase in spending can be due to an increase in income. So we model each time-series as if they influence each other equally. 
 
 ##### 6.9.1 Granger Causality
+Now that we have settled that we can use one time-series to predict another one, one very important questions that we should come to ask is which time-series? We don't want to plug in any two time-series and perform a prediction. We first want to be sure that there is indeed a relationship between these time series. We want to avoid any ```spurious correlation``` or ```relationship``` that do **NOT** really exist between two variables. Here's an interesting example below by Tyler Vigen: 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174478029-a70e9447-fb2f-4cfb-9739-65b2c4538dfa.png" width="700" height="350"/>
+</p>
+
+Hard to believe that there is not really a relationship between the suicide rate and the US spending on technology! In our case, we will make use of a statistical method known as the ```Granger Causality``` test. If the **past values** of ```X(t)``` helps in predicting the future values of ```Y(t)```, then we say that ```X(t)``` **"granger causes"** ```Y(t)```.
+
+**Beware:**
+
+- Granger caulsality is not really a _causality_ test per se but only a method which tells us whether one time-series can be used in forecasting a different time-series.
+- Note that a ```predictive``` relationship does not imply a ```causal``` relationship.
+- The null hypothesis is that lagged values of X(t) do **not** explain variations in Y(t).
+
+Let's take for example the two graphs below where time-series ```d``` has between shifted by ```2``` to show how it aligns quite well with time-series ```a```.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174478856-03fdc46d-5906-4cab-9a0f-23c74a5790be.png" width="700" height="300"/>
+</p>
+
+ Now if we perform a granger causality test on these two time-series:
+
+```python
+grangercausalitytests(df3[['a','d']],maxlag=2)
+```
+
+Notice that at lag ```2``` our ```p-value``` is **significant**. We **reject** our null-hupothesis and conclude that the lagged values of time-series ```d``` can be used to forecast time-series ```a```. 
+
+```python
+Granger Causality
+number of lags (no zero) 1
+ssr based F test:         F=1.7051  , p=0.1942  , df_denom=116, df_num=1
+ssr based chi2 test:   chi2=1.7492  , p=0.1860  , df=1
+likelihood ratio test: chi2=1.7365  , p=0.1876  , df=1
+parameter F test:         F=1.7051  , p=0.1942  , df_denom=116, df_num=1
+
+Granger Causality
+number of lags (no zero) 2
+ssr based F test:         F=286.0339, p=0.0000  , df_denom=113, df_num=2
+ssr based chi2 test:   chi2=597.3806, p=0.0000  , df=2
+likelihood ratio test: chi2=212.6514, p=0.0000  , df=2
+parameter F test:         F=286.0339, p=0.0000  , df_denom=113, df_num=2
+```
+
+To sum up:
+
+- The Granger causality test is a a **hypothesis test** to determine if one time series is useful in forecasting another. 
+- While it is fairly easy to measure correlations between series - when one goes up the other goes up, and vice versa - it's another thing to observe changes in one series **correlated** to changes in another after a consistent amount of time (**lagged values**). 
+- This may indicate the presence of **causality**, that changes in the first series influenced the behavior of the second. However, it may also be that both series are affected by some **third factor**, just at different rates. 
+- Still, it can be useful if changes in one series can predict upcoming changes in another, whether there is causality or not. In this case we say that one series **"Granger-causes"** another.
 
 
 
@@ -1954,24 +2004,17 @@ So far, we have only considered a **univariate** time series. That is, we assume
 
 
 
-
-
-
-
-
-
-
-##### 6.9.1 VAR
+##### 6.9.2 VAR
 
 
 Some important notes on VARMA:
 
 - 
 
-##### 6.9.2 VARMA
+##### 6.9.3 VARMA
 
 
-##### 6.9.3 VARMAX
+##### 6.9.4 VARMAX
 
 
 ------------------------
@@ -2012,3 +2055,6 @@ Contrary to Exponential Smoothing model, Arima models are more in the spirit of 
 21. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
 22. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
 23. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
+24. https://hbr.org/2015/06/beware-spurious-correlations
+25. https://www.tylervigen.com/spurious-correlations
+26. https://www.investopedia.com/terms/s/spurious_correlation.asp
