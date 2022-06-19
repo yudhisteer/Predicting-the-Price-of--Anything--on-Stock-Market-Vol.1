@@ -265,6 +265,11 @@ ________________________________________________________ .. ____________________
 #### 2.3 Adjusted close, stock splits and dividends
 
 <p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/167879610-5d6285bc-cf74-41e3-99e1-8db24d809dfc.png" width="500" height="350"/>
+</p>
+
+
+<p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
@@ -1527,9 +1532,11 @@ ________________________________________________________ .. ____________________
 
 
 #### 6.6 Autoregressive Integrated Moving Average Model: ARIMA(p,d,q)
-A time series is an ```ARIMA(p,d,q)``` model if the difference of order ```d```, is an ```ARMA(p,q)``` model. ARIMA models are the most general class of forecasting models for time series that can be ```stationarized``` by transformations such as **differencing**, **logging**, and or **deflating**.
+Contrary to Exponential Smoothing model, ARIMA models are more in the spirit of modern machine learning, where we take a model and we try to fit it to our data, whatever structure our data may have. 
 
-Recall that a time series is ```stationary``` if all of its statistical properties — **mean**, **variance**, **autocorrelations**, etc.— are ```constant``` in time.  Thus, it has **no** ```trend```, no ```heteroscedasticity```, and a **constant** degree of ```wiggliness.```
+More generally, a time series is an ```ARIMA(p,d,q)``` model if the difference of order ```d```, is an ```ARMA(p,q)``` model. ARIMA models are the most general class of forecasting models for time series that can be ```stationarized``` by transformations such as **differencing**, **logging**, and or **deflating**.
+
+Recall that a time series is ```stationary``` if all of its statistical properties — **mean**, **variance**, **autocorrelations**, etc.— are ```constant``` in time.  Thus, it has **no** ```trend```, **no** ```heteroscedasticity```, and a **constant** degree of ```wiggliness.```
 
 > An ARIMA model can be viewed as a ```filter``` that tries to separate the **signal** from the **noise**, and the signal is then ```extrapolated``` into the future to obtain ```forecasts```. - Robert Nau
 
@@ -1995,21 +2002,22 @@ To sum up:
 - This may indicate the presence of **causality**, that changes in the first series influenced the behavior of the second. However, it may also be that both series are affected by some **third factor**, just at different rates. 
 - Still, it can be useful if changes in one series can predict upcoming changes in another, whether there is causality or not. In this case we say that one series **"Granger-causes"** another.
 
-
-
-
-
-
-
-
-
-
 ##### 6.9.2 VAR
+We have stated that we can use one time-series to forecast another and have seen a statistical method which can be used to help us choose the right time-series, it is now time to model a ```Vector Autoregressive``` model.
+
+First consider two ```AR(1)``` models and reflect why it cannot be used to as a substitue of a VAR model:
 
 
-Some important notes on VARMA:
 
-- 
+
+
+
+
+
+
+
+
+
 
 ##### 6.9.3 VARMA
 
@@ -2019,15 +2027,15 @@ Some important notes on VARMA:
 
 ------------------------
 
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/167879610-5d6285bc-cf74-41e3-99e1-8db24d809dfc.png" width="500" height="350"/>
-</p>
 
-Contrary to Exponential Smoothing model, Arima models are more in the spirit of modern machine learning, where we take a model and you try to fit it to our data, whatever structure our data may have. 
 
 
 
 ## Further Improvements
+
+- **Impulse Response Analysi**s: which involves the response of one variable to a sudden but temporary change in another variable
+- **Forecast Error Variance Decomposition (FEVD)**: where the proportion of the forecast variance of one variable is attributed to the effect of other variables
+- **Dynamic Vector Autoregressions**: used for estimating a moving-window regression for the purposes of making forecasts throughout the data sample
 
 ## Conclusion
 
