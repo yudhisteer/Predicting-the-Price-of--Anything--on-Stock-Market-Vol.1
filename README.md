@@ -48,6 +48,8 @@
     - Covariance and Correlation
     - Alpha and Beta
     - Gaussian Mixture Model
+    - Forecasting Metrics
+    - Naive Forecast
 
 4. Exponential Smoothing and ETS Methods
 
@@ -313,7 +315,7 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-#### 3.3 Objectives of Time Series
+#### 3.2 Objectives of Time Series
 Now, why would we want to study time series and what can we learn from it? On a higher level, we want to study time series for the ```5``` reasons below:
 
 - **Descriptive Analysis**
@@ -349,55 +351,70 @@ As  mentioned above, one of the main objective is to ```forecast``` future obser
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 3.1 QQ Plot
+#### 3.3 QQ Plot
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 3.2 T-distribution
-
-<p align="center">
-________________________________________________________ .. __________________________________________________________
-</p>
-
-
-#### 3.2 Confidence Intervals
+#### 3.4 T-distribution
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 4.2 Statistical Testing
+#### 3.5 Confidence Intervals
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 4.2 Covariance and Correlation
+#### 3.6 Statistical Testing
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 4.2 Alpha and Beta
+#### 3.7 Covariance and Correlation
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 4.2 Gaussian Mixture Model
+#### 3.8 Alpha and Beta
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+
+#### 3.9 Gaussian Mixture Model
+
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+
+#### 3.9. Forecasting Metrics
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+
+#### 3.9 Naive Forecast
 
 ------------------------
 
 
-### 5. Exponential Smoothing and ETS Methods
+### 4. Exponential Smoothing and ETS Methods
 
-#### 5.1 Simple Moving Average (SMA)
+#### 4.1 Simple Moving Average (SMA)
 A simple moving average (SMA) calculates the average of a selected range of data, usually closing prices, by the number of periods in that range. Since SMA is constructed using ```past``` closing prices, it is a ```lag``` indicator. It means that it simply displays a ```previous trend```, but it is ```not predictive``` of future prices.
 
 - In code, we compute the SMA by taking the average of a **rolling window**.
@@ -445,7 +462,7 @@ goog['SMA-10'] = goog['GOOG'].rolling(10).mean()
 goog['SMA-50'] = goog['GOOG'].rolling(50).mean()
 ```
 
-#### 5.1.1 How Are Simple Moving Averages Used in Technical Analysis?
+#### 4.1.1 How Are Simple Moving Averages Used in Technical Analysis?
 
 ```SMA crossover strategy``` is a technical strategy used for entering and closing trades. The strategy is done by plotting two SMA lines based on two different time frames. Looking at when the lines cross over, helps certain traders time their trades. The most famous are the 10-day and 200-day SMAs. For our analysis, we did the 10-day and 50-day SMAs. 
 
