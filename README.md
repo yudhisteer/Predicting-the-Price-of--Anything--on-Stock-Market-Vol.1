@@ -2110,7 +2110,7 @@ results = model.fit(maxlags=18, ic='aic')
 Notice that the AR model does better than the VAR model for both Money and Spending time-series. We will compute the RMSE and compare in the next section.
 
 ##### 6.9.3 VARMA and VARMAX
-If you are wondering why we do not have a ```VARIMA``` model is because the number of differencing that should be done on each time-series is not equal - the is **not** **one** ```d``` value. So we need to manually differenced each time-series and test for stationarity. Only then that we apply a ```VARMA``` model. Note that this depends on the library that we are using.
+If you are wondering why we do not have a ```VARIMA``` model is because the number of differencing that should be done on each time-series is not equal - there is **no** **one** ```d``` value. So we need to manually differenced each time-series and test for stationarity. Only then that we apply a ```VARMA``` model. Note that this depends on the library that we are using.
 
 **Note:**
 
