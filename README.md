@@ -2051,7 +2051,9 @@ We will explore if we can use a VAR model to forecast money and personal expendi
 3. We need to find an optimal order ```p``` for our VAR model. We need to run various p-values through a loop and then check which model has the lowest AIC.
 
 ```python
-# Automating Solution 2:
+from statsmodels.tsa.api import VAR
+
+# Function to find optimal p
 def optimize_VAR(itr):
     """
         Returns a dataframe with parameters and corresponding AICs
@@ -2122,6 +2124,8 @@ We will now fit a VARMA model in our Money-Spending dataset:
 1. We first fit an ```Auto ARIMA``` onto the ```Money``` time-series to get the best order that fit the model:
 
 ```python
+from statsmodels.tsa.arima.model import ARIMA
+
 ARIMA(maxiter=1000, order=(3, 2, 2), scoring_args={}, suppress_warnings=True,
       with_intercept=False)
 ```
@@ -2146,6 +2150,8 @@ ARIMA(maxiter=1000, order=(4, 0, 3), scoring_args={}, suppress_warnings=True,
 4. We train the data on this model and perform a prediction on the next 12 steps (test data). 
 
 ```python
+from statsmodels.tsa.statespace.varmax import VARMAX
+
 model = VARMAX(train, order=(5,4), trend='c')
 results = model.fit(maxiter=1000, disp=False)
 ```
@@ -2165,6 +2171,8 @@ Notice that the ARMA model does significantly better than the VARMA model for th
 **Note:** For VARMAX, we need to perform the same steps explained above except that we also need to provide the data for our **exogenous** variables. Recall that for forecasting we need to know the future values of the exogenous variables as the target variables are only the two time-series. In VARMAX also we **cannot** uniquely identify the ```p``` and ```q``` values so we can use ```auto_arima``` as a guide.
 
 ```python
+from statsmodels.tsa.statespace.varmax import VARMAX
+
 model_VARMAX = VARMAX(endog, exog, order=(5,4))
 res_VARMAX = model_VARMAX.fit(disp=False)
 ```
