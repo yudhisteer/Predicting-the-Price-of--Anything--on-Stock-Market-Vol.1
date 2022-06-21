@@ -2018,10 +2018,76 @@ The reason why we cannot use two AR models is because there are no **crossterms*
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}\theta" title="https://latex.codecogs.com/png.image?\dpi{110}\theta" /> and 
 <img src="https://latex.codecogs.com/png.image?\dpi{110}\phi&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\phi " /> were also scalers but now they are **matrices** of size ```DxD```.
 
+If we now construct a system of equations for a **2-dimensional** ```VAR(1)``` model:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174769794-12033ac0-eb69-4449-9dc7-84e2ae36a0d4.png"/>
+</p>
 
+When expanding:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174768157-dbda94e1-71cb-4874-b97e-e684480c484f.png"/>
+</p>
 
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}y_{t-1}^{(1)}" title="https://latex.codecogs.com/png.image?\dpi{110}y_{t-1}^{(1)}" /> in the first equation singifies that the model depends on its **own** past lags.
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}y_{t-2}^{(2)}" title="https://latex.codecogs.com/png.image?\dpi{110}y_{t-2}^{(2)}" /> in the first equation signifies that the model depends on the past lags of the **other** time-series.
+- coefficient  𝜙𝑖𝑖 captures the influence of the pth lag of variable <img src="https://latex.codecogs.com/png.image?\dpi{110}y^{(i)}" title="https://latex.codecogs.com/png.image?\dpi{110}y^{(i)}" /> on itself
+- coefficient  𝜙𝑖𝑗  captures the influence of the pth lag of variable <img src="https://latex.codecogs.com/png.image?\dpi{110}y^{(j)}" title="https://latex.codecogs.com/png.image?\dpi{110}y^{(j)}" /> on <img src="https://latex.codecogs.com/png.image?\dpi{110}y^{(i)}" title="https://latex.codecogs.com/png.image?\dpi{110}y^{(i)}" />.
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\varepsilon&space;_{t}^{(1)}" title="https://latex.codecogs.com/png.image?\dpi{110}\varepsilon _{t}^{(1)}" />  and  <img src="https://latex.codecogs.com/png.image?\dpi{110}\varepsilon&space;_{t}^{(2)}" title="https://latex.codecogs.com/png.image?\dpi{110}\varepsilon _{t}^{(2)}" /> are white noise processes that may be correlated.
+
+Observe how the VAR model is different from the AR one. By using Vector Autoregression, we are assuming there is some predictive capacity across multiple scale or time-series. 
+
+We will explore if we can use a VAR model to forecast money and personal expenditures.
+
+1. We start by exploring the data and **plot** a line graph to see to better understand the data.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174800804-8111d4af-f4c2-4c29-a5ba-47e04a63bf7d.png" width="700" height="300"/>
+</p>
+
+2. We test for **stationarity** by differencing twice and drop the ```NaN``` rows.
+
+3. We need to find an optimal order ```p``` for our VAR model. We need to run various p-values through a loop and then check which model has the lowest AIC.
+
+```python
+# Automating Solution 2:
+def optimize_VAR(itr):
+    """
+        Returns a dataframe with parameters and corresponding AICs
+    """
+    
+    solutions = []
+    
+    for i in tqdm_notebook(range(itr)):
+        try:
+            model = VAR(train)
+            results = model.fit(i)
+        except:
+            continue
+            
+        aic = results.aic
+        solutions.append([i, aic])
+        
+    result_df = pd.DataFrame(solutions)
+    result_df.columns = ['p', 'aic']
+    
+    result_df = result_df.sort_values(by='aic', ascending=True).reset_index(drop=True)
+    
+    return result_df
+```
+
+```python
+	p	aic
+0	23	14.683810
+1	29	14.687084
+2	25	14.688352
+3	18	14.689485
+4	24	14.690200
+5	27	14.691233
+6	20	14.693116
+7	19	14.693439
+```
 
 
 ##### 6.9.3 VARMA
