@@ -2116,6 +2116,10 @@ If you are wondering why we do not have a ```VARIMA``` model is because the numb
 
 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174874714-470f0bc7-0297-418f-9b17-5f3ddef1382c.png" width="370" height="130"/>
+</p>
+
 
 
 
