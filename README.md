@@ -2077,7 +2077,7 @@ def optimize_VAR(itr):
     return result_df
 ```
 
-We want to have a parsimonious model so we choose p to be equal to **19**.
+We want to have a **parsimonious** model (the AIC are all relatively close to each other) so we choose p to be equal to **18**.
 
 ```python
 	p	aic
@@ -2091,21 +2091,40 @@ We want to have a parsimonious model so we choose p to be equal to **19**.
 7	19	14.693439
 ```
 
-4. We instantiate the model and fit it to a training set. 
+4. We instantiate the model and fit it to a **training set**. 
 
 ```python
-results = model.fit(maxlags=19, ic='aic')
+results = model.fit(maxlags=18, ic='aic')
 ```
 
-5. We invert the transformation and evaluate model predictions against a known test set (past 12 months).
+5. We invert the transformation and evaluate model predictions against a known **test set** (past 12 months).
+
+6. We will use an AR(5) model as benchmark. We plot the graph of the true data and the two models:
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/174805457-36522083-fdaf-4d1a-89ac-3a35d1837ee7.png" width="750" height="240"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/174868229-6de90cb8-a801-47d3-8af6-dc940b07d800.png" width="850" height="270"/>
+</p>
+
+Notice that the AR model does better than the VAR model for both Money and Spending time-series. We will compute the RMSE and compare in the next section.
+
+##### 6.9.3 VARMA
+If you are wondering why we do not have a ```VARIMA``` model is because the number of differencing that should be done on each time-series is not equal. So we need to manually differenced each time-series and test for stationarity. Only then that we apply a ```VARMA``` model. Note that this depends on the library that we are using.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174871854-cab2b7f3-b548-467e-ab2d-e070c94e4231.png" width="850" height="270"/>
 </p>
 
 
 
-##### 6.9.3 VARMA
+
+
+
+
+
+
+
+
+
 
 
 ##### 6.9.4 VARMAX
