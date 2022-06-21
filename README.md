@@ -2121,7 +2121,7 @@ If you are wondering why we do not have a ```VARIMA``` model is because the numb
 
 We will now fit a VARMA model in our Money-Spending dataset:
 
-1. We first fit an ```Auto ARIMA``` onto the ```Money``` time-series to get the best order that fit the model:
+1. We first fit an ```ARIMA``` onto the ```Money``` time-series to get the best order that fit the model:
 
 ```python
 from statsmodels.tsa.arima.model import ARIMA
@@ -2136,7 +2136,7 @@ ARIMA(maxiter=1000, order=(4, 2, 3), scoring_args={}, suppress_warnings=True,
       with_intercept=False)
 ```
 
-3. We notice that we need to differentiate both time-series twice. We perform this operation and run the auto_arima function again. Since there are no unique ways to identify ```p``` and ```q```, we will select a **VARMA(5,4)** to fit the data.
+3. We notice that we need to differentiate both time-series twice. We perform this operation and run the ARIMA function again. Since there are no unique ways to identify ```p``` and ```q```, we will select a **VARMA(5,4)** to fit the data.
 
 ```python
 ARIMA(maxiter=1000, order=(5, 0, 4), scoring_args={}, suppress_warnings=True)
@@ -2168,7 +2168,7 @@ Notice that the ARMA model does significantly better than the VARMA model for th
   <img src= "https://user-images.githubusercontent.com/59663734/174874714-470f0bc7-0297-418f-9b17-5f3ddef1382c.png" width="370" height="130"/>
 </p>
 
-**Note:** For VARMAX, we need to perform the same steps explained above except that we also need to provide the data for our **exogenous** variables. Recall that for forecasting we need to know the future values of the exogenous variables as the target variables are only the two time-series. In VARMAX also we **cannot** uniquely identify the ```p``` and ```q``` values so we can use ```auto_arima``` as a guide.
+**Note:** For VARMAX, we need to perform the same steps explained above except that we also need to provide the data for our **exogenous** variables. Recall that for forecasting we need to know the future values of the exogenous variables as the target variables are only the two time-series. In VARMAX also we **cannot** uniquely identify the ```p``` and ```q``` values so we can use ```ARIMA``` API as a guide.
 
 ```python
 from statsmodels.tsa.statespace.varmax import VARMAX
