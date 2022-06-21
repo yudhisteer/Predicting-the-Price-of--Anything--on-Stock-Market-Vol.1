@@ -2077,6 +2077,8 @@ def optimize_VAR(itr):
     return result_df
 ```
 
+We want to have a parsimonious model so we choose p to be equal to **19**.
+
 ```python
 	p	aic
 0	23	14.683810
@@ -2088,6 +2090,19 @@ def optimize_VAR(itr):
 6	20	14.693116
 7	19	14.693439
 ```
+
+4. We instantiate the model and fit it to a training set. 
+
+```python
+results = model.fit(maxlags=19, ic='aic')
+```
+
+5. We invert the transformation and evaluate model predictions against a known test set (past 12 months).
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174805457-36522083-fdaf-4d1a-89ac-3a35d1837ee7.png" width="750" height="240"/>
+</p>
+
 
 
 ##### 6.9.3 VARMA
