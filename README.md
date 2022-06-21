@@ -1,4 +1,4 @@
-# Predicting the Price of "Anything" on Stock Market
+# Predicting the Price of "Anything" on Stock Market: Vol. 1
 
 
 
