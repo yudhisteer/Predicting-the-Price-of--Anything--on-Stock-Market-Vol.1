@@ -2099,7 +2099,7 @@ results = model.fit(maxlags=18, ic='aic')
 
 5. We invert the transformation and evaluate model predictions against a known **test set** (past 12 months).
 
-6. We will use an AR(5) model as benchmark. We plot the graph of the true data and the two models:
+6. We will use an **AR(5)** model as benchmark. We plot the graph of the true data and the two models:
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/174868229-6de90cb8-a801-47d3-8af6-dc940b07d800.png" width="850" height="270"/>
@@ -2107,46 +2107,97 @@ results = model.fit(maxlags=18, ic='aic')
 
 Notice that the AR model does better than the VAR model for both Money and Spending time-series. We will compute the RMSE and compare in the next section.
 
-##### 6.9.3 VARMA
-If you are wondering why we do not have a ```VARIMA``` model is because the number of differencing that should be done on each time-series is not equal. So we need to manually differenced each time-series and test for stationarity. Only then that we apply a ```VARMA``` model. Note that this depends on the library that we are using.
+##### 6.9.3 VARMA and VARMAX
+If you are wondering why we do not have a ```VARIMA``` model is because the number of differencing that should be done on each time-series is not equal - the is **not** **one** ```d``` value. So we need to manually differenced each time-series and test for stationarity. Only then that we apply a ```VARMA``` model. Note that this depends on the library that we are using.
+
+**Note:**
+
+- Most of the time we do not use VARMA as we **cannot** uniquely identify ```p``` and ```q```. Therefore, VARMA is **NOT** ```identifiable```.
+- Compared to VAR, the latter has automatic order slection in statsmodels. 
+- VARMA takes longer to train compared to VAR or ARIMA models.
+- The number of parameters grows quadratically with the number of components which may sometimes lead to overfitting.
+
+We will now fit a VARMA model in our Money-Spending dataset:
+
+1. We first fit an ```Auto ARIMA``` onto the ```Money``` time-series to get the best order that fit the model:
+
+```python
+ARIMA(maxiter=1000, order=(3, 2, 2), scoring_args={}, suppress_warnings=True,
+      with_intercept=False)
+```
+2. We perform the same step for ```Spending```:
+
+```python
+ARIMA(maxiter=1000, order=(4, 2, 3), scoring_args={}, suppress_warnings=True,
+      with_intercept=False)
+```
+
+3. We notice that we need to differentiate both time-series twice. We perform this operation and run the auto_arima function again. Since there are no unique ways to identify ```p``` and ```q```, we will select a **VARMA(5,4)** to fit the data.
+
+```python
+ARIMA(maxiter=1000, order=(5, 0, 4), scoring_args={}, suppress_warnings=True)
+```
+
+```python
+ARIMA(maxiter=1000, order=(4, 0, 3), scoring_args={}, suppress_warnings=True,
+      with_intercept=False)
+```
+
+4. We train the data on this model and perform a prediction on the next 12 steps (test data). 
+
+```python
+model = VARMAX(train, order=(5,4), trend='c')
+results = model.fit(maxiter=1000, disp=False)
+```
+
+5. We will use an **ARMA(5,4)** as benchmark. We plot the two models and the true data:
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/174871854-cab2b7f3-b548-467e-ab2d-e070c94e4231.png" width="850" height="270"/>
 </p>
 
-
+Notice that the ARMA model does significantly better than the VARMA model for the ```Money``` time-series but peforms nearly the same for ```Spending```. We will compute the RMSE for all the models we did from now and we observe that the **AR(5)** model has the least error.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/174874714-470f0bc7-0297-418f-9b17-5f3ddef1382c.png" width="370" height="130"/>
 </p>
 
+**Note:** For VARMAX, we need to perform the same steps explained above except that we also need to provide the data for our **exogenous** variables. Recall that for forecasting we need to know the future values of the exogenous variables as the target variables are only the two time-series. In VARMAX also we **cannot** uniquely identify the ```p``` and ```q``` values so we can use ```auto_arima``` as a guide.
 
-
-
-
-
-
-
-
-
-
-
-##### 6.9.4 VARMAX
-
-
+```python
+model_VARMAX = VARMAX(endog, exog, order=(5,4))
+res_VARMAX = model_VARMAX.fit(disp=False)
+```
 ------------------------
 
-
-
-
-
 ## Further Improvements
+
+
+
+
+
+
+
+
+
+
+
 
 - **Impulse Response Analysi**s: which involves the response of one variable to a sudden but temporary change in another variable
 - **Forecast Error Variance Decomposition (FEVD)**: where the proportion of the forecast variance of one variable is attributed to the effect of other variables
 - **Dynamic Vector Autoregressions**: used for estimating a moving-window regression for the purposes of making forecasts throughout the data sample
 
 ## Conclusion
+
+
+
+
+
+
+
+
+
+
 
 ## References
 1. https://hbr.org/2009/01/why-we-cant-predict-financial
