@@ -402,6 +402,22 @@ ________________________________________________________ .. ____________________
 </p>
 
 #### 3.4 T-distribution
+Since we said that most of the distribution in finance is ```heavy-tailed``` then maybe it is not such a good assumption to compare it to a Normal distribution. We want to have a bell-curve shaped distribution but heavier tails hence the **T-distributon**.
+
+
+
+
+
+
+
+
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174994809-d4c20d28-4361-495d-a58d-8f8b1530b9c3.png" width="900" height="250"/>
+</p>
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
