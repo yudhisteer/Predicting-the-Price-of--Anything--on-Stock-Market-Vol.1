@@ -402,17 +402,15 @@ ________________________________________________________ .. ____________________
 </p>
 
 #### 3.4 T-distribution
-Since we said that most of the distribution in finance is ```heavy-tailed``` then maybe it is not such a good assumption to compare it to a Normal distribution. We want to have a bell-curve shaped distribution but heavier tails hence the **T-distributon**.
+Since we said that most of the distribution in finance is ```heavy-tailed``` then maybe it is not such a good assumption to compare it to a Normal distribution. We want to have a bell-curve shaped distribution but with heavier tails hence the **T-distributon**.
 
+Yhe specific shape of the T-distribution will depend on the number of **degrees of freedom** which is given by ```n-1``` where ```n``` is the sample size. When the sample size reaches ```30```, the values of the T-distribution closely approximate the values of the Normal distribution.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/175001947-37bcd8df-7f51-4489-a7a5-517037e8e25a.png" width="300" height="250"/>
+</p>
 
-
-
-
-
-
-
-
+If we now fit a T-distribution on Starbucks return, we observe that the t-distribution is a much better fit than the Normal dist. The is no gap in the shoulders of  the dist. because the weight has been distributed across the tails and head. And even the QQ plot shows we do hot have the heavier tails anymore.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/174994809-d4c20d28-4361-495d-a58d-8f8b1530b9c3.png" width="900" height="250"/>
