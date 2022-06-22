@@ -351,7 +351,22 @@ As  mentioned above, one of the main objective is to ```forecast``` future obser
 ________________________________________________________ .. __________________________________________________________
 </p>
 
+#### 3.3 Returns
+In finance, return is a **profit** on an **investment**. To compare returns over time periods of different lengths on an equal basis, it is useful to convert each return into a return over a period of time of a standard length. The result of the conversion is called the ```rate of return```.
+
+
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
 #### 3.3 QQ Plot
+When we see a ```bell-curve``` shaped distribution, we tend to think of a **Normal** or **Gaussian** distribution. But how can we really check? Quantile-Quantile (QQ) plot is a ```visual method``` to check if the data that we have sampled actually comes from the normal distribution.
+
+In simple terms, QQ-plot is **theory** vs **reality**. We plot the sample Quantrill's and on the other axis we plot the theoretical quantize from the distribution
+
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
@@ -1968,7 +1983,7 @@ We then plot the graph of the real data, the models with and without exog. Notic
 So far, we have only considered a **univariate** time series. That is, we assume a **unidirectional relationship** between the feature and the target - the feature impacts the target but the target does not impact the feature. However, that is not always the case. For example, an increase in income can result in an increase in spending. Or, an increase in spending can be due to an increase in income. So we model each time-series as if they influence each other equally. 
 
 ##### 6.9.1 Granger Causality
-Now that we have settled that we can use one time-series to predict another one, one very important questions that we should come to ask is which time-series? We don't want to plug in any two time-series and perform a prediction. We first want to be sure that there is indeed a relationship between these time series. We want to avoid any ```spurious correlation``` or ```relationship``` that do **NOT** really exist between two variables. Here's an interesting example below by [Tyler Vigen]([url](https://www.tylervigen.com/spurious-correlations)): 
+Now that we have settled that we can use one time-series to predict another one, one very important questions that we should come to ask is which time-series? We don't want to plug in any two time-series and perform a prediction. We first want to be sure that there is indeed a relationship between these time series. We want to avoid any ```spurious correlation``` or ```relationship``` that do **NOT** really exist between two variables. Here's an interesting example below by [Tyler Vigen](https://www.tylervigen.com/spurious-correlations): 
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/174478029-a70e9447-fb2f-4cfb-9739-65b2c4538dfa.png" width="700" height="350"/>
@@ -2234,21 +2249,22 @@ res_VARMAX = model_VARMAX.fit(disp=False)
 7. https://www.investopedia.com/ask/answers/04/031104.asp
 8. https://people.duke.edu/~rnau/411georw.htm
 9. https://www.wsj.com/articles/SB109804865418747444
-10. http://www.econ.yale.edu/~shiller/pubs/p1055.pdf
-11. https://knowledge.wharton.upenn.edu/article/is-that-a-100-bill-lying-on-the-ground-two-views-of-market-efficiency-2/
-12. https://nokiamob.net/2020/04/17/rumors-about-nokia-hostile-takeover-causes-stock-price-surge/
-13. https://nokiamob.net/2020/02/27/bloomberg-and-reuters-post-conflicting-reports-about-nokia-exploring-strategic-options/
-14. https://www.investopedia.com/terms/s/sma.asp#:~:text=A%20simple%20moving%20average%20smooths,the%20security's%20price%20is%20decreasing
-15. https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/simple-moving-average-sma/
-16. https://www.investopedia.com/terms/d/deathcross.asp
-17. https://towardsdatascience.com/simple-exponential-smoothing-749fc5631bed
-18. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
-19. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
-20. https://machinelearningmastery.com/white-noise-time-series
-21. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
-22. https://medium.com/swlh/using-granger-causality-test-to-know-if-one-time-series-is-impacting-in-predicting-another
-23. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
-24. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
-25. https://hbr.org/2015/06/beware-spurious-correlations
-26. https://www.tylervigen.com/spurious-correlations
-27. https://www.investopedia.com/terms/s/spurious_correlation.asp
+10. https://en.wikipedia.org/wiki/Rate_of_return
+11. http://www.econ.yale.edu/~shiller/pubs/p1055.pdf
+12. https://knowledge.wharton.upenn.edu/article/is-that-a-100-bill-lying-on-the-ground-two-views-of-market-efficiency-2/
+13. https://nokiamob.net/2020/04/17/rumors-about-nokia-hostile-takeover-causes-stock-price-surge/
+14. https://nokiamob.net/2020/02/27/bloomberg-and-reuters-post-conflicting-reports-about-nokia-exploring-strategic-options/
+15. https://www.investopedia.com/terms/s/sma.asp#:~:text=A%20simple%20moving%20average%20smooths,the%20security's%20price%20is%20decreasing
+16. https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/simple-moving-average-sma/
+17. https://www.investopedia.com/terms/d/deathcross.asp
+18. https://towardsdatascience.com/simple-exponential-smoothing-749fc5631bed
+19. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
+20. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
+21. https://machinelearningmastery.com/white-noise-time-series
+22. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
+23. https://medium.com/swlh/using-granger-causality-test-to-know-if-one-time-series-is-impacting-in-predicting-another
+24. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
+25. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
+26. https://hbr.org/2015/06/beware-spurious-correlations
+27. https://www.tylervigen.com/spurious-correlations
+28. https://www.investopedia.com/terms/s/spurious_correlation.asp
