@@ -41,15 +41,10 @@
 
     - What are time series?
     - Objectives of time series
-    - QQ Plot
-    - T-distribution
-    - Confidence Intervals
-    - Statistical Testing
-    - Covariance and Correlation
-    - Alpha and Beta
-    - Gaussian Mixture Model
+    - Returns
     - Forecasting Metrics
     - Naive Forecast
+    - Static Analysis
 
 4. Exponential Smoothing and ETS Methods
 
@@ -354,13 +349,22 @@ ________________________________________________________ .. ____________________
 #### 3.3 Returns
 In finance, return is a **profit** on an **investment**. To compare returns over time periods of different lengths on an equal basis, it is useful to convert each return into a return over a period of time of a standard length. The result of the conversion is called the ```rate of return```.
 
-
+#### 3.4. Forecasting Metrics
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 3.3 QQ Plot
+
+#### 3.5 Naive Forecast
+
+<p align="center">
+________________________________________________________ .. __________________________________________________________
+</p>
+
+#### 3.6 Static Analysis
+
+##### 3.6.1 QQ Plot
 When we see a ```bell-curve``` shaped distribution, we tend to think of a **Normal** or **Gaussian** distribution. But how can we really check? Quantile-Quantile (QQ) plot is a ```visual method``` to check if the data that we have sampled actually comes from the normal distribution.
 
 In simple terms, QQ-plot is **theory** vs **reality**. We plot the sample quantile on the y-axis and on the x-axis we plot the theoretical quantile from the distribution that we think our data was sampled from. The basic idea is if the data really did come from this theoretical distribution, then the points on the QQ plot should be nearly a **straight line** as shown below.
@@ -401,7 +405,7 @@ Normally in finance, our distribution is more **fat-tailed** than the Normal dis
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 3.4 T-distribution
+##### 3.6.2 T-distribution
 Since we said that most of the distribution in finance is ```heavy-tailed``` then maybe it is not such a good assumption to compare it to a Normal distribution. We want to have a bell-curve shaped distribution but with heavier tails hence the **T-distributon**.
 
 Yhe specific shape of the T-distribution will depend on the number of **degrees of freedom** which is given by ```n-1``` where ```n``` is the sample size. When the sample size reaches ```30```, the values of the T-distribution closely approximate the values of the Normal distribution.
@@ -422,50 +426,40 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-#### 3.5 Confidence Intervals
+##### 3.6.3 Confidence Intervals
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 3.6 Statistical Testing
+##### 3.6.4 Statistical Testing
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 3.7 Covariance and Correlation
+##### 3.6.5 Covariance and Correlation
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 3.8 Alpha and Beta
+##### 3.6.6 Alpha and Beta
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 3.9 Gaussian Mixture Model
+##### 3.6.7 Gaussian Mixture Model
 
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
-
-
-#### 3.9. Forecasting Metrics
-
-<p align="center">
-________________________________________________________ .. __________________________________________________________
-</p>
-
-
-#### 3.9 Naive Forecast
 
 ------------------------
 
