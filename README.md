@@ -363,12 +363,39 @@ ________________________________________________________ .. ____________________
 #### 3.3 QQ Plot
 When we see a ```bell-curve``` shaped distribution, we tend to think of a **Normal** or **Gaussian** distribution. But how can we really check? Quantile-Quantile (QQ) plot is a ```visual method``` to check if the data that we have sampled actually comes from the normal distribution.
 
-In simple terms, QQ-plot is **theory** vs **reality**. We plot the sample Quantrill's and on the other axis we plot the theoretical quantize from the distribution
-
+In simple terms, QQ-plot is **theory** vs **reality**. We plot the sample quantile on the y-axis and on the x-axis we plot the theoretical quantile from the distribution that we think our data was sampled from. The basic idea is if the data really did come from this theoretical distribution, then the points on the QQ plot should be nearly a **straight line** as shown below.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/174962415-e2968d83-cfa9-4fd6-9273-0b8335c80a7a.png" width="300" height="300"/>
 </p>
+
+Below are some examples of data **not** coming from a Normal distribution:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174986053-cedaa089-5b0b-48f4-8a48-d14ac0b6ed52.png" width="900" height="230"/>
+</p>
+
+Below we plot the distribution of the returns of ```Starbucks``` and plot a Normal distribution based on the mean and standard deviation of the data. We set ```density=True``` so that the histogram is normalized.
+
+```python
+x_list = np.linspace(sbux['return'].min(), sbux['return'].max(), 100)
+y_list = norm.pdf(x_list, loc=sbux['return'].mean(), scale=sbux['return'].std())
+
+plt.plot(x_list, y_list)
+sbux['return'].hist(bins=100, figsize=(15,8), density=True)
+```
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174990565-a01ac799-5705-4d26-ba60-2c48561be9aa.png" width="900" height="250"/>
+</p>
+
+- In the center data has much higher frequency than what is predicted by the normal dist.
+- There is significant gap in shoulders of the dist.
+- Return takes extreme values in tail which is unlikely according to normal dist.
+- We see significant divergence at the plot of the probability plot that suggest that our data has much heavier tail than expected if it came the normal dist. 
+
+
+Normally in finance, our distribution is more **fat-tailed** than the Normal dist. This means our returns are more **extreme** than what would be predicted by the normal distribution. Often the stock market crashes or we have ```volatility``` and the probability of these events under the normal distribution would be infinitesimally ```small```.
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
