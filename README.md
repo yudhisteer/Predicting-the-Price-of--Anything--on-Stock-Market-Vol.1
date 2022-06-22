@@ -366,7 +366,9 @@ When we see a ```bell-curve``` shaped distribution, we tend to think of a **Norm
 In simple terms, QQ-plot is **theory** vs **reality**. We plot the sample Quantrill's and on the other axis we plot the theoretical quantize from the distribution
 
 
-
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/174962415-e2968d83-cfa9-4fd6-9273-0b8335c80a7a.png" width="300" height="300"/>
+</p>
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
