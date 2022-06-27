@@ -254,6 +254,66 @@ ________________________________________________________ .. ____________________
 
 #### 2.2 Returns
 
+##### 2.2.1 Net Return
+In finance, return is a **profit** on an **investment**. The return is the **gain** or **loss** compared to the cost of an initial investment.
+
+- When the Return is **positive**, it is considered a **gain**. 
+- When the Return is **negative**, it reflects a **loss** on the investment.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/175275258-0d6d703f-356b-4876-987d-9ffa15042b0f.png"/>
+</p>
+
+The equation above is typically expressed in the form of a percentage. 
+
+> Investors use ```rate of return``` (return over a period of time t) to measure the performance of their investments. The realized rate of return can be assessed against their own return expectations, or compared to the performance of other investments, indices, or portfolios.
+
+
+##### 2.2.2 Simple Gross Return
+ 
+The simple gross return is defined as:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/175276274-78cb9b8d-2b7f-447f-8941-f0207623cc15.png"/>
+</p>
+
+- When Gross Return < 0: Loss
+- When Gross Return = 1: No profit or loss
+- When Gross Return > 1: Profit
+
+
+##### 2.2.3 Log Return
+The logarithmic return or ```continuously compounded return``` is defined as:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/175277778-caac0e53-bffb-4720-b11a-07d018e3806b.png"/>
+</p>
+
+Note that returns are very small. And since <img src="https://latex.codecogs.com/png.image?\dpi{110}x\approx&space;log(x&plus;1)" title="https://latex.codecogs.com/png.image?\dpi{110}x\approx log(x+1)" />, it will approx. be equal. Their distributions will also roughly be the same. 
+
+```python
+sbux['prev_close'] = sbux['close'].shift(1)
+sbux['return'] = sbux['close'] / sbux['prev_close'] - 1
+sbux['log_return'] = np.log(sbux['return'] + 1)
+```
+The first row is ```NaN``` because we cannot subtract a previous value from the first row - there is no previous data. Notice how the return differs from the log return in only the last ```2``` decimal place.
+
+```python
+		close	return		log_return
+date			
+2013-02-08	28.185	 NaN		NaN
+2013-02-11	28.070	-0.004080	-0.004089
+2013-02-12	28.130	 0.002138	 0.002135
+2013-02-13	27.915	-0.007643	-0.007672
+2013-02-14	27.775	-0.005015	-0.005028
+```
+
+Figure below shows the graphs of the ```stock price```(blue), the ```return```(green) and ```log return```(red). Notice how the graph of the return values is very similar to that of the log return. This is because the log return is close to non-log return when x is small.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/175881336-b56cd393-7787-4a07-ba94-6be9c23c5022.png" width="400" height="550"/>
+</p>
+
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
@@ -346,55 +406,7 @@ As  mentioned above, one of the main objective is to ```forecast``` future obser
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 3.3 Returns
 
-##### 3.3.1 Net Return
-In finance, return is a **profit** on an **investment**. The return is the **gain** or **loss** compared to the cost of an initial investment.
-
-- When the Return is **positive**, it is considered a **gain**. 
-- When the Return is **negative**, it reflects a **loss** on the investment.
-
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/175275258-0d6d703f-356b-4876-987d-9ffa15042b0f.png"/>
-</p>
-
-The equation above is typically expressed in the form of a percentage. 
-
-> Investors use ```rate of return``` (return over a period of time t) to measure the performance of their investments. The realized rate of return can be assessed against their own return expectations, or compared to the performance of other investments, indices, or portfolios.
-
-
-##### 3.3.2 Simple Gross Return
- 
-The simple gross return is defined as:
-
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/175276274-78cb9b8d-2b7f-447f-8941-f0207623cc15.png"/>
-</p>
-
-- When Gross Return < 0: Loss
-- When Gross Return = 1: No profit or loss
-- When Gross Return > 1: Profit
-
-
-##### 3.3.3 Log Return
-The logarithmic return or ```continuously compounded return``` is defined as:
-
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/175277778-caac0e53-bffb-4720-b11a-07d018e3806b.png"/>
-</p>
-
-Note that returns are very small. And since <img src="https://latex.codecogs.com/png.image?\dpi{110}x\approx&space;log(x&plus;1)" title="https://latex.codecogs.com/png.image?\dpi{110}x\approx log(x+1)" />, it will approx. be equal. Their distributions will also roughly be the same. 
-
-
-```python
-		close	return		log_return
-date			
-2013-02-08	28.185	 NaN		NaN
-2013-02-11	28.070	-0.004080	-0.004089
-2013-02-12	28.130	 0.002138	 0.002135
-2013-02-13	27.915	-0.007643	-0.007672
-2013-02-14	27.775	-0.005015	-0.005028
-```
 
 
 #### 3.4. Forecasting Metrics
