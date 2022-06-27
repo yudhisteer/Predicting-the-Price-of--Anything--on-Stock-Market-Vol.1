@@ -41,7 +41,6 @@
 
     - What are time series?
     - Objectives of time series
-    - Returns
     - Forecasting Metrics
     - Naive Forecast
     - Static Analysis
@@ -314,6 +313,8 @@ Figure below shows the graphs of the ```stock price```(blue), the ```return```(g
   <img src= "https://user-images.githubusercontent.com/59663734/175881336-b56cd393-7787-4a07-ba94-6be9c23c5022.png" width="400" height="550"/>
 </p>
 
+We will see later that calculating the return is actually a method know as ```differencing``` which is useful in order to make the time-series ```stationary```. We need stationarity in order to fit most statistical models to our data.
+
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
@@ -407,22 +408,20 @@ ________________________________________________________ .. ____________________
 </p>
 
 
-
-
-#### 3.4. Forecasting Metrics
+#### 3.3. Forecasting Metrics
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
 
-#### 3.5 Naive Forecast
+#### 3.4 Naive Forecast
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-#### 3.6 Static Analysis
+#### 3.5 Static Analysis
 
 ##### 3.6.1 QQ Plot
 When we see a ```bell-curve``` shaped distribution, we tend to think of a **Normal** or **Gaussian** distribution. But how can we really check? Quantile-Quantile (QQ) plot is a ```visual method``` to check if the data that we have sampled actually comes from the normal distribution.
