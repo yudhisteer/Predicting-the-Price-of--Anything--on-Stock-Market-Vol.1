@@ -416,16 +416,19 @@ ________________________________________________________ .. ____________________
 
 
 #### 3.4 Naive Forecast
-In order to verify that we got a good enough forecast we need a ```baseline```. In time series, the simplest baseline is the **Naive Forecast**.
+In order to verify that we got a good enough forecast we need a ```baseline```. In time series, the simplest baseline is the **Naive Forecast**. It is the simplest forecast as we are only copying the ```previous known value``` forward in time. 
+
+Note that we need to beat the Naive Forecast in the out-of-sample(test) dataset but in the in-sample(train) data, the Naive Forecast will beat us. This happens when our model overfit to the **noise** of the training data but does not **generalize** to the true underlying **pattern** in the time-series. Hence, comparing the forecast to the Naive Forecast is a proper baseline for other people to compare their results. 
+
+Stock market prices follow a ```Random Walk```. We will discuss more about this topic later but in a nutshell a Random Walk is like flipping a coin or picking a random number and that number is added to the **current** position in order to go to the **next** position. In other words, can we predict the outcome of tossing a coin? We have equal probabilty of getting a head and a tail but no definite prediction. So if a stock price follows a random walk, there is no purpose in building a model for forecasting as it cannot be predicted. 
 
 
+- If my noise distribution comes from <img src="https://latex.codecogs.com/png.image?\dpi{110}N(0,&space;\sigma&space;^2)" title="https://latex.codecogs.com/png.image?\dpi{110}N(0, \sigma ^2)" /> then the best forecast is the naive forecast. We can do no better than predicting the last known value.
+
+- If you build a model that we think is good enough but it cannot beat the Naive forecast, then it might suggest that our model is actually worse than a random walk model. In other words, a random walk model describes the data better than our model.
 
 
-
-
-
-
-
+> If the data follows a random walk, then the best forecast is a Naive forecast.
 
 
 
