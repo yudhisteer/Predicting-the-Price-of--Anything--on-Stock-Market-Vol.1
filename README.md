@@ -457,7 +457,7 @@ MSE and MAE depend on the **scale** of the data. That is, if we are calcuating t
 
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/176669334-d0555e14-d61f-41ea-b593-e5a2df7e2dff.png"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/176669966-984bb2b4-e228-43f4-a47c-f06a74212b95.png"/>
 </p>
 
 
