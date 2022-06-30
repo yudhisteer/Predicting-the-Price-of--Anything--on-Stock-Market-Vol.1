@@ -409,19 +409,62 @@ ________________________________________________________ .. ____________________
 
 
 #### 3.3. Forecasting Metrics
+After building a model we need to assess how good is this model. To do that we need a metric. Our metric will compare how far is our prediction from the actual in-sample or out-of-sample data and the lower this metric, the better is our model in forecasting.
+
+##### 3.3.1 Sum of Squared Error (SSE)
+Since forecasting is essentially regression, we start be defining the sum of squared errors also known as ```residual sum of squares```. It is the squared difference between the observed value (y) and the predicted value (yhat). 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176647166-ed32cfab-edca-41f7-8024-8a6761c75455.png"/>
+</p>
+
+- We squared the differences(target less than prediction or prediction less than target) to ensure they are not cancelled out and that the error is always non-negative.
+- One advantage of using the squared error is that it coincides with maximizing the ```Gaussian likelihood```. That is, it's the correct error metric to minimize when our errors are normally distributed.
+
+##### 3.3.2 Mean Squared Error (MSE)
+One downside of SSE is that it is diccult to compare between two SSE if a model was not trained on the same number of data points - the error will be bigger simply due to more predictions. One way to fix this is by using the mean of the sum of squared residuals. By doing this, we make the error metric ```invariant``` to the number of samples.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176649276-3ed5e204-c3fb-4ed9-ac77-2bbb7da900f3.png"/>
+</p>
+
+- The units of the MSE are ```squared units```. If our target value represents “euros,” then the MSE will be “squared euros.” 
+- Squaring the differences has the effect of ```“punishing”``` models by inflating the average error score when used as a metric.
+
+##### 3.3.3 Root Mean Squared Error (RMSE)
+The disadvanatge of SSE and MSE is that they don't have intuitive units. By taking the square root of the mean squared error we put this new error metric on the same scale as the original data.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176651833-578d2bb6-459b-485c-a0eb-cd90aee47dd7.png"/>
+</p>
+
+- If our target variable has the units “euros,” then the RMSE error score will also have the unit “euros” and not “squared euros” like the MSE and SSE.
+
+##### 3.3.4 Mean Absolute Error (MAE)
+
+
+##### 3.3.5 R-squared
+
+##### 3.3.6 Mean Absolute Percentage Error (MAPE)
+
+##### 3.3.7 Symmetric Mean Absolute Percentage Error (sMAPE)
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
-
 
 #### 3.4 Naive Forecast
 In order to verify that we got a good enough forecast we need a ```baseline```. In time series, the simplest baseline is the **Naive Forecast**. It is the simplest forecast as we are only copying the ```previous known value``` forward in time. 
 
 Note that we need to beat the Naive Forecast in the out-of-sample(test) dataset but in the in-sample(train) data, the Naive Forecast will beat us. This happens when our model overfit to the **noise** of the training data but does not **generalize** to the true underlying **pattern** in the time-series. Hence, comparing the forecast to the Naive Forecast is a proper baseline for other people to compare their results. 
 
-Stock market prices follow a ```Random Walk```. We will discuss more about this topic later but in a nutshell a Random Walk is like flipping a coin or picking a random number and that number is added to the **current** position in order to go to the **next** position. In other words, can we predict the outcome of tossing a coin? We have equal probabilty of getting a head and a tail but no definite prediction. So if a stock price follows a random walk, there is no purpose in building a model for forecasting as it cannot be predicted. 
+Stock market prices may follow a ```Random Walk```. As discussed above a Random Walk is like flipping a coin or picking a random number and that number is added to the **current** position in order to go to the **next** position. In other words, can we predict the outcome of tossing a coin? We have equal probabilty of getting a head and a tail but no definite prediction. So if a stock price follows a random walk, there is no purpose in building a model for forecasting as it cannot be predicted. 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176643379-df518cc4-08d1-46c6-b7a7-4e7714a4c062.png" width="600" height="320"/>
+</p>
 
 - If my noise distribution comes from <img src="https://latex.codecogs.com/png.image?\dpi{110}N(0,&space;\sigma&space;^2)" title="https://latex.codecogs.com/png.image?\dpi{110}N(0, \sigma ^2)" /> then the best forecast is the naive forecast. We can do no better than predicting the last known value.
 
@@ -429,17 +472,6 @@ Stock market prices follow a ```Random Walk```. We will discuss more about this 
 
 
 > If the data follows a random walk, then the best forecast is a Naive forecast.
-
-
-
-
-
-
-
-
-
-
-
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
