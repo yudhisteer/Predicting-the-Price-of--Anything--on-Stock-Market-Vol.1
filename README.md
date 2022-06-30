@@ -441,6 +441,16 @@ The disadvanatge of SSE and MSE is that they don't have intuitive units. By taki
 - If our target variable has the units “euros,” then the RMSE error score will also have the unit “euros” and not “squared euros” like the MSE and SSE.
 
 ##### 3.3.4 Mean Absolute Error (MAE)
+So far, we have been squaring the differences between actual and predicted values so that the error is non-negative and we took the square-root so that the metrix has the same unit as the original data. One shorter path would be to just take the mean of the absolute differences which makes the error non-negative and on the same unit of the data at the same time. 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176653814-2144c459-5f30-4e81-9981-f1c2ea77bc04.png"/>
+</p>
+
+
+-  Whereas the squared error coincides with optimizing a Gaussian likelihood, the absolute error coincides with optimizing a Laplace-distributed likelihood.
+-  When you optimizing this lost function, the model will be less influenced by outliers.
+-  Unlike the RMSE, the changes in MAE are linear and therefore intuitive. The MAE does not give more or less weight to different types of errors and instead the scores increase linearly with increases in error.
 
 
 ##### 3.3.5 R-squared
