@@ -448,12 +448,28 @@ So far, we have been squaring the differences between actual and predicted value
 </p>
 
 
--  Whereas the squared error coincides with optimizing a Gaussian likelihood, the absolute error coincides with optimizing a Laplace-distributed likelihood.
--  When you optimizing this lost function, the model will be less influenced by outliers.
--  Unlike the RMSE, the changes in MAE are linear and therefore intuitive. The MAE does not give more or less weight to different types of errors and instead the scores increase linearly with increases in error.
-
+-  Whereas the squared error coincides with optimizing a Gaussian likelihood, the absolute error coincides with optimizing a ```Laplace-distributed likelihood```.
+-  When you optimizing this lost function, the model will be less influenced by ```outliers```.
+-  Unlike the RMSE, the changes in MAE are ```linear``` and therefore intuitive. The MAE does not give more or less  the dataweight to different types of errors and instead the scores increase linearly with increases in error. 
 
 ##### 3.3.5 R-squared
+MSE and MAE depend on the **scale** of the data. That is, if we are calcuating the MSE of prices of houses it can be in the hundreds of thousands whereas the the MSE of daily stock returns are a fraction of a percent. What we may also need is a metric which is ```scale invariant```.
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176669334-d0555e14-d61f-41ea-b593-e5a2df7e2dff.png"/>
+</p>
+
+
+- Note that R-squared is not an error - we want it to be bigger and not smaller.
+- 
+
+
+
+
+
+
+
 
 ##### 3.3.6 Mean Absolute Percentage Error (MAPE)
 
