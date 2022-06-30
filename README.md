@@ -416,6 +416,27 @@ ________________________________________________________ .. ____________________
 
 
 #### 3.4 Naive Forecast
+In order to verify that we got a good enough forecast we need a ```baseline```. In time series, the simplest baseline is the **Naive Forecast**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
