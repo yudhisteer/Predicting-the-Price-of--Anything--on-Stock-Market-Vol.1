@@ -525,7 +525,7 @@ One problem with MAPE and sMAPE is that the error ```explodes to infinity``` whe
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-Note for all the error metrics defined above it is a good idea to first establish a ```baseline``` metric for our dataset using a ```Naive predictive model```, such as predicting the mean target value from the training dataset. A model that achieves an error metric better than the error metric for the Naive model has potential.
+> Note for all the error metrics defined above it is a good idea to first establish a ```baseline``` metric for our dataset using a ```Naive predictive model``` as discussed below. A model that achieves an error metric better than the error metric for the Naive model has potential.
 
 #### 3.4 Naive Forecast
 In order to verify that we got a good enough forecast we need a ```baseline```. In time series, the simplest baseline is the **Naive Forecast**. It is the simplest forecast as we are only copying the ```previous known value``` forward in time. 
@@ -614,6 +614,27 @@ ________________________________________________________ .. ____________________
 
 
 ##### 3.6.3 Confidence Intervals
+So far, we've looked at various statistics on the returns such as its mean and variance. Whenever we estimate something, we also want to ask, how **confident** can we be in that estimate?
+
+Generally: 
+
+- **More data**: ```Smaller``` confidence interval - mean is ```more``` accurate
+- **Less data**: ```Bigger``` confidence interval - mean is ```less``` accurate.
+
+Recall that one way we can estimate the ```expected return``` is to calculate the ```sample mean```.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
@@ -2481,14 +2502,15 @@ res_VARMAX = model_VARMAX.fit(disp=False)
 15. https://www.investopedia.com/terms/s/sma.asp#:~:text=A%20simple%20moving%20average%20smooths,the%20security's%20price%20is%20decreasing
 16. https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/simple-moving-average-sma/
 17. https://www.investopedia.com/terms/d/deathcross.asp
-18. https://towardsdatascience.com/simple-exponential-smoothing-749fc5631bed
-19. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
-20. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
-21. https://machinelearningmastery.com/white-noise-time-series
-22. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
-23. https://medium.com/swlh/using-granger-causality-test-to-know-if-one-time-series-is-impacting-in-predicting-another
-24. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
-25. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
-26. https://hbr.org/2015/06/beware-spurious-correlations
-27. https://www.tylervigen.com/spurious-correlations
-28. https://www.investopedia.com/terms/s/spurious_correlation.asp
+18. https://machinelearningmastery.com/regression-metrics-for-machine-learning/
+19. https://towardsdatascience.com/simple-exponential-smoothing-749fc5631bed
+20. https://machinelearningmastery.com/exponential-smoothing-for-time-series-forecasting-in-python
+21. https://www.investopedia.com/terms/s/seasonality.asp#:~:text=Seasonality%20is%20a%20characteristic%20of,is%20said%20to%20be%20seasonal.
+22. https://machinelearningmastery.com/white-noise-time-series
+23. https://medium.com/@radecicdario/list/time-series-from-scratch-b3385f5416de
+24. https://medium.com/swlh/using-granger-causality-test-to-know-if-one-time-series-is-impacting-in-predicting-another
+25. https://www.investopedia.com/articles/trading/07/stationary.asp#toc-non-stationary-time-series-data
+26. https://www.kaggle.com/code/iamleonie/time-series-interpreting-acf-and-pacf/notebook
+27. https://hbr.org/2015/06/beware-spurious-correlations
+28. https://www.tylervigen.com/spurious-correlations
+29. https://www.investopedia.com/terms/s/spurious_correlation.asp
