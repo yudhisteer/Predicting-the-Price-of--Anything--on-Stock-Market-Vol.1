@@ -519,13 +519,13 @@ With sMAPE, we just take the average of y and yhat in the denominator so that th
   <img src= "https://user-images.githubusercontent.com/59663734/176834932-f0bf1a9b-3e0f-449e-8c9c-b0043ac6a5eb.png"/>
 </p>
 
-
-
-
+One problem with MAPE and sMAPE is that the error ```explodes to infinity``` when the **denominator** is ```zero```. This result makes no sense, since the error should not explode to infinity simply because the data takes on certain values. It should ideally only explode to infinity if our target in our prediction are very far apart.
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
+
+Note for all the error metrics defined above it is a good idea to first establish a ```baseline``` metric for our dataset using a ```Naive predictive model```, such as predicting the mean target value from the training dataset. A model that achieves an error metric better than the error metric for the Naive model has potential.
 
 #### 3.4 Naive Forecast
 In order to verify that we got a good enough forecast we need a ```baseline```. In time series, the simplest baseline is the **Naive Forecast**. It is the simplest forecast as we are only copying the ```previous known value``` forward in time. 
