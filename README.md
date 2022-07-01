@@ -455,27 +455,71 @@ So far, we have been squaring the differences between actual and predicted value
 ##### 3.3.5 R-squared
 MSE and MAE depend on the **scale** of the data. That is, if we are calcuating the MSE of prices of houses it can be in the hundreds of thousands whereas the the MSE of daily stock returns are a fraction of a percent. What we may also need is a metric which is ```scale invariant```. 
 
-The R-squared is defined as subtr
-
+The R-squared is defined as:
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/176671074-31043edf-b061-48c3-b6d3-1ddf6d536150.png"/>
 </p>
 
+- R-squared is not an error - we want it to be bigger and not smaller. 
+- <img src="https://latex.codecogs.com/svg.image?SS_{RES}&space;" title="https://latex.codecogs.com/svg.image?SS_{RES} " /> is the sum of squares residuals (SSE). 
+- <img src="https://latex.codecogs.com/svg.image?SS_{TOT}&space;" title="https://latex.codecogs.com/svg.image?SS_{TOT} " /> is the sum of square differences w.r.t the average plot (<img src="https://latex.codecogs.com/svg.image?\bar{y}" title="https://latex.codecogs.com/svg.image?\bar{y}" />).
 
-- Note that R-squared is not an error - we want it to be bigger and not smaller.
-- 
+Below are some specific scenarios for R-squared:
 
+1. **R-squared = 0**
 
+	For R-squared to be ```0```, we need the following condition:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176831868-063ec5c9-6271-429c-a507-ce3d7bdc42ef.png"/>
+</p>
 
+	This means that we only managed to produce the average plot
 
+2. **R-squared = 1**
 
+	For R-squared to be ```1```, we need the following condition:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176832108-5b90311e-b69e-4341-b193-d4751479933e.png"/>
+</p>
+
+	This means that we managed to fit a line that passes through all the data points perfectly. 
+
+3. **R-squared < 1**
+
+	For R-squared to be ```< 1```, we need the following condition:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176832465-3ab9255f-6f84-4150-b400-5f4bde38e0b9.png"/>
+</p>
+
+	This means that our model is worst than predicting the mean.
 
 ##### 3.3.6 Mean Absolute Percentage Error (MAPE)
+Still on the topic of scale-invariant, one way to think how accurate our model is with with percentage. 
+
+MAPE is defined as:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176834393-43d3df1e-f6d0-45f2-9d98-e22a8d42935c.png"/>
+</p>
+
+The formula often includes multiplying the value by 100%, to express the number as a percentage.
+
+One downside to the map is that it's not ```symmetric```. As an example, if our target is ```10``` and our prediction is ```11```, then this leads to a different value when your prediction is ```10``` and your target is ```11```.
+
 
 ##### 3.3.7 Symmetric Mean Absolute Percentage Error (sMAPE)
+
+With sMAPE, we just take the average of y and yhat in the denominator so that the result is symmetric.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176834932-f0bf1a9b-3e0f-449e-8c9c-b0043ac6a5eb.png"/>
+</p>
+
+
 
 
 
