@@ -621,13 +621,16 @@ Generally:
 - **More data**: ```Smaller``` confidence interval - mean is ```more``` accurate
 - **Less data**: ```Bigger``` confidence interval - mean is ```less``` accurate.
 
-Recall that one way we can estimate the ```expected return``` is to calculate the ```sample mean```.
+Recall that one way we can estimate the ```expected return``` is to calculate the ```sample mean```. We may be tempted to think that since our expected return is positive then we would make a lot of money, however we need to remember that this is only an estimate. One better solution instead of point estimators is to use an interval estimator which is to include a condidence interval on that estimate. 
+
+The sample mean is nothing but the sum of each of the samples divided by ```N``` where ```N``` is the number of samples collected:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176841085-d41aae01-ee91-44d5-bf58-c3fc78937c35.png"/>
+</p>
 
 
-
-
-
-
+The equation says that as we collect more and more data, the **variance** of the sample mean ```decreases```. The more data we collect, the ```skinnier``` the distribution around the sample mean becomes. Since the distribution of the sample mean is normal, we can plot the PDF of this distribution where the 95 percent confidence interval is simply the middle area of the curve that will cover 95 percent of that 100 percent.
 
 
 
