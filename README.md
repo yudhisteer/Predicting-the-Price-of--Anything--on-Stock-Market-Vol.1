@@ -648,13 +648,67 @@ In the graph above we assumed that our returns were ```normally distributed```, 
 
 Another common way to estimate confidence intervals in finance and at times series for forecasting is to use **bootstrapping**. The basic idea is we repeatedly draw samples from our own set of samples.
 
-
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
 
-
 ##### 3.6.4 Statistical Testing
+With QQ-plot we have explored a visual method to estimate if our returns is a Normal distribution. Now, we will see a statistical method to find in a definitive way (depending on a threshold) if our returns are truly Normally distributed or not. 
+
+For a two-tailed test we have the null and alternate hypothesis as:
+
+- **Null Hypothesis**, <img src="https://latex.codecogs.com/svg.image?H_{0}" title="https://latex.codecogs.com/svg.image?H_{0}" />: <img src="https://latex.codecogs.com/svg.image?\mu=\mu_0&space;" title="https://latex.codecogs.com/svg.image?\mu=\mu_0 " />
+
+- **Alternate Hypothesis**, <img src="https://latex.codecogs.com/svg.image?H_{A}" title="https://latex.codecogs.com/svg.image?H_{A}" />: <img src="https://latex.codecogs.com/svg.image?\mu\neq&space;\mu_0&space;" title="https://latex.codecogs.com/svg.image?\mu\neq \mu_0 " />
+
+With ```95%``` CI there's ```5%``` of probability mass that we want to consider **highly improbable**. That's ```2.5%``` on the left and ```2.5%``` on the right. If <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu_0&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\mu_0 " /> falls into either of those regions (rejection region), then we will **reject** the null hypothesis.
+
+In our case we need to calculate ```Z``` is called a **test statistic**. Then we check whether or not Z is bigger than ```+1.96``` or less than ```-1.96```. If Z falls in the rejection region then we reject the null hypothesis that <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\mu " /> is equal to <img src="https://latex.codecogs.com/png.image?\dpi{110}\mu_0&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\mu_0 " />. 
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176994785-a44ed46b-8490-4e54-842d-d7689b0d21ca.png"/>
+</p>
+
+Using a p-value is a really quick way to decide whether or not to reject the null hypothesis. The p-value is just the probability of seeing a result as extreme or more extreme than what we observed. We will compare p with a significance level, <img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha " />, which is normally ```5%``` and check the following conditions:
+
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}p&space;\leq&space;\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}p \leq \alpha " />: Reject <img src="https://latex.codecogs.com/png.image?\dpi{110}H_0" title="https://latex.codecogs.com/png.image?\dpi{110}H_0" />
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}p&space;>&space;\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}p > \alpha " />: Fail to reject <img src="https://latex.codecogs.com/png.image?\dpi{110}H_0" title="https://latex.codecogs.com/png.image?\dpi{110}H_0" />
+ 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176995213-d61a151e-8d50-42e0-97bc-64b62312fd85.png" width="500" height="300"/>
+</p>
+
+We will not dive in too much technical details here but we will use Scipi libraries to check for Normality of our distributions. We will use **Jarque-Bera** test to check whether our distribution comes from a Normal distribution and **Kolmogrov-Smirnov** test to check for any distribution.
+
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}H_0" title="https://latex.codecogs.com/png.image?\dpi{110}H_0" />: Data is Normal
+- <img src="https://latex.codecogs.com/svg.image?H_{A}" title="https://latex.codecogs.com/svg.image?H_{A}" />: Data is **NOT** Normal
+
+We will check if the Returns of Starbucks comes from a ```Normal distribution```:
+
+```python
+from scipy.stats import jarque_bera, normaltest
+jarque_bera(sbux['return'].dropna().to_numpy())
+```
+```python
+Jarque_beraResult(statistic=1639.0284386552219, pvalue=0.0)
+```
+> Test sctatistic = ```1639.0284386552219``` and p-value very small approx. ```0```. Therefore, we **reject** null hypothesis that this data comes from a normal dist.
+
+We will check if the Returns of Starbucks comes from a ```t-distribution```:
+
+```python
+from scipy.stats import kstest
+df, loc, scale = t.fit(sbux['return'].dropna().to_numpy())
+
+def cdf(x):
+    return t.cdf(x, df, loc, scale)
+
+kstest(sbux['return'].dropna().to_numpy(), cdf)
+```
+```python
+KstestResult(statistic=0.01887566203844726, pvalue=0.7537785475444063)
+```
+> We see that the **p-value > test statistic**, therefore, we **fail to reject** null hypothesis that data comes from t-distribution
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
