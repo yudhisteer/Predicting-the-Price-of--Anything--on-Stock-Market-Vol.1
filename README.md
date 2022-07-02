@@ -614,9 +614,9 @@ ________________________________________________________ .. ____________________
 
 
 ##### 3.6.3 Confidence Intervals
-So far, we've looked at various statistics on the returns such as its mean and variance. Whenever we estimate something, we also want to ask, how **confident** can we be in that estimate?
+So far, we've looked at various statistics on the returns such as its mean and variance, that is how returns might be distributed. Here, we want to see how to **model** returns, i.e, looking at different ways of quantifying this distribution.
 
-Generally: 
+Whenever we estimate something, we also want to ask, how **confident** can we be in that estimate? Generally: 
 
 - **More data**: ```Smaller``` confidence interval - mean is ```more``` accurate
 - **Less data**: ```Bigger``` confidence interval - mean is ```less``` accurate.
@@ -629,14 +629,24 @@ The sample mean is nothing but the sum of each of the samples divided by ```N```
   <img src= "https://user-images.githubusercontent.com/59663734/176841085-d41aae01-ee91-44d5-bf58-c3fc78937c35.png"/>
 </p>
 
-
 The equation says that as we collect more and more data, the **variance** of the sample mean ```decreases```. The more data we collect, the ```skinnier``` the distribution around the sample mean becomes. Since the distribution of the sample mean is normal, we can plot the PDF of this distribution where the 95 percent confidence interval is simply the middle area of the curve that will cover 95 percent of that 100 percent.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176989935-702f058b-6936-4e4f-bbba-dff0df955766.png"/>
+</p>
+
+If we have a standard normal ```N(0,1)```, then the boundaries for a ```95%``` CI is ```-1.96``` and ```+1.96``` respectively. In other words, if I take the integral or the area under the curve of the standard normal from ```-1.96``` to ```+1.96```, then we will get ```0.95``` or ```95%```.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/176989609-0b438177-a349-44b6-ab10-58e4f76942cc.png" width="900" height="250"/>
+</p>
 
 
+Note that in reality we do not know the pamameter <img src="https://latex.codecogs.com/svg.image?\sigma&space;" title="https://latex.codecogs.com/svg.image?\sigma " /> therefore <img src="https://latex.codecogs.com/svg.image?\bar{X}" title="https://latex.codecogs.com/svg.image?\bar{X}" /> must be expressed with the estimated standard deviation ```s```rather than the true <img src="https://latex.codecogs.com/svg.image?\sigma&space;" title="https://latex.codecogs.com/svg.image?\sigma " />. Unfortunately, it is no longer Normally distributed but **t-distributed**.
 
+In the graph above we assumed that our returns were ```normally distributed```, but we already know that this is not exactly true. However, we can apply the ```Central Limit Theorem``` where the sum of random variables approaches a normal distribution anyway. It means that we can use the normal approximation for confidence intervals.
 
-
+Another common way to estimate confidence intervals in finance and at times series for forecasting is to use **bootstrapping**. The basic idea is we repeatedly draw samples from our own set of samples.
 
 
 <p align="center">
