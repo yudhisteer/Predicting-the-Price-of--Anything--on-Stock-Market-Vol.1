@@ -671,14 +671,14 @@ In our case we need to calculate ```Z``` is called a **test statistic**. Then we
 
 Using a p-value is a really quick way to decide whether or not to reject the null hypothesis. The p-value is just the probability of seeing a result as extreme or more extreme than what we observed. We will compare p with a significance level, <img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha " />, which is normally ```5%``` and check the following conditions:
 
-- <img src="https://latex.codecogs.com/png.image?\dpi{110}p&space;\leq&space;\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}p \leq \alpha " />: Reject <img src="https://latex.codecogs.com/png.image?\dpi{110}H_0" title="https://latex.codecogs.com/png.image?\dpi{110}H_0" />
-- <img src="https://latex.codecogs.com/png.image?\dpi{110}p&space;>&space;\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}p > \alpha " />: Fail to reject <img src="https://latex.codecogs.com/png.image?\dpi{110}H_0" title="https://latex.codecogs.com/png.image?\dpi{110}H_0" />
+- ```p <= alpha```: Reject <img src="https://latex.codecogs.com/png.image?\dpi{110}H_0" title="https://latex.codecogs.com/png.image?\dpi{110}H_0" />
+- ```p > alpha```: Fail to reject <img src="https://latex.codecogs.com/png.image?\dpi{110}H_0" title="https://latex.codecogs.com/png.image?\dpi{110}H_0" />
  
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/176995213-d61a151e-8d50-42e0-97bc-64b62312fd85.png" width="500" height="300"/>
 </p>
 
-We will not dive in too much technical details here but we will use Scipi libraries to check for Normality of our distributions. We will use **Jarque-Bera** test to check whether our distribution comes from a Normal distribution and **Kolmogrov-Smirnov** test to check for any distribution.
+We will not dive into too much technical details here but we will use Scipy libraries to check for Normality of our distributions. We will use **Jarque-Bera** test to check whether our distribution comes from a Normal distribution and **Kolmogrov-Smirnov** test to check for any distribution.
 
 - <img src="https://latex.codecogs.com/png.image?\dpi{110}H_0" title="https://latex.codecogs.com/png.image?\dpi{110}H_0" />: Data is Normal
 - <img src="https://latex.codecogs.com/svg.image?H_{A}" title="https://latex.codecogs.com/svg.image?H_{A}" />: Data is **NOT** Normal
