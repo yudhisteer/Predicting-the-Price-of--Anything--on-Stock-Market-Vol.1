@@ -717,6 +717,24 @@ ________________________________________________________ .. ____________________
 
 ##### 3.6.5 Covariance and Correlation
 
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/177192227-cb9a3936-5680-485a-803b-3f71f3afb160.png" width="500" height="150"/>
+</p>
+
+
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/177191908-37286340-b802-4d8b-a405-492d662a7ee4.png" width="400" height="400"/>
+</p>
+
+
+
+
+
+
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
