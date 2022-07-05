@@ -716,24 +716,48 @@ ________________________________________________________ .. ____________________
 
 
 ##### 3.6.5 Covariance and Correlation
+In simple terms, correlation is referred as to how ```"related"``` two random variables are. For example:
 
+- S&P500 goes up, so does Dow Jones Industrial - **positive correlation**.
+- Gold goes uo, dollar goes down - **negative correlation**.
 
-
+Correlation is always between ```-1``` and ```+1```. A **perfect positive correlation** is ```+1```, which means when one variables goes up, so does the other by some constant amount. A **perfect negative correlation** is ```-1```, which means when one variables goes up, the other goes down by some constant amount. **Zero correlation** means there is ```no linear relationship``` between the two random variables. Anything in between ((-1, 1)) describes a more ```noisy relationship```. That is, when one stock goes up by one dollar, the other stock goes up by two dollars. But on another day, maybe the other stock goes down by zero point five dollars. In other words, because the linear relationship is imperfect, the other stock is harder to predict accurately.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/177192227-cb9a3936-5680-485a-803b-3f71f3afb160.png" width="500" height="150"/>
 </p>
 
-
+Below is an example of **pairplot** of the returns of ```5``` stocks which we selected: Google, IBM, Apple, Netflix and Starbucks. Notice we see some positive correlation between Google and Apple, or Google and Starbucks.
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/59663734/177191908-37286340-b802-4d8b-a405-492d662a7ee4.png" width="400" height="400"/>
+  <img src= "https://user-images.githubusercontent.com/59663734/177191908-37286340-b802-4d8b-a405-492d662a7ee4.png" width="450" height="350"/>
 </p>
 
 
+> Covariance is a quantitative measure of the extent to which the deviation of one variable from its mean matches the deviation of the other from its mean.
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/177251139-af1fd951-4398-4ccf-bf92-c12bb1dc17bb.png"/>
+</p>
 
+Using the equation above and the fact that the expectation of the product of two independent random variables is equal to the product of the expectations, it is easy to see that if two random variables are **independent** their covariance is ```0```. The reverse is **NOT** true in general: if the covariance of two random variables is 0, they can still be **dependent**!
 
+Therefore, Correlation between two random variables is the covariance of the two variables ```normalized``` by the ```standard deviation``` of each variable. This normalization cancels the units out and normalizes the measure so that it is always in the range [-1, 1]:
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/177251839-93374bdc-48d8-4f61-b7b2-94351bfedbe0.png"/>
+</p>
+
+We plot the **correlation matrix** below. Indeed, the is a strong linear relationship of approx. ```0.41``` between Google and Apple and the strongest is between Google and Starbucks of ```0.45```. We have no negative correlation and one example of close to zero correlation between IBM and Netflix of ```0.16```.
+
+```python
+		AAPL_ret	GOOG_ret	IBM_ret		NFLX_ret	SBUX_ret
+AAPL_ret	1.000000	0.415487	0.263927	0.227387	0.307716
+GOOG_ret	0.415487	1.000000	0.345643	0.404768	0.455936
+IBM_ret		0.263927	0.345643	1.000000	0.163267	0.315263
+NFLX_ret	0.227387	0.404768	0.163267	1.000000	0.266012
+SBUX_ret	0.307716	0.455936	0.315263	0.266012	1.000000
+```
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
@@ -741,6 +765,31 @@ ________________________________________________________ .. ____________________
 
 
 ##### 3.6.6 Alpha and Beta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
