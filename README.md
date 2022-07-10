@@ -202,12 +202,6 @@ ________________________________________________________ .. ____________________
 ![rand_2D](https://user-images.githubusercontent.com/59663734/168471883-1f124262-bcba-4d95-bac4-da51fac10640.gif)
 
 
-
-
-
-
-
-
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
@@ -765,39 +759,59 @@ ________________________________________________________ .. ____________________
 
 
 ##### 3.6.6 Alpha and Beta
+Alpha and Beta are one of the most important parameters in finance. Below is the definition from _Investopedia_: 
 
+> Alpha and beta are two different parts of an equation used to explain the performance of **stocks** and **investment funds**. ```Beta``` is a measure of **volatility** relative to a benchmark, such as the **S&P 500**. ```Alpha``` is the excess **return on an investment** after adjusting for market-related volatility and random fluctuations.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+This is a lot to digest! To put it simply, alpha and beta are simply the ```parameters``` of a **line of best fit**. Recall earlier that we measured how correlated is one stock with another one. Here, we will use the return of the market (S&P 500) on the x-axis and the return of a stock of our choice on the y-axis. When visualizing we have a scatter plot and we can **fit** a line of best fit using the ```Maximum Likelihood Estimation```. The equation of the line will have a **gradient** and a **y-intercept** and will be in the form of: 
 
 <p align="center">
-________________________________________________________ .. __________________________________________________________
+  <img src= "https://user-images.githubusercontent.com/59663734/178150873-75198091-8b67-4a45-82e0-ffb78c24eff1.png"/>
 </p>
 
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}r_{i}" title="https://latex.codecogs.com/png.image?\dpi{110}r_{i}" />: return of a stock
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}r_{m}" title="https://latex.codecogs.com/png.image?\dpi{110}r_{m}" />: return of the market
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha " />: **Y-intercept** - how much better/worse an asset performs compared to the market.
+- <img src="https://latex.codecogs.com/png.image?\dpi{110}\beta&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\beta " />: **Gradient** - how much the asset _moves_ with the market.
 
-##### 3.6.7 Gaussian Mixture Model
+Below we take the example of Starbucks and the market and plot a pairplot. We observe a high positive correlation of ```0.597916```. 
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/178150388-1cde79af-e25c-4b81-a350-a45ab6b5edfe.png" width="400" height="270"/>
+</p>
+
+Next, we look at the time-series of the two variables and we observe that the rerturn of Starbucks closely follows the return of the market hence, the high positive correlation.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/178150413-e4cbed02-6da5-49e3-821e-ea5929eec06f.png" width="600" height="250"/>
+</p>
+
+We then have the scatter plot of the return of the two variables and use the LinearRegression API from Scikit-Learn to plot a line of best fit. We have an alpha of ```0.00049336``` and a beta of ```0.96258214```.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/178150381-402b4847-e53b-4504-8302-9ed2f2bdb122.png" width="600" height="380"/>
+</p>
+
+Now what is really the purpose of alpha and beta? Recall that beta indicates how much the asset moves with the market. Hence, if beta=2 and the market is increased by 1% then Starbucks increases by 2%. If the market is decreased by 5%, then Starbucks decreases by 10%. 
+
+
+Alpha is how much better Starbucks is irrespective of the market. An alpha of 1% means that the return for Apple was 1% better than the market. For the period in which we looked at the returns, a positive alpha (![CodeCogsEqn (20)](https://user-images.githubusercontent.com/59663734/178152108-514cc798-de20-46c3-9cb4-e4a4f55e3043.png)
+) means Apple has **performed better** than the market. A negative alpha (<img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha<0&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha<0 " />) means Apple has **underperformed** the market.
+
+Conceptually, we want to achieve **high alpha** because we want to **outperform** the market.
+
+Now, we may think perhaps it's better to invest in Starbucks than it is to invest in the market due to its positive alpha. However, another important aspect of finance is **risk** or **volatility** which can be measured with the standard deviation.
+
+If we look at the standard deviation of our time-series, we see that the volatility for Starbucks is about twice that of the market.
+
+```python
+joined['SBUX'].std() / joined['SPY'].std()
+```
+```python
+1.6098942946210286
+```
+
+So while Starbucks did have better returns, it also had **higher volatility**. This is a common pattern in finance where, generally speaking, if we want **higher reward**, then we have to be willing to take on more risk.
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
