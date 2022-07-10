@@ -796,9 +796,9 @@ Now what is really the purpose of alpha and beta? Recall that beta indicates how
 
 
 Alpha is how much better Starbucks is irrespective of the market. An alpha of 1% means that the return for Apple was 1% better than the market. For the period in which we looked at the returns, a positive alpha (![CodeCogsEqn (20)](https://user-images.githubusercontent.com/59663734/178152108-514cc798-de20-46c3-9cb4-e4a4f55e3043.png)
-) means Apple has **performed better** than the market. A negative alpha (<img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha<0&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha<0 " />) means Apple has **underperformed** the market.
+) means Starbucks has **performed better** than the market. A negative alpha (<img src="https://latex.codecogs.com/png.image?\dpi{110}\alpha<0&space;" title="https://latex.codecogs.com/png.image?\dpi{110}\alpha<0 " />) means Starbucks has **underperformed** the market.
 
-Conceptually, we want to achieve **high alpha** because we want to **outperform** the market.
+	Conceptually, we want to achieve **high alpha** because we want to **outperform** the market.
 
 Now, we may think perhaps it's better to invest in Starbucks than it is to invest in the market due to its positive alpha. However, another important aspect of finance is **risk** or **volatility** which can be measured with the standard deviation.
 
@@ -812,10 +812,6 @@ joined['SBUX'].std() / joined['SPY'].std()
 ```
 
 So while Starbucks did have better returns, it also had **higher volatility**. This is a common pattern in finance where, generally speaking, if we want **higher reward**, then we have to be willing to take on more risk.
-
-<p align="center">
-________________________________________________________ .. __________________________________________________________
-</p>
 
 ------------------------
 
