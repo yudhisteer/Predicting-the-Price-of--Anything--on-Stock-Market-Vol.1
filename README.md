@@ -239,6 +239,35 @@ ________________________________________________________ .. ____________________
 ### 2. Financial Engineering: The Basics
 
 #### 2.1 Financial Data
+When speaking of financial data, we are more interested in the stock price of a partiular company or commodity. We can use the API of Yahoo Finance to get these financial data or Quandl is also a good source for data. Below is a snippet of the stock price of Apple for five consecutive business days. The Open, High, Low and Close columns are meant to give us information about how the stock price changed during that block of time.
+
+- The Open price is the price at the beginning of the period.
+- The close price is the price at the end of the period. 
+- The High price is the maximum price during that period. 
+- The Low price is the minimum price during that period.
+- The volume is the total number of shares that were traded during that time period traded, which means that they were sold by someone and bought by someone else.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/192114529-3ae57db7-6156-49a5-b842-4e4a37e725a3.png"/>
+</p>
+
+In reality, these tradings are happening many times per second and the price of each item can change depending on what people are willing to buy and sell them for. What is interesting is that the data we typically work with in finance is more like a ```summary``` of those events. There are both pros and cons of the summary of a data, one being that time series methods often assume that our data is sampled at ```equally spaced intervals```. So by having daily data, we automatically meet this constraint.
+
+To have equally spaced intervals data means we cannot have ```missing``` data. There are few reasons why we may get missing data:
+
+- A company gets bought by another company. The company which is bought is delisted on the New York Stock Exchange. Example: LinkedIn and Microsoft.
+- If we have no financial data before a certain period of time for a particular company, then this means the company did not exist at that time or did not go public yet by that time.
+- We may have missing data in-beween the stock price of a company. This can happen with small companies with low liquidity when no shares are being traded. When no shares are being traded, there is no price.
+- 
+
+
+
+
+
+
+
+
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
