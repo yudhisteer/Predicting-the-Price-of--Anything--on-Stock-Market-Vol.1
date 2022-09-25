@@ -35,7 +35,6 @@
     - Financial Data
     - Returns
     - Adjusted close, stock splits and dividends
-    - Volatility Clustering
 
 3. Exploratory Data Analysis and Static Analysis
 
@@ -239,13 +238,13 @@ ________________________________________________________ .. ____________________
 ### 2. Financial Engineering: The Basics
 
 #### 2.1 Financial Data
-When speaking of financial data, we are more interested in the stock price of a partiular company or commodity. We can use the API of Yahoo Finance to get these financial data or Quandl is also a good source for data. Below is a snippet of the stock price of Apple for five consecutive business days. The Open, High, Low and Close columns are meant to give us information about how the stock price changed during that block of time.
+When speaking of financial data, we are more interested in the stock price of a partiular company or commodity. We can use the API of **Yahoo Finance** to get these financial data or **Quandl** is also a good source for data. Below is a snippet of the stock price of Apple for five consecutive business days. The **Open**, **High**, **Low** and **Close** columns are meant to give us information about how the stock price changed during that block of time.
 
-- The Open price is the price at the beginning of the period.
-- The close price is the price at the end of the period. 
-- The High price is the maximum price during that period. 
-- The Low price is the minimum price during that period.
-- The volume is the total number of shares that were traded during that time period traded, which means that they were sold by someone and bought by someone else.
+- The ```Open``` price is the price at the beginning of the period.
+- The ```Close``` price is the price at the end of the period. 
+- The ```High``` price is the maximum price during that period. 
+- The ```Low``` price is the minimum price during that period.
+- The ```Volume``` is the total number of shares that were traded during that time period traded, which means that they were sold by someone and bought by someone else.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/192114529-3ae57db7-6156-49a5-b842-4e4a37e725a3.png"/>
@@ -253,21 +252,20 @@ When speaking of financial data, we are more interested in the stock price of a 
 
 In reality, these tradings are happening many times per second and the price of each item can change depending on what people are willing to buy and sell them for. What is interesting is that the data we typically work with in finance is more like a ```summary``` of those events. There are both pros and cons of the summary of a data, one being that time series methods often assume that our data is sampled at ```equally spaced intervals```. So by having daily data, we automatically meet this constraint.
 
+##### 2.1.1 Missing Data
+
 To have equally spaced intervals data means we cannot have ```missing``` data. There are few reasons why we may get missing data:
 
 - A company gets bought by another company. The company which is bought is delisted on the New York Stock Exchange. Example: LinkedIn and Microsoft.
 - If we have no financial data before a certain period of time for a particular company, then this means the company did not exist at that time or did not go public yet by that time.
 - We may have missing data in-beween the stock price of a company. This can happen with small companies with low liquidity when no shares are being traded. When no shares are being traded, there is no price.
-- 
 
+##### 2.1.2 Filling Missing Data
 
+It is important to be cautious when filling missing data for time-series. For example, we CANNOT use ```linear interpolation``` to fill the missing data as it will be similar to using **future** data to fill in **past** data which is absolutely unacceptable. The best solution is ```forward filling``` which is to simply copy the previously known value forward in time. If there is missing data in the front where there does not exist any past data to copy from then we use ```backward filling```. In summary,  our first choice is to **forward fill**, and failing that, our second choice is to **backward fill**.
 
-
-
-
-
-
-
+**Note:**
+Days like weekends and holidays are NOT considered missing data. If they happen to appear in our data for some reason, we can simply drop the entire row. For these days, all rows will be missing. For example, the time difference between a Friday and Monday will be considered as **one day**, even though timewise it's not actually one day. In other words, when we look at a time series of stock prices, the data points are NOT actually equally spaced in ```real time```. They're equally spaced in ```trading time```.
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
@@ -275,9 +273,8 @@ ________________________________________________________ .. ____________________
 
 
 #### 2.2 Returns
-
-##### 2.2.1 Net Return
 In finance, return is a **profit** on an **investment**. The return is the **gain** or **loss** compared to the cost of an initial investment.
+##### 2.2.1 Net Return
 
 - When the Return is **positive**, it is considered a **gain**. 
 - When the Return is **negative**, it reflects a **loss** on the investment.
@@ -344,20 +341,45 @@ ________________________________________________________ .. ____________________
 
 
 #### 2.3 Adjusted close, stock splits and dividends
+In our financial data, we got two types of Close price and it is important to know which one to use for predictions.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/192166569-00c49383-8f2f-4220-aa10-53ff6bf2fe60.png" width="550" height="200"/>
+</p>
+
+
+##### 2.3.1 Adjusted Close and Stock Splits
+When buying shares, we have to buy them and sell them in whole units. The problem arises when the share price goes so high that it's infeasible for most people to buy any shares. We would say that this stock is less liquid and that it makes trading the stock difficult for many investors. What a company can do in this scenario is a ```stock split```.
+
+For example, suppose I own 100 shares of a stock that's worth $100 per share. After a 2-for-1 split, I will now own 200 shares, but each share will be worth $50.
+In both cases I own $10,000 worth of the stock. Only the number of shares and the share price have changed. The total amount that I own has not. So if we do a 2-for-1 split, the stock price will be divided by 2 and if we do a 10-for-1 split, the stock price will be divided by 10.
+
+
+If a company did a 2-for-1 split on a paticular day, then it will appear that the stock went down by 50%, which would obviously be very bad. But that's clearly not what has happened in reality. Therefore, if we are to calculate **actual returns**, we have to **adjust** the close prices so that they are **relative** to the price either before or after the stock split.
+
+In practice, when you download a stock price data set, the close prices are adjusted such that the closed price and the adjusted closed price are the same in the final row of the data set. After that, everything is adjusted, going backwards. Below is an example of two stock plits for Apple in 2014 and 2020 before adjustments.
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59663734/167879610-5d6285bc-cf74-41e3-99e1-8db24d809dfc.png" width="500" height="350"/>
 </p>
 
+##### 2.3.2 Dividends
+Stock splits are not the only factor that affects the adjusted close price, the other factor that affects the adjusted close price is **dividend payments** which are money that we get paid in cash simply for owning a share of the stock.
+
+We can use the Close price or the Adjusted Closed price. In both cases, however, we do want to adjust the Close price for stock splits. The dilemma is based around dividends only. We will be using the non-adjusted close price for this project, which means not adjusted for dividends.
+
+Below is an example of the Close and Adjusted Close price for Apple's stock price.
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/192166356-14cb00a4-8817-4776-9b7c-cbe1100ff87a.png" width="800" height="350"/>
+</p>
+
+The graph above shows no 7-for-1 stock split in 2014. The Close price should have gone down by a factor of ```7```. This means that the Close price already accounts for stock split and everything is relative to the latest price. Note that the Close price is NOT equal to the Adjusted Close price because Adjusted Close price does account for dividends.
+
 
 <p align="center">
 ________________________________________________________ .. __________________________________________________________
 </p>
-
-
-#### 2.4 Volatility Clustering
-
-
 
 ------------------------
 
