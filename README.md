@@ -201,16 +201,46 @@ The Randon Walk Hypothesis states that the stock market follows a random walk. I
 
 Note that the Random Walk is a mathematical concept whereas the Random Walk Hypothesis is specific to finance. It was first popularized by the book "A random walk down Wall Street" by Burton Malkiel in 1973.
 
-A Random Walk is similar to walking on the road and having a coin in one hand which you are continuously flipping to decide which way to go. That is, if the result is head you take a left step or if it is tail then you take a right step. You have no idea of the outcome of the future as you are only 50% chance of being correct which is equal to the probability of having a head or a tail.
+A Random Walk is similar to walking on the road and having a coin in one hand which you are continuously flipping to decide which way to go. That is, if the result is head you take a left step or if it is tail then you take a right step. You have no idea of the outcome of the future as you are only 50% chance of being correct which is equal to the probability of having a head or a tail. The [gif](https://www.mit.edu/~kardar/teaching/projects/chemotaxis(AndreaSchmidt)/random.htm) below illustrates the concept:
 
-![rand_2D](https://user-images.githubusercontent.com/59663734/168471883-1f124262-bcba-4d95-bac4-da51fac10640.gif)
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/168471883-1f124262-bcba-4d95-bac4-da51fac10640.gif"/>
+</p>
 
 Asumptions of RWS:
 - The log returns are **i.i.d.** (independent and identically distributed). 
 - Volatility clustering contradict this assumption as this means the log returns are not identically distributed. 
 - If on top of that, the volatities nearbyare related then this means, it is also not independent.
 
+Now, we will write a price simulation algorithm which will exhibit a random walk with a drift, ```mu``` (similar to a trend). Variable ```e``` is a Gaussian random noise which we will add to our price at each step and each price depends on the previous price(which itself incorporates another Gaussian noise).
 
+``` python
+# Iniial Value
+P0 = 10
+# last log price
+last_p = np.log(P0)
+for t in range(T):
+    #sample a log return
+    e = 0.01 * np.random.randn()
+    
+    # compute the new log price
+    p = last_p + mu + e
+    
+    #store the return and price
+    log_returns[t] = e + mu
+    prices[t] = np.exp(p)
+    
+    #assign last_p
+    last_p = p
+```
+Observe how our simulated random walk prices very clealy ressemble that of stock prices. It will be hard to tell the difference if someone does not specify the graph below is simulated. Note that the prices below cannot be predicted as they are random walk. However, they look very closely to stock market prices, Does this mean something?
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/194721944-2aaf8360-2b15-4d2c-be64-50f143db51f6.png"/>
+</p>
+
+
+We will see later that the best model which can fit our model will be a Random Walk. This will be a good indication for us to decide the amount of effort and research we want to do in order to beat the market.
 
 
 
