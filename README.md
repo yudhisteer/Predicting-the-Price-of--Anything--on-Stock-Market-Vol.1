@@ -197,8 +197,21 @@ ________________________________________________________ .. ____________________
 
 #### 1.2 Random Walk Hypothesis (RWH)
 
+The Randon Walk Hypothesis states that the stock market follows a random walk. If the hypothesis is indeed true, then this means stock prices are unpredictable.
+
+Note that the Random Walk is a mathematical concept whereas the Random Walk Hypothesis is specific to finance. It was first popularized by the book "A random walk down Wall Street" by Burton Malkiel in 1973.
+
+A Random Walk is similar to walking on the road and having a coin in one hand which you are continuously flipping to decide which way to go. That is, if the result is head you take a left step or if it is tail then you take a right step. You have no idea of the outcome of the future as you are only 50% chance of being correct which is equal to the probability of having a head or a tail.
 
 ![rand_2D](https://user-images.githubusercontent.com/59663734/168471883-1f124262-bcba-4d95-bac4-da51fac10640.gif)
+
+Asumptions of RWS:
+- The log returns are **i.i.d.** (independent and identically distributed). 
+- Volatility clustering contradict this assumption as this means the log returns are not identically distributed. 
+- If on top of that, the volatities nearbyare related then this means, it is also not independent.
+
+
+
 
 
 <p align="center">
