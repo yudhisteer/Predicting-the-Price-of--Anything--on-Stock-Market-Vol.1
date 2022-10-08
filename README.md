@@ -2676,15 +2676,7 @@ res_VARMAX = model_VARMAX.fit(disp=False)
 ------------------------
 
 ## Conclusion
-
-
-
-
-
-
-
-
-
+It goes without saying that predicting stock market is hard. From ETS, to ARIMA to VARMA we showed that most of the time, the best model to predict stock market is the ```Random Walk```. And that is rather discouraging. But we are not finished yet. In this project we did not try any ML or DL methods. Maybe we can indeed beat the market with LSTM? We have to try it to know it for sure. This will be discussed in Vol 2.
 
 
 ## References
