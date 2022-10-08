@@ -1,12 +1,22 @@
 # Predicting the Price of "Anything" on Stock Market: Vol. 1
+Time series analysis is a vast and complicated field. When people think of time series, they immediately try to imagine it as a way to predict the stock market price, which they are not wrong. And that is okay to think of time-series as a tool to beat the market as this is what we will "try" to do in this project. However, we got another group of people who thinks time series is about applying LSTM to stock market price as resumed in the equation below:
 
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59663734/194722777-f841fe9b-7921-46d6-b41c-4be6e5757900.png"/>
+</p>
 
+Just google "LSTM" and "Stock Market" and you will find tons of articles, github repos, projects, YouTube videos and "proofs" that people have indeed beat the market with the equation above. 
+
+My two-cents on this is as follows:
+- If it was this easy to do it, everyone would have done it.
+- If it really worked, why advertising it online?
+- If it is so hard to predict stock market then why is it so easy to find a solution online?
+
+I tried to be bold in naming this repo as I believed that if I could really "create" a time-series algorithm that could predict a particular stock then why would it not work for any other stock? If so, then I can actually predict the price of ```anything``` on the stock market. Right?
 
 ## Abstract
-
-## Research Questions
-
-## Methods
+This project turns one to be quite a longer one than I expected. Mainly due to the intersection of various fields: Economics, Maths and Psychology. I had to break it in two parts: the first part is more about getting some background on the stock  market itself, why is it hard to predict, can it really be predicted?, and so on. Then we will dive into some basic algorithms to undertand time-series from zero. We will consder different averaging methods then move on to some simple forecasting tools for seasonal data and then explore the famous ARIMA method on some stock prices. In summary, we will look at all time-series methods for forecasting except 
+Machine Learning and Deep Learning. This will be for part II.
 
 ## Dataset(s)
 1. ```Airline Passengers```: Dataset provides monthly totals of a US airline passengers from **1949** to **1960**. 
@@ -25,10 +35,6 @@
 
     - Efficient Market Hypothesis (EMH)
     - Random Walk Hypothesis (RWH)
-    - Are markets efficient?
-    - Biases and Heuristics
-    - Inefficient Markets
-    - Irrational Behavior
 
 2. Financial Engineering: The Basics
 
@@ -243,37 +249,13 @@ Observe how our simulated random walk prices very clealy ressemble that of stock
 We will see later that the best model which can fit our model will be a Random Walk. This will be a good indication for us to decide the amount of effort and research we want to do in order to beat the market.
 
 
+<!--- #### 1.3 Are markets _really_ efficient? -->
 
-<p align="center">
-________________________________________________________ .. __________________________________________________________
-</p>
+<!--- #### 1.4 Biases and Heuristics  -->
 
+<!--- #### 1.5 Inefficient Markets -->
 
-#### 1.3 Are markets _really_ efficient?
-
-
-
-<p align="center">
-________________________________________________________ .. __________________________________________________________
-</p>
-
-
-#### 1.4 Biases and Heuristics
-
-<p align="center">
-________________________________________________________ .. __________________________________________________________
-</p>
-
-
-#### 1.5 Inefficient Markets
-
-
-<p align="center">
-________________________________________________________ .. __________________________________________________________
-</p>
-
-
-#### 1.6 Irrational Behavior
+<!--- #### 1.6 Irrational Behavior -->
 
 
 ------------------------
@@ -2692,23 +2674,6 @@ model_VARMAX = VARMAX(endog, exog, order=(5,4))
 res_VARMAX = model_VARMAX.fit(disp=False)
 ```
 ------------------------
-
-## Further Improvements
-
-
-
-
-
-
-
-
-
-
-
-
-- **Impulse Response Analysi**s: which involves the response of one variable to a sudden but temporary change in another variable
-- **Forecast Error Variance Decomposition (FEVD)**: where the proportion of the forecast variance of one variable is attributed to the effect of other variables
-- **Dynamic Vector Autoregressions**: used for estimating a moving-window regression for the purposes of making forecasts throughout the data sample
 
 ## Conclusion
 
